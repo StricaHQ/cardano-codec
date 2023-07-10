@@ -1,0 +1,63 @@
+{
+  "name": "@stricahq/cardano-codec",
+  "version": "1.0.0",
+  "description": "Cardano Codec library for parsing Cardano CBOR data types",
+  "main": "dist/index.js",
+  "keywords": [
+    "cardano",
+    "strica",
+    "cardano cbor parser",
+    "cardano cbor decoder"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StricaHQ/cardano-codec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StricaHQ/cardano-codec/issues"
+  },
+  "homepage": "https://github.com/StricaHQ/cardano-codec#readme",
+  "scripts": {
+    "docs": "rm -rf docs && typedoc",
+    "build": "rm -rf dist && tsc",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "eslint --fix 'src/**/*.ts'",
+    "test": "ts-mocha tests/**/*.spec.ts"
+  },
+  "author": "Strica",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@stricahq/cbors": "^1.0.2",
+    "bignumber.js": "^9.0.1",
+    "blakejs": "^1.2.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.18",
+    "@types/lodash": "^4.14.195",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "chai": "^4.3.4",
+    "deep-eql": "^4.0.0",
+    "eslint": "^8.44.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "mocha": "^10.2.0",
+    "prettier": "^3.0.0",
+    "terser-webpack-plugin": "^5.3.9",
+    "ts-loader": "^9.4.4",
+    "ts-mocha": "^10.0.0",
+    "typedoc": "^0.24.8",
+    "typescript": "^5.1.6"
+  },
+  "files": [
+    "dist/**/*",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ]
+}
