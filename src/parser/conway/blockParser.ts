@@ -1,4 +1,4 @@
-// import { parseTransaction } from "./transactionBodyParser";
+import { parseTransaction } from "./transactionBodyParser";
 import parseHeader from "./headerParser";
 import {
   ConwayBlock,
@@ -15,9 +15,9 @@ export const parseBlock = (block: any, blockCbor: Buffer): ConwayBlock => {
 
   // Conway transaction parser
   const transactions: Array<Transaction> = [];
-  // for (const trx of block[1]) {
-  //   transactions.push(parseTransaction(trx, blockCbor));
-  // }
+  for (const trx of block[1]) {
+    transactions.push(parseTransaction(trx, blockCbor));
+  }
 
   const invalidTransactions: Array<InvalidTransaction> = block[4] ? block[4] : [];
   const witnesses: Array<Witnesses> = [];

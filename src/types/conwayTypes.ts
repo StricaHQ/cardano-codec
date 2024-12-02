@@ -92,6 +92,27 @@ export type Credential = {
 };
 
 export type StakeCredential = Credential;
+export type DRepCredential = Credential;
+export type CommitteeHotCredential = Credential;
+export type CommitteeColdCredential = Credential;
+
+export enum DRepDelegType {
+  ADDRESS = 0,
+  SCRIPT = 1,
+  ABSTAIN = 2,
+  NO_CONFIDENCE = 3,
+}
+
+export enum VoteType {
+  NO = 0,
+  YES = 1,
+  ABSTAIN = 2,
+}
+
+export type DRepDeleg = {
+  type: DRepDelegType,
+  key: string | undefined,
+}
 
 export type StakeKeyRegistrationCertificate = {
   type: CertificateType.STAKE_KEY_REG;
@@ -114,6 +135,108 @@ export type StakeDelegationCertificate = {
     poolKeyHash: string;
   };
 };
+
+export type StakeRegistrationCertificate = {
+  type: CertificateType.STAKE_REG;
+  cert: {
+    stakeCredential: StakeCredential;
+    deposit: string;
+  };
+};
+
+export type StakeDeRegistrationCertificate = {
+  type: CertificateType.STAKE_DE_REG;
+  cert: {
+    stakeCredential: StakeCredential;
+    deposit: string;
+  };
+};
+
+export type VoteDelegationCertificate = {
+  type: CertificateType.VOTE_DELEG;
+  cert: {
+    stakeCredential: StakeCredential;
+    dRep: DRepDeleg;
+  };
+};
+
+export type StakeVoteDelegationCertificate = {
+  type: CertificateType.STAKE_VOTE_DELEG;
+  cert: {
+    stakeCredential: StakeCredential;
+    poolKeyHash: string;
+    dRep: DRepDeleg;
+  }
+}
+
+export type StakeRegDelegationCertificate = {
+  type: CertificateType.STAKE_REG_DELEG;
+  cert: {
+    stakeCredential: StakeCredential;
+    poolKeyHash: string;
+    deposit: string;
+  }
+}
+
+export type VoteRegDelegationCertificate = {
+  type: CertificateType.VOTE_REG_DELEG;
+  cert: {
+    stakeCredential: StakeCredential;
+    dRep: DRepDeleg;
+    deposit: string;
+  }
+}
+
+export type StakeVoteRegDelegationCertificate = {
+  type: CertificateType.STAKE_VOTE_REG_DELEG;
+  cert: {
+    stakeCredential: StakeCredential;
+    poolKeyHash: string;
+    dRep: DRepDeleg;
+    deposit: string;
+  }
+}
+
+export type CommitteeAuthHotCertificate = {
+  type: CertificateType.COMMITTEE_AUTH_HOT;
+  cert: {
+    coldCredential: CommitteeColdCredential;
+    hotCredential: CommitteeHotCredential;
+  }
+}
+
+export type CommitteeResignColdCertificate = {
+  type: CertificateType.COMMITTEE_RESIGN_COLD;
+  cert: {
+    coldCredential: CommitteeColdCredential;
+    anchor: Anchor | null
+  }
+}
+
+export type DRepRegCertificate = {
+  type: CertificateType.DREP_REG;
+  cert: {
+    dRepCredential: DRepCredential;
+    deposit: string;
+    anchor: Anchor | null
+  }
+}
+
+export type DRepDeRegCertificate = {
+  type: CertificateType.DREP_DE_REG;
+  cert: {
+    dRepCredential: DRepCredential;
+    deposit: string;
+  }
+}
+
+export type DRepUpdateCertificate = {
+  type: CertificateType.DREP_UPDATE;
+  cert: {
+    dRepCredential: DRepCredential;
+    anchor: Anchor | null
+  }
+}
 
 export type Relay =
   | {
@@ -288,11 +411,41 @@ export type TransactionCertificate =
   | StakeDelegationCertificate
   | PoolRegistrationCertificate
   | PoolDeRegistrationCertificate
+  | StakeRegistrationCertificate
+  | StakeDeRegistrationCertificate
+  | VoteDelegationCertificate
+  | StakeVoteDelegationCertificate
+  | StakeRegDelegationCertificate
+  | VoteRegDelegationCertificate
+  | StakeVoteRegDelegationCertificate
+  | CommitteeAuthHotCertificate
+  | CommitteeResignColdCertificate
+  | DRepRegCertificate
+  | DRepDeRegCertificate
+  | DRepUpdateCertificate;
 
 export type CollateralInput = {
   txId: string;
   index: number;
 };
+
+export enum VoterType {
+  CC_HOT_KEY = 0,
+  CC_HOT_SCRIPT = 1,
+  DREP_KEY = 2,
+  DREP_SCRIPT = 3,
+  POOL_KEY = 4,
+}
+
+export type Voter = {
+  type: VoterType;
+  key: string;
+}
+
+export type GovActionId = {
+  txId: string;
+  index: number;
+}
 
 export type Transaction = {
   hash: string;
