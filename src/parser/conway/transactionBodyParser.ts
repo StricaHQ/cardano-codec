@@ -10,8 +10,13 @@ import {
   HashType,
   ScriptRef,
   ScriptType,
+  VotingProcedure,
+  GovAction,
+  GovActionType,
+  ProtocolParamUpdate,
   DRepDeleg,
   Anchor,
+  CostMdls,
 } from "../../types/conwayTypes";
 import * as utils from "../../utils/utils";
 import { parseNativeScript } from "../common";
@@ -39,6 +44,20 @@ const getCredentialType = (key: number) => {
   }
   // key == 1 is script
   return HashType.SCRIPT;
+};
+
+const parseCostMdls = (costMdls: Map<number, Array<number>>) => {
+  const parsedCostMdls: CostMdls = {
+    plutusV1: undefined,
+    plutusV2: undefined,
+    plutusV3: undefined,
+  };
+
+  parsedCostMdls.plutusV1 = costMdls.get(0);
+  parsedCostMdls.plutusV2 = costMdls.get(1);
+  parsedCostMdls.plutusV3 = costMdls.get(2);
+
+  return parsedCostMdls;
 };
 
 const parseRelays = function (relays: any): Array<Relay> {
@@ -328,6 +347,256 @@ const parseCertificates = function (certificates: any) {
   return certs;
 };
 
+const parseProtocolParamUpdate = function (update: any) {
+  const protoParamUpdate: ProtocolParamUpdate = {};
+
+  for (const [variable, value] of update) {
+    switch (variable) {
+      case 0:
+        protoParamUpdate.minFeeA = value;
+        break;
+      case 1:
+        protoParamUpdate.minFeeB = value;
+        break;
+      case 2:
+        protoParamUpdate.maxBlockBodySize = value;
+        break;
+      case 3:
+        protoParamUpdate.maxTransactionSize = value;
+        break;
+      case 4:
+        protoParamUpdate.maxBlockHeaderSize = value;
+        break;
+      case 5:
+        protoParamUpdate.stakeKeyDeposit = value;
+        break;
+      case 6:
+        protoParamUpdate.poolDeposit = value;
+        break;
+      case 7:
+        protoParamUpdate.poolRetireMaxEpoch = value;
+        break;
+      case 8:
+        protoParamUpdate.n = value;
+        break;
+      case 9:
+        protoParamUpdate.pledgeInfluence = value.value[0] / value.value[1];
+        break;
+      case 10:
+        protoParamUpdate.expansionRate = value.value[0] / value.value[1];
+        break;
+      case 11:
+        protoParamUpdate.treasuryGrowthRate = value.value[0] / value.value[1];
+        break;
+      case 16:
+        protoParamUpdate.minPoolCost = value;
+        break;
+      case 17:
+        protoParamUpdate.adaPerUtxoByte = value;
+        break;
+      case 18:
+        protoParamUpdate.costMdls = parseCostMdls(value);
+        break;
+      case 19:
+        protoParamUpdate.exUnitPrices = {
+          mem: [value[0][0], value[0][1]],
+          steps: [value[1][0], value[1][1]],
+        };
+        break;
+      case 20:
+        protoParamUpdate.maxTxExUnits = {
+          mem: value[0],
+          steps: value[1],
+        };
+        break;
+      case 21:
+        protoParamUpdate.maxBlockExUnits = {
+          mem: value[0],
+          steps: value[1],
+        };
+        break;
+      case 22:
+        protoParamUpdate.maxValueSize = value;
+        break;
+      case 23:
+        protoParamUpdate.collateralPercent = value;
+        break;
+      case 24:
+        protoParamUpdate.maxCollateralInputs = value;
+        break;
+      case 25:
+        protoParamUpdate.poolVotingThreshold = {
+          motionNoConfidence: value[0].value[0] / value[0].value[1],
+          committeeNormal: value[1].value[0] / value[1].value[1],
+          committeeNoConfidence: value[2].value[0] / value[2].value[1],
+          hfInitiation: value[3].value[0] / value[3].value[1],
+          securityParamVoting: value[4].value[0] / value[4].value[1],
+        };
+        break;
+      case 26:
+        protoParamUpdate.dRepVotingThreshold = {
+          motionNoConfidence: value[0].value[0] / value[0].value[1],
+          committeeNormal: value[1].value[0] / value[1].value[1],
+          committeeNoConfidence: value[2].value[0] / value[2].value[1],
+          updateConstitution: value[3].value[0] / value[3].value[1],
+          hfInitiation: value[4].value[0] / value[4].value[1],
+          networkParamVoting: value[5].value[0] / value[5].value[1],
+          economicParamVoting: value[6].value[0] / value[6].value[1],
+          technicalParamVoting: value[7].value[0] / value[7].value[1],
+          govParamVoting: value[8].value[0] / value[8].value[1],
+          treasuryWithdrawal: value[9].value[0] / value[9].value[1],
+        };
+        break;
+      case 27:
+        protoParamUpdate.minCommitteeSize = value;
+        break;
+      case 28:
+        protoParamUpdate.committeeTermLimit = value;
+        break;
+      case 29:
+        protoParamUpdate.govActionValidity = value;
+        break;
+      case 30:
+        protoParamUpdate.govActionDeposit = value;
+        break;
+      case 31:
+        protoParamUpdate.dRepDeposit = value;
+        break;
+      case 32:
+        protoParamUpdate.dRepInactivity = value;
+        break;
+      case 33:
+        protoParamUpdate.govActionValidity = value.value[0] / value.value[1];
+        break;
+      default:
+        throw new Error("Unknown protocol parameter update");
+    }
+  }
+
+  return protoParamUpdate;
+};
+
+const parseGovAction = function (govAction: any) {
+  let action: GovAction;
+  switch (govAction[0]) {
+    case 0:
+      action = {
+        type: GovActionType.PARAM_CHANGE_ACTION,
+        action: {
+          prevActionId: govAction[1]
+            ? {
+                txId: govAction[1][0].toString("hex"),
+                index: govAction[1][1],
+              }
+            : null,
+          protocolParamUpdate: parseProtocolParamUpdate(govAction[2]),
+          policyHash: govAction[3] ? govAction[3].toString("hex") : null,
+        },
+      };
+      return action;
+    case 1:
+      action = {
+        type: GovActionType.HF_INIT_ACTION,
+        action: {
+          prevActionId: govAction[1]
+            ? {
+                txId: govAction[1][0].toString("hex"),
+                index: govAction[1][1],
+              }
+            : null,
+          protocolVersion: [govAction[2][0], govAction[2][1]],
+        },
+      };
+      return action;
+    case 2:
+      const withdrawals = [];
+      for (const [ra, val] of govAction[1]) {
+        withdrawals.push({
+          rewardAccount: ra.toString("hex"),
+          amount: val.toString(),
+        });
+      }
+      action = {
+        type: GovActionType.TREASURY_WITHDRAW_ACTION,
+        action: {
+          withdrawals: withdrawals,
+          policyHash: govAction[2] ? govAction[2].toString("hex") : null,
+        },
+      };
+      return action;
+    case 3:
+      action = {
+        type: GovActionType.NO_CONFIDENCE_ACTION,
+        action: {
+          prevActionId: govAction[1]
+            ? {
+                txId: govAction[1][0].toString("hex"),
+                index: govAction[1][1],
+              }
+            : null,
+        },
+      };
+      return action;
+    case 4:
+      // support for optional cbor tag in conway
+      let coldCreds = govAction[2];
+      if (!Array.isArray(coldCreds)) {
+        coldCreds = coldCreds.value;
+      }
+      action = {
+        type: GovActionType.UPDATE_COMMITTEE_ACTION,
+        action: {
+          prevActionId: govAction[1]
+            ? {
+                txId: govAction[1][0].toString("hex"),
+                index: govAction[1][1],
+              }
+            : null,
+          removeColdCred: coldCreds.map((cert: any) => {
+            return {
+              key: cert[1].toString("hex"),
+              type: getCredentialType(cert[0]),
+            };
+          }),
+          addColdCred: Array.from(govAction[3]).map(([cred, epoch]: any) => ({
+            credential: {
+              key: cred[1].toString("hex"),
+              type: getCredentialType(cred[0]),
+            },
+            epoch: epoch,
+          })),
+          threshold: govAction[4].value[0] / govAction[4].value[1],
+        },
+      };
+      return action;
+    case 5:
+      action = {
+        type: GovActionType.NEW_CONSTITUTION_ACTION,
+        action: {
+          prevActionId: govAction[1]
+            ? {
+                txId: govAction[1][0].toString("hex"),
+                index: govAction[1][1],
+              }
+            : null,
+          constitution: {
+            anchor: parseAnchor(govAction[2][0]) as Anchor,
+            scriptHash: govAction[2][1],
+          },
+        },
+      };
+      return action;
+    case 6: {
+      action = {
+        type: GovActionType.INFO_ACTION,
+      };
+      return action;
+    }
+    default:
+      throw new Error("unknown gov action");
+  }
+};
+
 const parseOutput = (output: any, cborBuf: Buffer): TransactionOutput => {
   let address;
   let outputValue;
@@ -539,10 +808,47 @@ export const parseTransaction = (trx: any, cborBuf: Buffer): Transaction => {
         }
         break;
       }
-      case 19:
+      case 19: {
+        transaction.votingProcedures = [];
+        for (const [voter, voteMap] of value) {
+          const procedure: VotingProcedure = {
+            voter: {
+              key: voter[1].toString("hex"),
+              type: voter[0],
+            },
+            votes: [],
+          };
+          for (const [govActionIdAry, vote] of voteMap) {
+            procedure.votes.push({
+              govActionId: {
+                txId: govActionIdAry[0].toString("hex"),
+                index: govActionIdAry[1],
+              },
+              vote: vote[0],
+              anchor: parseAnchor(vote[1]),
+            });
+          }
+          transaction.votingProcedures.push(procedure);
+        }
         break;
-      case 20:
+      }
+      case 20: {
+        transaction.proposalProcedures = [];
+        // support for optional cbor tag in conway
+        let procedures = value;
+        if (!Array.isArray(procedures)) {
+          procedures = procedures.value;
+        }
+        for (const procedure of procedures) {
+          transaction.proposalProcedures.push({
+            deposit: procedure[0],
+            rewardAccount: procedure[1].toString("hex"),
+            govAction: parseGovAction(procedure[2]),
+            anchor: parseAnchor(procedure[3]) as Anchor,
+          });
+        }
         break;
+      }
       case 21: {
         transaction.treasuryAmount = value.toString();
         break;
