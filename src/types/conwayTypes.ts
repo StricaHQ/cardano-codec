@@ -166,8 +166,8 @@ export type StakeVoteDelegationCertificate = {
     stakeCredential: StakeCredential;
     poolKeyHash: string;
     dRep: DRepDeleg;
-  }
-}
+  };
+};
 
 export type StakeRegDelegationCertificate = {
   type: CertificateType.STAKE_REG_DELEG;
@@ -175,8 +175,8 @@ export type StakeRegDelegationCertificate = {
     stakeCredential: StakeCredential;
     poolKeyHash: string;
     deposit: string;
-  }
-}
+  };
+};
 
 export type VoteRegDelegationCertificate = {
   type: CertificateType.VOTE_REG_DELEG;
@@ -429,6 +429,16 @@ export type CollateralInput = {
   index: number;
 };
 
+export enum GovActionType {
+  PARAM_CHANGE_ACTION = 0,
+  HF_INIT_ACTION = 1,
+  TREASURY_WITHDRAW_ACTION = 2,
+  NO_CONFIDENCE_ACTION = 3,
+  UPDATE_COMMITTEE_ACTION = 4,
+  NEW_CONSTITUTION_ACTION = 5,
+  INFO_ACTION = 6,
+}
+
 export enum VoterType {
   CC_HOT_KEY = 0,
   CC_HOT_SCRIPT = 1,
@@ -445,6 +455,93 @@ export type Voter = {
 export type GovActionId = {
   txId: string;
   index: number;
+}
+
+export type ParameterChangeAction = {
+  type: GovActionType.PARAM_CHANGE_ACTION;
+  action: {
+    prevActionId: GovActionId | null;
+    protocolParamUpdate: ProtocolParamUpdate;
+    policyHash: string | null;
+  }
+}
+
+export type HardForkInitAction = {
+  type: GovActionType.HF_INIT_ACTION;
+  action: {
+    prevActionId: GovActionId | null;
+    protocolVersion: [number, number];
+  }
+}
+
+export type TreasuryWithdrawalsAction = {
+  type: GovActionType.TREASURY_WITHDRAW_ACTION;
+  action: {
+    withdrawals: Array<Withdrawal>;
+    policyHash: string | null;
+  }
+}
+
+export type NoConfidenceAction = {
+  type: GovActionType.NO_CONFIDENCE_ACTION;
+  action: {
+    prevActionId: GovActionId | null;
+  }
+}
+
+export type UpdateCommitteeAction = {
+  type: GovActionType.UPDATE_COMMITTEE_ACTION;
+  action: {
+    prevActionId: GovActionId | null;
+    removeColdCred: Array<CommitteeColdCredential>;
+    addColdCred: Array<{
+      credential: CommitteeColdCredential;
+      epoch: number;
+    }>
+    threshold: number;
+  }
+}
+
+export type NewConstitutionAction = {
+  type: GovActionType.NEW_CONSTITUTION_ACTION;
+  action: {
+    prevActionId: GovActionId | null;
+    constitution: {
+      anchor: Anchor;
+      scriptHash: string | null;
+    }
+  }
+}
+
+export type InfoAction = {
+  type: GovActionType.INFO_ACTION;
+}
+
+export type GovAction =
+  | ParameterChangeAction
+  | HardForkInitAction
+  | TreasuryWithdrawalsAction
+  | NoConfidenceAction
+  | UpdateCommitteeAction
+  | NewConstitutionAction
+  | InfoAction;
+
+export type Vote = {
+  govActionId: GovActionId;
+  vote: VoteType;
+  anchor: Anchor | null;
+}
+
+export type VotingProcedure = {
+  voter: Voter;
+  votes: Array<Vote>;
+}
+
+export type ProposalProcedure = {
+  deposit: string;
+  rewardAccount: string;
+  govAction: GovAction;
+  anchor: Anchor;
 }
 
 export type Transaction = {
@@ -465,6 +562,8 @@ export type Transaction = {
   collateralOutput?: TransactionOutput;
   totalCollateral?: string;
   referenceInputs?: Array<TransactionInput>;
+  votingProcedures?: Array<VotingProcedure>;
+  proposalProcedures?: Array<ProposalProcedure>;
   treasuryAmount?: string;
   donation?: string;
 };
