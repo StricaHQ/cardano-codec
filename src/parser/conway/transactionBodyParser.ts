@@ -629,7 +629,7 @@ const parseOutput = (output: any, cborBuf: Buffer): TransactionOutput => {
       const script = cbors.Decoder.decode(rawScriptRef.value).value;
       if (script[0] === 0) {
         const ns = script[1];
-        const nsCborHex = utils.getCborSpanBuffer(cborBuf, ns).toString("hex");
+        const nsCborHex = cbors.Encoder.encode(ns).toString('hex');
         const hash = utils.createHash28(Buffer.from(`00${nsCborHex}`, "hex"));
 
         scriptRef = {
