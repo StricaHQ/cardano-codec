@@ -581,7 +581,7 @@ const parseGovAction = function (govAction: any) {
             : null,
           constitution: {
             anchor: parseAnchor(govAction[2][0]) as Anchor,
-            scriptHash: govAction[2][1],
+            scriptHash: govAction[2][1] ? govAction[2][1].toString("hex"): govAction[2][1],
           },
         },
       };
