@@ -637,7 +637,7 @@ const parseOutput = (output: any, cborBuf: Buffer): TransactionOutput => {
           script: parseNativeScript(script[1]),
           hash: hash,
         };
-      } else if (script[0] === 1) {
+      } else if (script[0] === 2) {
         const scriptHex = script[1].toString("hex");
         const hash = utils.createHash28(Buffer.from(`01${scriptHex}`, "hex"));
         scriptRef = {
@@ -645,7 +645,7 @@ const parseOutput = (output: any, cborBuf: Buffer): TransactionOutput => {
           script: scriptHex,
           hash: hash,
         };
-      } else if (script[0] === 2) {
+      } else if (script[0] === 3) {
         const scriptHex = script[1].toString("hex");
         const hash = utils.createHash28(Buffer.from(`02${scriptHex}`, "hex"));
         scriptRef = {
