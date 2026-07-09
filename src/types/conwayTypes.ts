@@ -110,9 +110,9 @@ export enum VoteType {
 }
 
 export type DRepDeleg = {
-  type: DRepDelegType,
-  key: string | undefined,
-}
+  type: DRepDelegType;
+  key: string | undefined;
+};
 
 export type StakeKeyRegistrationCertificate = {
   type: CertificateType.STAKE_KEY_REG;
@@ -184,8 +184,8 @@ export type VoteRegDelegationCertificate = {
     stakeCredential: StakeCredential;
     dRep: DRepDeleg;
     deposit: string;
-  }
-}
+  };
+};
 
 export type StakeVoteRegDelegationCertificate = {
   type: CertificateType.STAKE_VOTE_REG_DELEG;
@@ -194,49 +194,49 @@ export type StakeVoteRegDelegationCertificate = {
     poolKeyHash: string;
     dRep: DRepDeleg;
     deposit: string;
-  }
-}
+  };
+};
 
 export type CommitteeAuthHotCertificate = {
   type: CertificateType.COMMITTEE_AUTH_HOT;
   cert: {
     coldCredential: CommitteeColdCredential;
     hotCredential: CommitteeHotCredential;
-  }
-}
+  };
+};
 
 export type CommitteeResignColdCertificate = {
   type: CertificateType.COMMITTEE_RESIGN_COLD;
   cert: {
     coldCredential: CommitteeColdCredential;
-    anchor: Anchor | null
-  }
-}
+    anchor: Anchor | null;
+  };
+};
 
 export type DRepRegCertificate = {
   type: CertificateType.DREP_REG;
   cert: {
     dRepCredential: DRepCredential;
     deposit: string;
-    anchor: Anchor | null
-  }
-}
+    anchor: Anchor | null;
+  };
+};
 
 export type DRepDeRegCertificate = {
   type: CertificateType.DREP_DE_REG;
   cert: {
     dRepCredential: DRepCredential;
     deposit: string;
-  }
-}
+  };
+};
 
 export type DRepUpdateCertificate = {
   type: CertificateType.DREP_UPDATE;
   cert: {
     dRepCredential: DRepCredential;
-    anchor: Anchor | null
-  }
-}
+    anchor: Anchor | null;
+  };
+};
 
 export type Relay =
   | {
@@ -290,62 +290,62 @@ export type CostMdls = {
 };
 
 export type ProtocolParamUpdate = {
-    minFeeA?: string;
-    minFeeB?: string;
-    maxBlockBodySize?: number;
-    maxTransactionSize?: number;
-    maxBlockHeaderSize?: number;
-    stakeKeyDeposit?: string;
-    poolDeposit?: string;
-    poolRetireMaxEpoch?: number;
-    n?: number;
-    pledgeInfluence?: number;
-    expansionRate?: number;
-    treasuryGrowthRate?: number;
-    minPoolCost?: string;
-    adaPerUtxoByte?: string;
-    costMdls?: CostMdls;
-    exUnitPrices?: {
-      mem: [number, number];
-      steps: [number, number];
-    };
-    maxTxExUnits?: {
-      mem: number;
-      steps: number;
-    };
-    maxBlockExUnits?: {
-      mem: number;
-      steps: number;
-    };
-    maxValueSize?: string;
-    collateralPercent?: number;
-    maxCollateralInputs?: number;
-    poolVotingThreshold?: {
-      motionNoConfidence: number;
-      committeeNormal: number;
-      committeeNoConfidence: number;
-      hfInitiation: number;
-      securityParamVoting: number;
-    };
-    dRepVotingThreshold?: {
-      motionNoConfidence: number;
-      committeeNormal: number;
-      committeeNoConfidence: number;
-      updateConstitution: number;
-      hfInitiation: number;
-      networkParamVoting: number;
-      economicParamVoting: number;
-      technicalParamVoting: number;
-      govParamVoting: number;
-      treasuryWithdrawal: number;
-    };
-    minCommitteeSize?: number;
-    committeeTermLimit?: number;
-    govActionValidity?: number;
-    govActionDeposit?: number;
-    dRepDeposit?: number;
-    dRepInactivity?: number;
-    refScriptCostByte?: number;
+  minFeeA?: string;
+  minFeeB?: string;
+  maxBlockBodySize?: number;
+  maxTransactionSize?: number;
+  maxBlockHeaderSize?: number;
+  stakeKeyDeposit?: string;
+  poolDeposit?: string;
+  poolRetireMaxEpoch?: number;
+  n?: number;
+  pledgeInfluence?: number;
+  expansionRate?: number;
+  treasuryGrowthRate?: number;
+  minPoolCost?: string;
+  adaPerUtxoByte?: string;
+  costMdls?: CostMdls;
+  exUnitPrices?: {
+    mem: [number, number];
+    steps: [number, number];
+  };
+  maxTxExUnits?: {
+    mem: number;
+    steps: number;
+  };
+  maxBlockExUnits?: {
+    mem: number;
+    steps: number;
+  };
+  maxValueSize?: string;
+  collateralPercent?: number;
+  maxCollateralInputs?: number;
+  poolVotingThreshold?: {
+    motionNoConfidence: number;
+    committeeNormal: number;
+    committeeNoConfidence: number;
+    hfInitiation: number;
+    securityParamVoting: number;
+  };
+  dRepVotingThreshold?: {
+    motionNoConfidence: number;
+    committeeNormal: number;
+    committeeNoConfidence: number;
+    updateConstitution: number;
+    hfInitiation: number;
+    networkParamVoting: number;
+    economicParamVoting: number;
+    technicalParamVoting: number;
+    govParamVoting: number;
+    treasuryWithdrawal: number;
+  };
+  minCommitteeSize?: number;
+  committeeTermLimit?: number;
+  govActionValidity?: number;
+  govActionDeposit?: number;
+  dRepDeposit?: number;
+  dRepInactivity?: number;
+  refScriptCostByte?: number;
 };
 
 export type MetaDatum = Map<MetaDatum, MetaDatum> | Array<MetaDatum> | number | Buffer | string;
@@ -450,12 +450,12 @@ export enum VoterType {
 export type Voter = {
   type: VoterType;
   key: string;
-}
+};
 
 export type GovActionId = {
   txId: string;
   index: number;
-}
+};
 
 export type ParameterChangeAction = {
   type: GovActionType.PARAM_CHANGE_ACTION;
@@ -463,31 +463,31 @@ export type ParameterChangeAction = {
     prevActionId: GovActionId | null;
     protocolParamUpdate: ProtocolParamUpdate;
     policyHash: string | null;
-  }
-}
+  };
+};
 
 export type HardForkInitAction = {
   type: GovActionType.HF_INIT_ACTION;
   action: {
     prevActionId: GovActionId | null;
     protocolVersion: [number, number];
-  }
-}
+  };
+};
 
 export type TreasuryWithdrawalsAction = {
   type: GovActionType.TREASURY_WITHDRAW_ACTION;
   action: {
     withdrawals: Array<Withdrawal>;
     policyHash: string | null;
-  }
-}
+  };
+};
 
 export type NoConfidenceAction = {
   type: GovActionType.NO_CONFIDENCE_ACTION;
   action: {
     prevActionId: GovActionId | null;
-  }
-}
+  };
+};
 
 export type UpdateCommitteeAction = {
   type: GovActionType.UPDATE_COMMITTEE_ACTION;
@@ -497,10 +497,10 @@ export type UpdateCommitteeAction = {
     addColdCred: Array<{
       credential: CommitteeColdCredential;
       epoch: number;
-    }>
+    }>;
     threshold: number;
-  }
-}
+  };
+};
 
 export type NewConstitutionAction = {
   type: GovActionType.NEW_CONSTITUTION_ACTION;
@@ -509,13 +509,13 @@ export type NewConstitutionAction = {
     constitution: {
       anchor: Anchor;
       scriptHash: string | null;
-    }
-  }
-}
+    };
+  };
+};
 
 export type InfoAction = {
   type: GovActionType.INFO_ACTION;
-}
+};
 
 export type GovAction =
   | ParameterChangeAction
@@ -530,19 +530,19 @@ export type Vote = {
   govActionId: GovActionId;
   vote: VoteType;
   anchor: Anchor | null;
-}
+};
 
 export type VotingProcedure = {
   voter: Voter;
   votes: Array<Vote>;
-}
+};
 
 export type ProposalProcedure = {
   deposit: string;
   rewardAccount: string;
   govAction: GovAction;
   anchor: Anchor;
-}
+};
 
 export type Transaction = {
   hash: string;

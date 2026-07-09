@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import {
   BootstrapWitness,
   NativeScript,
@@ -78,10 +77,10 @@ export const parseWitnessMap = (witnessesData: Map<any, any>, blockCbor: Buffer)
           r[0] === 0
             ? RedeemerTag.SPEND
             : r[0] === 1
-            ? RedeemerTag.MINT
-            : r[0] === 2
-            ? RedeemerTag.CERT
-            : RedeemerTag.REWARD,
+              ? RedeemerTag.MINT
+              : r[0] === 2
+                ? RedeemerTag.CERT
+                : RedeemerTag.REWARD,
         plutusData: parsePlutusData(r[2], blockCbor).toString("hex"),
         exUnits: {
           mem: r[3][0],

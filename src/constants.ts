@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export enum CertificateType {
   "STAKE_KEY_REG" = 0,
   "STAKE_KEY_DE_REG" = 1,
@@ -18,5 +17,5 @@ export enum CertificateType {
   "COMMITTEE_RESIGN_COLD" = 15,
   "DREP_REG" = 16,
   "DREP_DE_REG" = 17,
-  "DREP_UPDATE" = 18, 
+  "DREP_UPDATE" = 18,
 }

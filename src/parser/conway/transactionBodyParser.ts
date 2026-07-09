@@ -479,7 +479,7 @@ const parseProtocolParamUpdate = function (update: any) {
 const parseGovAction = function (govAction: any) {
   let action: GovAction;
   switch (govAction[0]) {
-    case 0:
+    case 0: {
       action = {
         type: GovActionType.PARAM_CHANGE_ACTION,
         action: {
@@ -494,7 +494,8 @@ const parseGovAction = function (govAction: any) {
         },
       };
       return action;
-    case 1:
+    }
+    case 1: {
       action = {
         type: GovActionType.HF_INIT_ACTION,
         action: {
@@ -508,7 +509,8 @@ const parseGovAction = function (govAction: any) {
         },
       };
       return action;
-    case 2:
+    }
+    case 2: {
       const withdrawals = [];
       for (const [ra, val] of govAction[1]) {
         withdrawals.push({
@@ -524,7 +526,8 @@ const parseGovAction = function (govAction: any) {
         },
       };
       return action;
-    case 3:
+    }
+    case 3: {
       action = {
         type: GovActionType.NO_CONFIDENCE_ACTION,
         action: {
@@ -537,7 +540,8 @@ const parseGovAction = function (govAction: any) {
         },
       };
       return action;
-    case 4:
+    }
+    case 4: {
       // support for optional cbor tag in conway
       let coldCreds = govAction[2];
       if (!Array.isArray(coldCreds)) {
@@ -569,7 +573,8 @@ const parseGovAction = function (govAction: any) {
         },
       };
       return action;
-    case 5:
+    }
+    case 5: {
       action = {
         type: GovActionType.NEW_CONSTITUTION_ACTION,
         action: {
@@ -581,11 +586,12 @@ const parseGovAction = function (govAction: any) {
             : null,
           constitution: {
             anchor: parseAnchor(govAction[2][0]) as Anchor,
-            scriptHash: govAction[2][1] ? govAction[2][1].toString("hex"): govAction[2][1],
+            scriptHash: govAction[2][1] ? govAction[2][1].toString("hex") : govAction[2][1],
           },
         },
       };
       return action;
+    }
     case 6: {
       action = {
         type: GovActionType.INFO_ACTION,
@@ -597,7 +603,7 @@ const parseGovAction = function (govAction: any) {
   }
 };
 
-const parseOutput = (output: any, cborBuf: Buffer): TransactionOutput => {
+const parseOutput = (output: any): TransactionOutput => {
   let address;
   let outputValue;
   let plutusDataHash: string | undefined;
@@ -629,7 +635,7 @@ const parseOutput = (output: any, cborBuf: Buffer): TransactionOutput => {
       const script = cbors.Decoder.decode(rawScriptRef.value).value;
       if (script[0] === 0) {
         const ns = script[1];
-        const nsCborHex = cbors.Encoder.encode(ns).toString('hex');
+        const nsCborHex = cbors.Encoder.encode(ns).toString("hex");
         const hash = utils.createHash28(Buffer.from(`00${nsCborHex}`, "hex"));
 
         scriptRef = {
@@ -715,7 +721,7 @@ export const parseTransaction = (trx: any, cborBuf: Buffer): Transaction => {
         transaction.outputs = [];
         if (value && value.length > 0) {
           for (const output of value) {
-            const out = parseOutput(output, cborBuf);
+            const out = parseOutput(output);
             transaction.outputs.push(out);
           }
         }
@@ -795,7 +801,7 @@ export const parseTransaction = (trx: any, cborBuf: Buffer): Transaction => {
         break;
       }
       case 16: {
-        transaction.collateralOutput = parseOutput(value, cborBuf);
+        transaction.collateralOutput = parseOutput(value);
         break;
       }
       case 17: {

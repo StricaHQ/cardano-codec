@@ -25,7 +25,6 @@ export const parseMetadata = (metadata: any): Array<Metadata> => {
 export const parseNativeScripts = (nativeScripts: Array<any>): Array<NativeScript> => {
   const data: Array<NativeScript> = [];
   for (const nativeScript of nativeScripts) {
-    // eslint-disable-next-line no-use-before-define
     data.push(parseNativeScript(nativeScript));
   }
   return data;

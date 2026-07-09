@@ -1,10 +1,4 @@
-/* eslint-disable no-nested-ternary */
-import {
-  NativeScript,
-  VKeyWitness,
-  Witnesses,
-  BootstrapWitness,
-} from "../../types/conwayTypes";
+import { NativeScript, VKeyWitness, Witnesses, BootstrapWitness } from "../../types/conwayTypes";
 import * as utils from "../../utils/utils";
 import { parsePlutusData, parseNativeScript } from "../common";
 
@@ -16,7 +10,7 @@ export const parseWitnessMap = (witnessesData: Map<any, any>, blockCbor: Buffer)
   let bootstrapWitnesses = witnessesData.get(2);
   let plutusScripts = witnessesData.get(3);
   let plutusData = witnessesData.get(4);
-  let redeemers = witnessesData.get(5);
+  const redeemers = witnessesData.get(5);
   let plutusScriptsV2 = witnessesData.get(6);
   let plutusScriptsV3 = witnessesData.get(7);
   if (vKeyWitnesses) {
