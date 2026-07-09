@@ -22,7 +22,8 @@
     "build": "rm -rf dist && tsc",
     "lint": "eslint 'src/**/*.ts'",
     "lint:fix": "eslint --fix 'src/**/*.ts'",
-    "test": "ts-mocha tests/**/*.spec.ts"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "author": "Strica",
   "license": "Apache-2.0",
@@ -33,31 +34,28 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.16",
     "@types/lodash": "^4.17.5",
-    "@types/mocha": "^10.0.6",
     "@types/node": "^20.14.2",
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "@typescript-eslint/parser": "^7.13.0",
-    "chai": "^5.1.1",
-    "deep-eql": "^5.0.2",
     "eslint": "^9.5.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
-    "mocha": "^10.4.0",
     "prettier": "^3.3.2",
     "terser-webpack-plugin": "^5.3.10",
     "ts-loader": "^9.5.1",
-    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.9.2",
     "typedoc": "^0.25.13",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^4.1.10"
   },
   "files": [
     "dist/**/*",
     "LICENSE",
     "README.md",
     "package.json"
-  ]
+  ],
+  "packageManager": "yarn@4.17.1"
 }

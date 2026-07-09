@@ -7,7 +7,7 @@
 # @stricahq/cardano-codec
 Cardano Codec is a Cardano data type parsing library. Parse Cardano CDDL encoded data into plain JSON data types using Cardano era specific parsers.
 
-Currently Byron, Alonzo, and Babbage era parsers are available. Parsers being backward compatible you can use Alonzo or Babbage parser to parse previous shelley era data types without any issues.
+Currently Byron, Alonzo, Babbage, and Conway era parsers are available. Parsers being backward compatible you can use Alonzo or Babbage parser to parse previous shelley era data types without any issues.
 
 ## Used By
 - [cardanoscan.io](https://cardanoscan.io)
@@ -22,7 +22,10 @@ yarn add @stricahq/cardano-codec
 ```
 
 ## Tests
-TODO
+
+```sh
+yarn test
+```
 
 ## API Doc
 Find the API documentation [here](https://docs.strica.io/lib/cardano-codec)

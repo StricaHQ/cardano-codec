@@ -1,0 +1,811 @@
+{
+  "$comment": "Real block and transaction CBOR, with the values the ledger records for them. To add a new era, drop its block CBOR hex in blocks/ and add an entry here.",
+  "blocks": [
+    {
+      "name": "byron-mainnet",
+      "note": "Byron main block, 2 txs",
+      "file": "blocks/byron-mainnet.hex",
+      "network": "mainnet",
+      "era": "Byron",
+      "parser": "byron",
+      "epoch": 150,
+      "expected": {
+        "hash": "5a4f135aac8083df35161afca982d2cbd6c752421ae292ad09735b982d86ce40",
+        "blockHeight": 3239842,
+        "slot": 1381,
+        "txCount": 2,
+        "txHashes": [
+          "a06e5a0150e09f8983be2deafab9e04afc60d92e7110999eb672c903343f1e26",
+          "f736d55633782151cd528f9918c3587155cbd59c46b6ca839e5b4860a780f379"
+        ],
+        "metadataTxIndexes": [],
+        "epoch": 150
+      }
+    },
+    {
+      "name": "shelley-mainnet",
+      "note": "Shelley block, 4 txs",
+      "file": "blocks/shelley-mainnet.hex",
+      "network": "mainnet",
+      "era": "Shelley",
+      "parser": "alonzo",
+      "epoch": 215,
+      "expected": {
+        "hash": "7dce9cfd6d44c5eb58eb5200532b3fa04086ee26cbdd712a4dd04f1b1ef90ca5",
+        "blockHeight": 4662237,
+        "slot": 7948610,
+        "txCount": 4,
+        "txHashes": [
+          "48347a50990c63680b9c4af9808bbca2e2e9782fe7f8b2f811ac6c51952863bc",
+          "9d1ad32177c90c866be4e29650b7bbaddec7f8707cf7c2a4d0fc80faa32a04e3",
+          "fdb308fe3c32d0b27eea6af70e0086b8c3aa8efe7c79f0322351b8083e853859",
+          "8ac3db74ed1f93b232c37e3e1a1509d1977cf65fd54a38c438273c1925dbfe6f"
+        ],
+        "metadataTxIndexes": [],
+        "operationalCert": {
+          "hotVKey": "674617ebe299bcba144026e4342e9f54c861165c1dde1373fd1206e654f985b8",
+          "sequenceNumber": 0
+        },
+        "protocolVersion": [
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "allegra-mainnet",
+      "note": "Allegra block, 3 txs",
+      "file": "blocks/allegra-mainnet.hex",
+      "network": "mainnet",
+      "era": "Allegra",
+      "parser": "alonzo",
+      "epoch": 240,
+      "expected": {
+        "hash": "f23a7dc9c587fc056a25ff88c8a4d0f8a3f86a799b931672ccbc02edbcc63c98",
+        "blockHeight": 5192804,
+        "slot": 18748707,
+        "txCount": 3,
+        "txHashes": [
+          "f811d6905239d0834d6f5b9322ad6e8abe38c420518e40ebc3549cbd4929472f",
+          "791e578a590251de4d4fb3bd263d66330aa3caaf683adba528ef1f41d835094d",
+          "1a6d30b4e0cc5df2d6bf8b37008e2c2f33c6713794c7d81f37aaf803094d405b"
+        ],
+        "metadataTxIndexes": [],
+        "operationalCert": {
+          "hotVKey": "9d0d3abaefdf5a2ccad0832a80759b8f8eb3c0629e9dc8bda3d44ebf658ab976",
+          "sequenceNumber": 1
+        },
+        "protocolVersion": [
+          4,
+          0
+        ]
+      }
+    },
+    {
+      "name": "mary-mainnet",
+      "note": "Mary block, multiasset era",
+      "file": "blocks/mary-mainnet.hex",
+      "network": "mainnet",
+      "era": "Mary",
+      "parser": "alonzo",
+      "epoch": 259,
+      "expected": {
+        "hash": "fa7140f32d7e95fa2446d20e771a8a66112356bbf92c870552037bf14e4750e8",
+        "blockHeight": 5582677,
+        "slot": 26681693,
+        "txCount": 5,
+        "txHashes": [
+          "7a0cb491c4ff2cc9e116b7223311eba36815677978384c056a74628f9e0abd7f",
+          "ec1f52e889f13d5c9c938a37084957eeee49f0dfec470a6dc9cf013dd6215a20",
+          "fc863a441b55acceebb7d25c81ff7259e4fc9b92fbdf6d594118fb8f1110a78c",
+          "fc8764e7ad65f6676e11333c16d45a8c5f128fff060eef86528874fd81ef2daf",
+          "ab071432dcc38acc694fb45c8fa4805b317a69ad00611dcd55ca6e54b5f9ce81"
+        ],
+        "metadataTxIndexes": [],
+        "operationalCert": {
+          "hotVKey": "01438b89d44b6fc84a63270f880d032e441da99657f8a4d2d46b9465dc42d257",
+          "sequenceNumber": 0
+        },
+        "protocolVersion": [
+          4,
+          0
+        ]
+      }
+    },
+    {
+      "name": "alonzo-mainnet",
+      "note": "Alonzo block, 34 txs, plutus v1",
+      "file": "blocks/alonzo-mainnet.hex",
+      "network": "mainnet",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "epoch": 308,
+      "expected": {
+        "hash": "1f182d1ca8cecee8de932156b70bcb2b16f05f5fe3aa370e5be5ddec219d88f5",
+        "blockHeight": 6619508,
+        "slot": 47771157,
+        "txCount": 34,
+        "txHashes": [
+          "7e8c7180d6cdd5fa67902e9be3ff007a61aa7f3020867ac75be324477f64b2dd",
+          "f41c296d61c9ab1a543b537beaa3358fa6a127847b859ca1d5f57f3d2449dd97",
+          "f2770b0fe43600e9280c38fd9662d293560f20879c45f28fe0965e1ccb6c6cd3",
+          "671f3d8f7215a4289d26ed9318e363a097c2e0b151386f135b9204a2a8b80028",
+          "3435d11e4bbfa6e8302599533e34e51dd494bba6049e300e75625ac794fd87f0",
+          "92e3ce0c2e852e54d6bad98cb844b7a572a55a0b609bcf3bd7e073a89d12d1f3",
+          "90dbed0362e4d3539fba25e74d61a1f715457734c1ebf10ebf97f81a5ff58939",
+          "3d25a698dcd5920dd5ffcedc23aecb6a62c98ad1f01f4e0e8a9bdbeb6b773205",
+          "0c852ae14705fd7973b77c84a9eea8fc8022d963e79da57df73caba566073096",
+          "cb05bec252162e80cece1779f05e112f132155fe0b5395e69caba84bffddc18d",
+          "04b6d1b9ff485e1f9eb1c3933c75e57b134d8b24d26eaca721ab38d22c6e865e",
+          "46f813ebf6dfad354be47f3348f9ce02e608d7f575321a74a03e125908bc996d",
+          "feb9f68a0d709e92bdb461d5efdbe4afbe7ed7f36308c726ad5ec48964626faa",
+          "24a6bd08ac7d543273c84d952a90684984b347536b276a176f89e5e660f3ccd8",
+          "4b3eb32234bb5c725d55865ee4c0a22f0d5cad90e3d68531ce80935c416a4755",
+          "ee3fcf81b05b785eddfceb672cd0bf09cb6e6579cd2b2bb055a66c10c22c1575",
+          "8c3c57205e676174da73892e5f77f25b2eaf890fce7422a6fb1e172033dd0c8b",
+          "5f34308956bcd808f7daa2de8ea0228fecfa418915f482287a500a757a77831e",
+          "d5e39a5b853b1e0578a49382cdda6587be5a08f0694a91eacc4dc33f90fb0373",
+          "1347416e286242a8aaecf76dc1e2f9282abfbc9edef424e98243dfcb8330b64d",
+          "62420c9d427086a7d332665d2c476ab040af08787473b9e9149f5923f069f075",
+          "d0d0a8afd9e04ed487e7c7810fcba34d9d6abbc6345dbc2f3ef3a8cd6d606a9c",
+          "e8c52ea723244a28ca4c343438975cc405424c693a54a140e3d3dfa4d08b27c7",
+          "e1c6dc6f528159eba84726694470ead3dca0db0ea42d5224d98e099f1138912d",
+          "62c2cbc5b4f42b39ed27c809c22cbbb4090d35602706c2da3c874d18cabb083c",
+          "fc6715f485a2bb98f57b4981a3722571f99bda82d3085d82c88efe8709b2ab7f",
+          "c8e5b9195564acdb567009c47e3328378e88108c643c4408d022fa3e59ef2ebe",
+          "1f9171a2d4c0a4fc6fccb1edcec2199d2439795e85a4ac369ce4578671a533f5",
+          "31b69390390b2347596f2ebc95edbcc1e9f98269d60fc8f0d50cdaf58a208c48",
+          "0d2bcd9d134dd70ea6363261a9eb6032c51b9712d69053efb0f140810c773ed0",
+          "cce66cc86a774dc68168a440f98730505ebfe7b1f7dce4bbc7b8c02d47e62d0b",
+          "be67583595fed8f451319f6c5fecce7c3a2c5f0bbcd4623987089ab2afb6b8ea",
+          "0de507d3145c4e34b2823429e89c362cffb96c76d1c758dc071b9c7cce4312c7",
+          "4abf7339b97534ad876909253d4784f3987c4d988e915c9a5b10f7727939b565"
+        ],
+        "metadataTxIndexes": [
+          0,
+          2,
+          15,
+          22
+        ],
+        "operationalCert": {
+          "hotVKey": "816be44990baada4e414b2469e9279e6b92cbd889020eae1d318a48daefc69c5",
+          "sequenceNumber": 4
+        },
+        "protocolVersion": [
+          6,
+          0
+        ]
+      }
+    },
+    {
+      "name": "babbage-mainnet",
+      "note": "Babbage block, 6 txs",
+      "file": "blocks/babbage-mainnet.hex",
+      "network": "mainnet",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 432,
+      "expected": {
+        "hash": "3d681e503fd9318d0f68c74a699895ce61f0a07010b516b80ce968a6b000e231",
+        "blockHeight": 9210326,
+        "slot": 101516417,
+        "txCount": 6,
+        "txHashes": [
+          "7f6fb9c6ce6d6dc0f35c64256366a87e40900a01beda31c13192466a4f0c967c",
+          "438a586965ce98ab6892b513b6074cdde7fa6baa8b03a3ae09bc362d8cff4340",
+          "0f28d54ca1de2ffdebe425b7ff81d20078225e672a9287f96235bee442d27512",
+          "cc7848a1cc278d84afbf0550e822002bf9fe9032a53d8e12b59ed5058d9d0cbb",
+          "6ee41cf80e68664a9e1a082bbc9dc417370f773d2a9c15ce411d13e0658b3ce7",
+          "6e74238cf84a8cd1f309efb067747f8dea09dd1840aebeee2cce711454d10d30"
+        ],
+        "metadataTxIndexes": [
+          2,
+          4,
+          5
+        ],
+        "operationalCert": {
+          "hotVKey": "a9f8953a8948b62fbaee34f1ec7b1cd3546d14635bdefdb424556b90435bd8d7",
+          "sequenceNumber": 14
+        },
+        "protocolVersion": [
+          8,
+          0
+        ]
+      }
+    },
+    {
+      "name": "conway-preview",
+      "note": "Conway block, 6 txs, inline datums",
+      "file": "blocks/conway-preview.hex",
+      "network": "preview",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 751,
+      "expected": {
+        "hash": "c0e3383cf058f69236488856a601961d048788cc5fdee01d04fe4fa4d77f4854",
+        "blockHeight": 2672395,
+        "slot": 64927414,
+        "txCount": 6,
+        "txHashes": [
+          "b71efe9c49711f83254f89213f014214bb60f051d3a55c61b3f3b459470eaa12",
+          "07a7506e2cf190fc0fc694ef0f6ffae1410b02e4a92c161b77610107c907d390",
+          "79b3f30af042675ac09e4644d1fb7d8e56f7976eb36fa13bb7e383349f6af622",
+          "5feb12419d2702e11f91371194d104ce5a469f5f7f35555676503c6d523466c4",
+          "9e43e6e517a73d00698fa08dab51a9592722f5ce7d49965b2f1dae2517b09306",
+          "7e9fdd665ce0e19415ba06fc8c76f025fbb44823ccda9a28cd45717f08867eee"
+        ],
+        "metadataTxIndexes": [],
+        "operationalCert": {
+          "hotVKey": "ba599223d0536e0e055f28eb8aed04e56da1ef98aae3e311ab54b4ff1fe0744b",
+          "sequenceNumber": 8
+        },
+        "protocolVersion": [
+          10,
+          0
+        ]
+      }
+    }
+  ],
+  "transactions": [
+    {
+      "name": "mary-mint-native-script",
+      "note": "mint + native (timelock) script",
+      "file": "txs/mary-mint-native-script.hex",
+      "network": "mainnet",
+      "era": "Mary",
+      "parser": "alonzo",
+      "epoch": 251,
+      "expected": {
+        "hash": "e252be4c7e40d35919f741c9649ff207c3e49d53bb819e5c1cb458055fd363ed",
+        "fee": "1000000",
+        "ttl": 24285375,
+        "validityIntervalStart": null,
+        "inputs": [
+          "d9a8ae2194e2e25e8079a04a4694e2679464a4f51512863a0008a35a85762ff0#0"
+        ],
+        "outputs": [
+          {
+            "amount": "4000000",
+            "tokens": [
+              "00000002df633853f6a47465c9496721d2d5b1291b8398016c0e87ae.6e7574636f696e=1"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [
+          "00000002df633853f6a47465c9496721d2d5b1291b8398016c0e87ae.6e7574636f696e=1"
+        ],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "alonzo-plutus-v1",
+      "note": "alonzo plutus v1 spend",
+      "file": "txs/alonzo-plutus-v1.hex",
+      "network": "mainnet",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "epoch": 295,
+      "expected": {
+        "hash": "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e",
+        "fee": "172761",
+        "ttl": 42332172,
+        "validityIntervalStart": null,
+        "inputs": [
+          "37c5bfe1dff27349c77fb1946c293ae208085932ebe91bc56501ba5543318781#0"
+        ],
+        "outputs": [
+          {
+            "amount": "157832856",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-refscript-plutus-v2",
+      "note": "babbage-era output carrying a plutusV2 reference script",
+      "file": "txs/babbage-refscript-plutus-v2.hex",
+      "network": "mainnet",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 375,
+      "expected": {
+        "hash": "a5712ac7dd01c46a8d3eef2c9a8823ed1ef2b3392a136f9f3e643150ae25782d",
+        "fee": "456033",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "4afafb4d7016be866fa00cfa41952c8c2faa7ea6f8e9fc40e5789bced47fe6d9#0",
+          "4afafb4d7016be866fa00cfa41952c8c2faa7ea6f8e9fc40e5789bced47fe6d9#2"
+        ],
+        "outputs": [
+          {
+            "amount": "1339681550",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "29000000",
+            "tokens": [
+              "4e88789e3aec1c9cc31df3dd73f0f75ddbd3ee6c1d3cda30d1a64370.3235386431346337663734613361396331356630646665363539643232343933=41999959"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "29000000",
+            "tokens": [
+              "4e88789e3aec1c9cc31df3dd73f0f75ddbd3ee6c1d3cda30d1a64370.3235386431346337663734613361396331356630646665363539643232343933=1"
+            ],
+            "plutusDataHash": "923918e403bf43c34b4ef6b48eb2ee04babed17320d8d1b9ff9ad086e86f44ec",
+            "hasInlineDatum": false,
+            "scriptRef": {
+              "type": "PLUTUS_V2",
+              "hash": "fda170f7f9ecf6a5d4840ed0b6698d0aa4f2c7f6e582b13954661e70"
+            }
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-refscript-plutus-v2",
+      "note": "conway-era output carrying a plutusV2 reference script",
+      "file": "txs/conway-refscript-plutus-v2.hex",
+      "network": "mainnet",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 536,
+      "expected": {
+        "hash": "5aa7f73d364eea0a2924e4a1ba8025a66d83dee910e260a9fb5d2ce7c0463b36",
+        "fee": "174917",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "4752c91da9aad816b41aeef86b83eacebed9805570f1a29a6fb099276d62d552#1"
+        ],
+        "outputs": [
+          {
+            "amount": "1633490",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": {
+              "type": "PLUTUS_V2",
+              "hash": "6a67658782f20360cc4cdf5a808ab9363bbeaeb2f8773d27a2b514eb"
+            }
+          },
+          {
+            "amount": "2958386113",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-drep-vote",
+      "note": "governance: DRep voting procedure",
+      "file": "txs/conway-drep-vote.hex",
+      "network": "mainnet",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 642,
+      "expected": {
+        "hash": "0d48922f8944c59e649f292179ac255012096e616345a871cf84b5511b56f1af",
+        "fee": "178657",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "7bd10b4228a8ca87954d70e0fc56ce4d66c403908f14f4ba09f8ded72d4a607e#0"
+        ],
+        "outputs": [
+          {
+            "amount": "122993718",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 1,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-treasury-proposal",
+      "note": "governance: treasury withdrawal proposal procedure",
+      "file": "txs/conway-treasury-proposal.hex",
+      "network": "mainnet",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 641,
+      "expected": {
+        "hash": "2f429bde312c0806bd16199da10f4145da9807161e99d4486174c6fb9a91f983",
+        "fee": "318566",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "0c444dc1edca16f05e4c67848404134e1214d476ab341855aa02fa085435586c#0",
+          "12aa3f5d4425143c07b99161c8a09978573bccd11d3acf0c4644a593269a83ea#0"
+        ],
+        "outputs": [
+          {
+            "amount": "4681434",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": "9522151",
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-plutus-withdrawal",
+      "note": "plutus + withdrawal + reference inputs + inline datums + collateral",
+      "file": "txs/conway-plutus-withdrawal.hex",
+      "network": "mainnet",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 642,
+      "expected": {
+        "hash": "7e319bd946a71c3a19acf9e7a03a02ee6e0938a95768567ca2373320b90a9026",
+        "fee": "688877",
+        "ttl": 192027105,
+        "validityIntervalStart": 192026925,
+        "inputs": [
+          "393b6aec584a817633c0e2250b5c021b6db4c2ef282eeb9bd6cd685ae0c35411#25",
+          "59fcf8e9c89617c4af50798c9c07cac706eadc4330b7a2907a329793edcb6c34#2",
+          "7f1247ea08f61dcdff9ee508646243b1f4a711525ef037ef9f0dc44c5634bae0#1"
+        ],
+        "outputs": [
+          {
+            "amount": "4000000",
+            "tokens": [
+              "c48cbb3d5e57ed56e276bc45f99ab39abe94e6cd7ac39fb402da47ad.0014df105553444d=329334237"
+            ],
+            "plutusDataHash": "11e600ce16fb5033d4cef21d7fb313a5d0c68ccacf56f908cbf76941fe49a588",
+            "hasInlineDatum": true,
+            "scriptRef": null
+          },
+          {
+            "amount": "4500000",
+            "tokens": [
+              "29d222ce763455e3d7a09a665ce554f00ac89d2e99a1a83d267170c6.4d494e=29745841833826",
+              "c48cbb3d5e57ed56e276bc45f99ab39abe94e6cd7ac39fb402da47ad.0014df105553444d=93995356072",
+              "f5808c2c990d86da54bfc97d89cee6efa20cd8461616359478d96b4c.4d5350=1",
+              "f5808c2c990d86da54bfc97d89cee6efa20cd8461616359478d96b4c.b950921763ce10c2600579460a4a40ba0c286bfab6497acd09ae0cd8b2ef687d=9223370631647565940"
+            ],
+            "plutusDataHash": "f3407361764ab7dbf4588a9af572f0f2406e7d0747e07cc01e0b6d38eac0c35f",
+            "hasInlineDatum": true,
+            "scriptRef": null
+          },
+          {
+            "amount": "11311123",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [
+          "0"
+        ],
+        "certificateCount": 0,
+        "referenceInputCount": 4,
+        "collateralCount": 1,
+        "collateralOutputAmount": "5000000",
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "conway-certificates",
+      "note": "stake certificates",
+      "file": "txs/conway-certificates.hex",
+      "network": "mainnet",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 642,
+      "expected": {
+        "hash": "ac67ea37e6ad9fbadfe9210d49f8b778d35426227dada6dbc1a453e2dee40d0d",
+        "fee": "174697",
+        "ttl": 192034209,
+        "validityIntervalStart": null,
+        "inputs": [
+          "c6270586133ca06ceacacb66de8bd21afa934ca6e51700a20f15c069e5d57a9f#0"
+        ],
+        "outputs": [
+          {
+            "amount": "452825303",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-mint-plutus",
+      "note": "mint + plutus + inline datum",
+      "file": "txs/conway-mint-plutus.hex",
+      "network": "mainnet",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 627,
+      "expected": {
+        "hash": "bf84e99f7edf65be823fd645b721e702d7639599fa97a864b58eb3860b019ac0",
+        "fee": "729966",
+        "ttl": 185691390,
+        "validityIntervalStart": 185691032,
+        "inputs": [
+          "43efcb04b5fe642dafa544925a03faf3ee8bc2a0886887ff9cffd1e1a2c09b87#0",
+          "535f8178221a6a2428c7761ef1074647ce4463a4f1e964b8d8eece46185598ca#1",
+          "6496d5081734d3d4a882208c4d889f035ab932a3d5896bfd058b421c46b5d00f#1",
+          "89fe03b8fc7cc9e4fae4de3fc7ee3b3be7326d0092b51d1b43902cf8ea479a5e#1",
+          "98a0a9ff1f87ae8962169ddf7f5811f5552bafe3fd368efcb60f861829696787#0",
+          "f3d8e4204bebc2d0c21d3c49bf930dbb6cc398e069c9fed6563e014584925795#1"
+        ],
+        "outputs": [
+          {
+            "amount": "9530863164",
+            "tokens": [
+              "016be5325fd988fea98ad422fcfd53e5352cacfced5c106a932a35a4.42544e=6279861870",
+              "279c909f348e533da5808898f87f9a14bb2c3dfbbacccd631d927a3f.534e454b=136830",
+              "577f0b1342f8f8f4aed3388b80a8535812950c7a892495c0ecdf0f1e.0014df10464c4454=5099167351",
+              "5d16cc1a177b5d9ba9cfa9793b07e60f1fb70fea1f8aef064415d114.494147=4214525797"
+            ],
+            "plutusDataHash": "94f0f0d9aac2aa37a95d0c0910597704345e03135c5b5110f0d3ca79d798636d",
+            "hasInlineDatum": true,
+            "scriptRef": null
+          },
+          {
+            "amount": "5702130",
+            "tokens": [
+              "00000000000410c2d9e01e8ec78ab1dc6bbc383fae76cbe2689beb02.4d49444153=72651452",
+              "016be5325fd988fea98ad422fcfd53e5352cacfced5c106a932a35a4.42544e=952980544428",
+              "0691b2fecca1ac4f53cb6dfb00b7013e561d1f34403b957cbb5af1fa.4e49474854=200780989517",
+              "098acff2feb062d4ec63e26d7fec90b7a1467873fdbec3bb0dba1bc5.724f5054494d=1",
+              "279c909f348e533da5808898f87f9a14bb2c3dfbbacccd631d927a3f.534e454b=4326466",
+              "279f842c33eed9054b9e3c70cd6a3b32298259c24b78b895cb41d91a.54554e41=100000000",
+              "2852268cf6e2db42e20f2fd3125f541e5d6c5a3d70b4dda17c2daa82.=31175981356",
+              "29d222ce763455e3d7a09a665ce554f00ac89d2e99a1a83d267170c6.4d494e=12946466727",
+              "2da97f55d49be13dabc8450a2eabab0412f3075a03f7519d32d46925.0014df1050554c5345=912681694941",
+              "41142faeb5e3c644625966715c0a844bb4d6aeef2bcdbf535b14e5a5.7448414e444c45=1",
+              "561b992c34312bff7d9267a48cc440ad927a9886e4507413c1ac8f65.43617264616e6f506f69736f6e30373031=1",
+              "577f0b1342f8f8f4aed3388b80a8535812950c7a892495c0ecdf0f1e.0014df10464c4454=147112564233",
+              "5bb425e01f981adef5c6b154723ef53132a553f5289d04fdbb6e2d98.000de140404d49434148=1",
+              "5d16cc1a177b5d9ba9cfa9793b07e60f1fb70fea1f8aef064415d114.494147=122014446102",
+              "62d92603fa2d9ac72dbd620d765db57b18656e4f5cdf56e161406185.444a4544=1",
+              "8483844875ce4d61c2aa459240f277d32081ee08fe0ad16899a0f581.0014df10544954414e=10000",
+              "8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd61.446a65644d6963726f555344=2381321831",
+              "8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd61.5368656e4d6963726f555344=876491890",
+              "8fef2d34078659493ce161a6c7fba4b56afefa8535296a5743f69587.41414441=92808076",
+              "9293316c91ff5143e3bc60d78d44dfb87edff59d61b99cf4c938d908.4142544e=1",
+              "9abf0afd2f236a19f2842d502d0450cbcd9c79f123a9708f96fd9b96.454e4353=1505203685",
+              "b41d06ebccb6278d3ee7b4cd2faa321537156c9fd9c8dd40e95f91ea.627574616e65=12491666000000",
+              "c6935b76bc1f8c13442f0277769557388b5cacf70fb5f9dd5a871f17.=2500000000000",
+              "d85439c247aa27adcc770ad3b63141b5bc71e6e94c7969f9e4431895.244f42594d415245=1",
+              "da8c30857834c6ae7203935b89278c532b3995245295456f993e1d24.4c51=415431271",
+              "dca5fd5a6c8de1d8e69be91323cf8dfc745ede1aaff38b899a8407b8.32303235464f524b454e494e47=1"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "584054990689",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [
+          "00000000000410c2d9e01e8ec78ab1dc6bbc383fae76cbe2689beb02.4d49444153=-18901613710",
+          "00000000000410c2d9e01e8ec78ab1dc6bbc383fae76cbe2689beb02.=-1"
+        ],
+        "withdrawalAmounts": [
+          "0",
+          "0",
+          "0"
+        ],
+        "certificateCount": 0,
+        "referenceInputCount": 7,
+        "collateralCount": 1,
+        "collateralOutputAmount": "217129246415",
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-refscript-plutus-v3",
+      "note": "output carrying a plutusV3 reference script",
+      "file": "txs/conway-refscript-plutus-v3.hex",
+      "network": "preview",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 1317,
+      "expected": {
+        "hash": "3d74266090f8db12c676eea17c69d9d7b9311a6b696626c55f6d35b1c49bf90e",
+        "fee": "431261",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "81732190057df7de692481910c3c0c7243bf48f12c18089f2e15d7a216b62d68#1"
+        ],
+        "outputs": [
+          {
+            "amount": "25463480",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": {
+              "type": "PLUTUS_V3",
+              "hash": "a0980fcd225f135ca2771922c63f86c37f42758895021bc19b3beb63"
+            }
+          },
+          {
+            "amount": "343527117611",
+            "tokens": [
+              "1a96cca0cb3ee7e213388777d12eeda5bc543c045949ce2586517292.55534472=390",
+              "1a96cca0cb3ee7e213388777d12eeda5bc543c045949ce2586517292.7355534472=3937716",
+              "44a1eb2d9f58add4eb1932bd0048e6a1947e85e3fe4f32956a110414.0014df10377b4c93d252c2b5ec8d38a44368d840071f4f95762d1cf567fe90d4=2532760122",
+              "45df5f274b8950b512b08d10656864958659c4ecf3ffad092ef63024.55534472=80010921518651",
+              "45df5f274b8950b512b08d10656864958659c4ecf3ffad092ef63024.7355534472=13000314616",
+              "d441227553a0f1a965fee7d60a0f724b368dd1bddbc208730fccebcf.524245525259=1000",
+              "d8906ca5c7ba124a0407a32dab37b2c82b13b3dcd9111e42940dcea4.0014df105553444d=1308017",
+              "d8906ca5c7ba124a0407a32dab37b2c82b13b3dcd9111e42940dcea4.5553444378=5775103715220",
+              "d8906ca5c7ba124a0407a32dab37b2c82b13b3dcd9111e42940dcea4.5553444d=1997999000"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-refscript-native",
+      "note": "output carrying a native (timelock) reference script",
+      "file": "txs/conway-refscript-native.hex",
+      "network": "preview",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 1353,
+      "expected": {
+        "hash": "0d9a94e492bc73200691afa0cb162bd7a11af4f359d0b2c7156ae3178674b630",
+        "fee": "192033",
+        "ttl": 116933299,
+        "validityIntervalStart": null,
+        "inputs": [
+          "9005574e22918d49d1a938272de58ccdf99b769695c7cdafc4dde17e265d4149#0"
+        ],
+        "outputs": [
+          {
+            "amount": "29807967",
+            "tokens": [
+              "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a.0134990043c5111e841bbf2227c29436afc187b979d98baef3f2dd9a82b48bc0=1"
+            ],
+            "plutusDataHash": "18f7786a553cd94f20237716ffce5d2bd0d535eacdb84fad9818d0d2e7d88134",
+            "hasInlineDatum": true,
+            "scriptRef": null
+          },
+          {
+            "amount": "44778777",
+            "tokens": [
+              "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a.01247af043c5111e841bbf2227c29436afc187b979d98baef3f2dd9a82b48bc0=1"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": {
+              "type": "NATIVE_SCRIPT",
+              "hash": "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a"
+            }
+          },
+          {
+            "amount": "67430752",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [
+          "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a.01247af043c5111e841bbf2227c29436afc187b979d98baef3f2dd9a82b48bc0=1",
+          "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a.0134990043c5111e841bbf2227c29436afc187b979d98baef3f2dd9a82b48bc0=1"
+        ],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    }
+  ]
+}
