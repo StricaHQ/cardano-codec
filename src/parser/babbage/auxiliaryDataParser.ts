@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { AuxiliaryData } from "../../types/babbageTypes";
 import { parseMetadata, parseNativeScripts } from "../common";
 

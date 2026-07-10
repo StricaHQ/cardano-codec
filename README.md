@@ -21,6 +21,19 @@ Currently Byron, Alonzo, Babbage, and Conway era parsers are available. Parsers 
 yarn add @stricahq/cardano-codec
 ```
 
+### Browser
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@stricahq/cardano-codec/dist/index.min.js"></script>
+
+<script>
+  // the cardanoCodec global also ships the matching cbors and Buffer,
+  const block = cardanoCodec.Buffer.from(blockHex, "hex");
+  const decoded = cardanoCodec.cbors.Decoder.decode(block).value;
+  const parsed = cardanoCodec.conway.parseBlock(decoded, block);
+</script>
+```
+
 ## Tests
 
 ```sh

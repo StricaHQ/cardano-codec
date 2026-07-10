@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { CertificateType } from "../constants";
 
 export type NativeScript =

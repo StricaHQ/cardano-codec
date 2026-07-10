@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import * as utils from "../../utils/utils";
 
 export const parseHeader = (header: any, blockCbor: Buffer) => {

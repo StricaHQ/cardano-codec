@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { NativeScript, VKeyWitness, Witnesses, BootstrapWitness } from "../../types/conwayTypes";
 import * as utils from "../../utils/utils";
 import { parsePlutusData, parseNativeScript } from "../common";

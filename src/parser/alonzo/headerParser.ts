@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { Header } from "../../types/alonzoTypes";
 import * as utils from "../../utils/utils";
 

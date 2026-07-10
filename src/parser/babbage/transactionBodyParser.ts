@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import * as cbors from "@stricahq/cbors";
 import * as _ from "lodash";
 import { CertificateType } from "../../constants";

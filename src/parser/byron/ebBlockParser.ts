@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { ByronEbBlock } from "../../types/byronTypes";
 import * as utils from "../../utils/utils";
 

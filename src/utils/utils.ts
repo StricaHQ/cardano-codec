@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { blake2b } from "blakejs";
 
 export const createHash32 = (buffer: Buffer) => {

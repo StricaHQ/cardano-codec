@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import * as cbors from "@stricahq/cbors";
 import { Metadata, NativeScript } from "../types/alonzoTypes";
 import * as utils from "../utils/utils";

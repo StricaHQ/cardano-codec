@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 export enum Protocol {
   NODE_TO_CLIENT_CHAIN_SYNC = "NODE_TO_CLIENT_CHAIN_SYNC",
   LOCAL_TX_MONITOR = "LOCAL_TX_MONITOR",

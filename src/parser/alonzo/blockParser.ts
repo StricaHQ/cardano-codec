@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { parseTransaction } from "./transactionBodyParser";
 import parseHeader from "./headerParser";
 import {

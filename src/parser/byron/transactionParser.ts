@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import * as cbor from "@stricahq/cbors";
 import * as utils from "../../utils/utils";
 import { Transaction, TransactionInput, TransactionOutput } from "../../types/byronTypes";
