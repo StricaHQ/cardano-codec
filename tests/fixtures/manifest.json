@@ -806,6 +806,90 @@
         "proposalCount": 0,
         "hasMetadata": true
       }
+    },
+    {
+      "name": "conway-param-change-proposal",
+      "note": "governance: parameter change proposal touching execution prices, gov action lifetime and ref script fee",
+      "file": "txs/conway-param-change-proposal.hex",
+      "network": "preview",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 1046,
+      "expected": {
+        "hash": "608037b7bcb79de6d57a3570857832811f79e3a7f8f90cf3c92aec999c99e09b",
+        "fee": "505605",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "04c76d76080c8e888e6689ac5bd0ffa812d48acbabefd666505aa31bc398ffea#0",
+          "2070850da0b5daa2160603a8e41652c2aaa5889e95d30d02081d09daca2099fb#0",
+          "23de9f9413c04a1e8ecfe0c6fbfa8e61b703ecf4f9ce101774121d0006d30eb4#0",
+          "58a9c42c4f419f694d9afd6a4ff763782e36a5eafe59465c8b803771e5c97dea#0",
+          "8857b69c3ce934f03f80fb71737d6b5d1205d28ecd1d2ed9704da796a7653431#0",
+          "8fcd2c7224740e97c433e64012c1e590c4d895fa2dfc75fdb7215af68741aedc#0",
+          "96f7be4198ca42840257cfb31db69ebc6d92892bed0003d4f201d8fbc8dce867#0",
+          "b788f326a33bdc76333940e0299520624eecfbccd49013a2038972e7419c5316#0",
+          "b9e1082bdaae12921cc73e9f0c0a3220019df30127ca55d099ed0bccd56e3caf#0",
+          "fcab1c0f97501e67b1c53764308699398337a5f8dcd88a90f1e11ddf469c6a07#0",
+          "ff43f52a1e42c9f524f9e6885b6c96cda5b26e2e37cb4938fcf960abccabd853#0"
+        ],
+        "outputs": [
+          {
+            "amount": "9998499541",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": "9999241592",
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false,
+        "protocolParamUpdate": {
+          "maxTxSize": 32768,
+          "txFeeFixed": 9999999,
+          "dRepDeposit": 99999000000,
+          "minPoolCost": 500000000,
+          "treasuryCut": 0.3,
+          "dRepActivity": 13,
+          "maxValueSize": 12287,
+          "txFeePerByte": 999,
+          "utxoCostPerByte": 6500,
+          "committeeMinSize": 10,
+          "govActionDeposit": 1000000,
+          "maxBlockBodySize": 122879,
+          "stakePoolDeposit": 250000000,
+          "govActionLifetime": 1,
+          "monetaryExpansion": 0.005,
+          "maxBlockHeaderSize": 5000,
+          "poolRetireMaxEpoch": 0,
+          "stakePoolTargetNum": 2000,
+          "executionUnitPrices": {
+            "priceSteps": 0.0002,
+            "priceMemory": 0.2
+          },
+          "maxCollateralInputs": 999,
+          "maxTxExecutionUnits": {
+            "steps": 14900000000,
+            "memory": 40000000
+          },
+          "poolPledgeInfluence": 0.1,
+          "stakeAddressDeposit": 5000000,
+          "collateralPercentage": 200,
+          "committeeMaxTermLength": 293,
+          "maxBlockExecutionUnits": {
+            "steps": 40000000000,
+            "memory": 120000000
+          },
+          "minFeeRefScriptCostPerByte": 999
+        }
+      }
     }
   ]
 }

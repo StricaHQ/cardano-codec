@@ -400,8 +400,8 @@ const parseProtocolParamUpdate = function (update: any) {
         break;
       case 19:
         protoParamUpdate.exUnitPrices = {
-          mem: [value[0][0], value[0][1]],
-          steps: [value[1][0], value[1][1]],
+          mem: [value[0].value[0], value[0].value[1]],
+          steps: [value[1].value[0], value[1].value[1]],
         };
         break;
       case 20:
@@ -467,7 +467,7 @@ const parseProtocolParamUpdate = function (update: any) {
         protoParamUpdate.dRepInactivity = value;
         break;
       case 33:
-        protoParamUpdate.govActionValidity = value.value[0] / value.value[1];
+        protoParamUpdate.refScriptCostByte = value.value[0] / value.value[1];
         break;
       default:
         throw new Error("Unknown protocol parameter update");

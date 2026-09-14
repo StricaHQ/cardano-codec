@@ -268,8 +268,8 @@ const parseProtocolParamUpdates = function (updates: any) {
           break;
         case 19:
           proposal.parameter.exUnitPrices = {
-            mem: [value[0][0], value[0][1]],
-            step: [value[1][0], value[1][1]],
+            mem: [value[0].value[0], value[0].value[1]],
+            step: [value[1].value[0], value[1].value[1]],
           };
           break;
         case 20:

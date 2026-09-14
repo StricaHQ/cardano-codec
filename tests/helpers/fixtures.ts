@@ -60,6 +60,7 @@ export type TxFixture = {
     voteCount: number;
     proposalCount: number;
     hasMetadata: boolean;
+    protocolParamUpdate?: Record<string, unknown>;
   };
 };
 
