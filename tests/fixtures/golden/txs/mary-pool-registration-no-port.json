@@ -1,0 +1,75 @@
+{
+  "body": {
+    "hash": "0d44708e7076290c7aeb737bf59efc5dc75b0bb0a5b0a6b3e8d49d44e5331617",
+    "inputs": [
+      {
+        "txId": "02f08a54d0a35230997eb0db2f479c548de1962ca88b88ae12e440dd8d52a951",
+        "index": 1
+      }
+    ],
+    "outputs": [],
+    "fee": "488089",
+    "ttl": 26280972,
+    "certificates": [
+      {
+        "type": 0,
+        "cert": {
+          "stakeCredential": {
+            "key": "dd7d6e4849aff602299ab62161b03fe380c1f7ddef53d9613ff0995e",
+            "type": 0
+          }
+        }
+      },
+      {
+        "type": 3,
+        "cert": {
+          "operator": "608b92407ad4af01acb75081bc55571ab984b56b7b285f70ce6e1554",
+          "vrfKeyHash": "1c911f16433fdf53301e90f75355f1dc53ef1bb499e359e87bb9383dbf756361",
+          "pledge": "64000000000000",
+          "cost": "340000000",
+          "margin": [
+            1,
+            1
+          ],
+          "rewardAccount": "e1dd7d6e4849aff602299ab62161b03fe380c1f7ddef53d9613ff0995e",
+          "poolOwners": [
+            "dd7d6e4849aff602299ab62161b03fe380c1f7ddef53d9613ff0995e"
+          ],
+          "relays": [
+            {
+              "port": null,
+              "dnsName": "relays.wavelovelace.com"
+            }
+          ],
+          "poolMetadata": {
+            "url": "https://monitoring.wavelovelace.com/p/WAV3.json",
+            "metadataHash": "41f795e3b933048433cc99a6bd90ce8abefecde0ed51c655a67d70e33370b7e4"
+          }
+        }
+      },
+      {
+        "type": 2,
+        "cert": {
+          "stakeCredential": {
+            "key": "dd7d6e4849aff602299ab62161b03fe380c1f7ddef53d9613ff0995e",
+            "type": 0
+          },
+          "poolKeyHash": "608b92407ad4af01acb75081bc55571ab984b56b7b285f70ce6e1554"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "608b92407ad4af01acb75081bc55571ab984b56b7b285f70ce6e1554": {
+        "vKey": "a8b3dab059af870e2428f500c11a49b40be9913acd858aecdea440845fba7066",
+        "signature": "b0c7fb55fd63e99d0f5ce3b03888a9ac43b6d7594f08f2828b653eff4ca512d12f1804e2319559b015fcfeb75ee2abc7b69b1b42c32d70741c51b7fddad87e01"
+      },
+      "dd7d6e4849aff602299ab62161b03fe380c1f7ddef53d9613ff0995e": {
+        "vKey": "0059ef6f18e35d252556cf932256ff495ef76bd0ef314b921ce357e57246746c",
+        "signature": "17028053d936f73e496bbd92b06a3ad0ce0bb89ddac93264cdc2fe9f5e41296b7e8390186f1418a6d0feaabaf68affba1361a2364e7abd5fa1f577296bcb7603"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

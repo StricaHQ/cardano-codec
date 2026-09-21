@@ -1,5 +1,6 @@
-import { Buffer } from "buffer";
 import { CertificateType } from "../constants";
+
+export { CertificateType };
 
 export type NativeScript =
   | {
@@ -10,14 +11,14 @@ export type NativeScript =
       any: Array<NativeScript>;
     }
   | {
-      n: string;
+      n: number;
       k: Array<NativeScript>;
     }
   | {
-      invalidBefore: string;
+      invalidBefore: number;
     }
   | {
-      invalidAfter: string;
+      invalidAfter: number;
     };
 
 export type HeaderBody = {
@@ -56,9 +57,9 @@ export type Token = {
 };
 
 export enum ScriptType {
-  NATIVE_SCRIPT = "NATIVE_SCRIPT",
-  PLUTUS_V1 = "PLUTUS_V1",
-  PLUTUS_V2 = "PLUTUS_V2",
+  NATIVE_SCRIPT = 0,
+  PLUTUS_V1 = 1,
+  PLUTUS_V2 = 2,
 }
 
 export type ScriptRef = {
@@ -77,8 +78,8 @@ export type TransactionOutput = {
 };
 
 export enum HashType {
-  ADDRESS = "ADDRESS",
-  SCRIPT = "SCRIPT",
+  ADDRESS = 0,
+  SCRIPT = 1,
 }
 
 export type StakeCredential = {
@@ -201,8 +202,8 @@ export type Proposal = {
     adaPerUtxoByte?: string;
     costMdls?: Array<CostMdls>;
     exUnitPrices?: {
-      mem: [string, string];
-      step: [string, string];
+      mem: [number, number];
+      step: [number, number];
     };
     maxTxExUnits?: {
       mem: number;
@@ -212,13 +213,19 @@ export type Proposal = {
       mem: number;
       steps: number;
     };
-    maxValueSize?: string;
+    maxValueSize?: number;
     collateralPercent?: number;
     maxCollateralInputs?: number;
   };
 };
 
-export type MetaDatum = Map<MetaDatum, MetaDatum> | Array<MetaDatum> | number | Buffer | string;
+export type MetaDatum =
+  | Map<MetaDatum, MetaDatum>
+  | Array<MetaDatum>
+  | number
+  | bigint
+  | Uint8Array
+  | string;
 
 export type Metadata = {
   label: number;
@@ -233,10 +240,10 @@ export type AuxiliaryData = {
 };
 
 export enum RedeemerTag {
-  SPEND = "SPEND",
-  MINT = "MINT",
-  CERT = "CERT",
-  REWARD = "REWARD",
+  SPEND = 0,
+  MINT = 1,
+  CERT = 2,
+  REWARD = 3,
 }
 
 export type Redeemer = {

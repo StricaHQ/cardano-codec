@@ -1,0 +1,43 @@
+{
+  "body": {
+    "hash": "55451fa2dd7d45d04dd6ba2fb66da725e13b47cf45ccfc2958292ba1c1493385",
+    "inputs": [
+      {
+        "txId": "dfe51b59b51f32f15a83fe90213d2e86f0f0c0928747f7ba17a3f89f2eac9ce9",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "0153704c10847a0a1127c6834ab5f07998cab377c104b2e6dfbc2887b699131af4d4feb8f077ba026aa39faa69b32a21cca69681eeeba846c0",
+        "amount": "509828163"
+      }
+    ],
+    "fee": "171837",
+    "certificates": [
+      {
+        "type": 17,
+        "cert": {
+          "dRepCredential": {
+            "key": "f040fce92719b564369095bab8495548ad324529dd2ae19cf4e61411",
+            "type": 0
+          },
+          "deposit": "500000000"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "53704c10847a0a1127c6834ab5f07998cab377c104b2e6dfbc2887b6": {
+        "vKey": "5ac7d0536f490eb7083e14fd455fb534ad178bce270f1c89d8a69f2090048463",
+        "signature": "4c45e93103ba37e3cd54e6815a1bcd0bce37a3c7b69c86096fde5576fe4e1b1e6e46556b7a67cdece41cb154b19cc6a5ae6e0746266041682349204d525b9c00"
+      },
+      "f040fce92719b564369095bab8495548ad324529dd2ae19cf4e61411": {
+        "vKey": "29102ba499bb826f545022149137e1bedbe244781afb6e3bec3dd3e3fd59cf21",
+        "signature": "bae831512337a9ced44d65b1d720893de609d7f906f3e6035e304d918eea4625d06c2c54c646e13a003592f858d3fba53880575b33f58cdf5b0c2c6f766a6408"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

@@ -1,0 +1,94 @@
+{
+  "body": {
+    "hash": "a88501f6e355bb87bc66cf4b4b10782294de7793566689a104bee304cf6e51df",
+    "inputs": [
+      {
+        "txId": "c721c82795dd8a73f3952e6bace5ad2a477ce4093ee201ec835237d862d1cb6b",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "0152c48cc1a12a78bee16ef17964159575ce2e1e77001b2b34f1dac7fb7c1ebe4f72e541c7faae94279b7f4d1687b4c1dc211229fdfed33951",
+        "amount": "204963995218"
+      }
+    ],
+    "fee": "204529",
+    "ttl": 189632435,
+    "certificates": [
+      {
+        "type": 3,
+        "cert": {
+          "operator": "c1cadab46b74defa9f79b59b617fe2a50bdbce6b367e472b6109a7bc",
+          "vrfKeyHash": "57c4d222e0f2f8083d7b63c8f7886f16fb7046621442bbd857f404b6f433c5e6",
+          "pledge": "1135000000000",
+          "cost": "170000000",
+          "margin": [
+            99,
+            10000
+          ],
+          "rewardAccount": "e17c1ebe4f72e541c7faae94279b7f4d1687b4c1dc211229fdfed33951",
+          "poolOwners": [
+            "0c21f7a61c70c3d8be3c17b3118cc20ac4707faedcffa60c121b6b10",
+            "1dbec631da338c323dea90c1dae2a81627e005840439ba070b3c7400",
+            "5a0b036d5b71d6500d2c626731c647763836c378a13d471d7b2bf153",
+            "7c1ebe4f72e541c7faae94279b7f4d1687b4c1dc211229fdfed33951"
+          ],
+          "relays": [
+            {
+              "srvName": "clio.one"
+            },
+            {
+              "port": 6010,
+              "ipv4": "b9a1c15b",
+              "ipv6": null
+            },
+            {
+              "port": 6010,
+              "ipv4": "50d37b54",
+              "ipv6": null
+            },
+            {
+              "port": 6010,
+              "ipv4": null,
+              "ipv6": "00c7072a000700000000000091000000"
+            }
+          ],
+          "poolMetadata": {
+            "url": "https://clio.one/metadata/clio1.json",
+            "metadataHash": "47530ba97c12e2ac40462e9c86eeb07ea555877d2a1f9d74b6ff8471839267d8"
+          }
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "0c21f7a61c70c3d8be3c17b3118cc20ac4707faedcffa60c121b6b10": {
+        "vKey": "85c30992e35f74f1b36809c3849d122b14dfee1f5e8ba11e9b946d8c924c02cb",
+        "signature": "6450774432ac583f6e08ada4f6f89aae824b75f6954d0c36051d2f7cd5a4164cdf05b71b19165826d2e880e3258699c15fc347605ea3cd197e6e78f013b24e06"
+      },
+      "1dbec631da338c323dea90c1dae2a81627e005840439ba070b3c7400": {
+        "vKey": "6fb94b8d88f7726b561d518a1f4ebf9a867a8b1e8a78ebdb8b65ac9fbae3bed2",
+        "signature": "5a84d7c460cd8903649c7170663070adbf97535ff05982c5b9ee48e2101b204f5408041f48b4f3cffca01e013ba0877f3b0db267e987aa5e4e8c55cb47ca700e"
+      },
+      "52c48cc1a12a78bee16ef17964159575ce2e1e77001b2b34f1dac7fb": {
+        "vKey": "68ef333870716b14a1a23733423c709384f35278a8e5724e4e82a288872c214d",
+        "signature": "1ab7e82a5cc8c83d81a79cc001ee17f506113ffb091ba5666b08120575e95b7bb21ea4711838ce2fc25470304dd0c4d9e4a1e6ab5900b01841c74eccf1f1640f"
+      },
+      "5a0b036d5b71d6500d2c626731c647763836c378a13d471d7b2bf153": {
+        "vKey": "b538885c189d6b8f659c5312f1b351b96014ae5225df5663e2a2ee486e202860",
+        "signature": "35afad59815851d4dc2ea2124897e087257eb47213b5d6a7af123e74dec38824d6003468ce8648b494a8bef846325c7b47c961251aca61c57cf85656bd778e0f"
+      },
+      "7c1ebe4f72e541c7faae94279b7f4d1687b4c1dc211229fdfed33951": {
+        "vKey": "d6204ceed0646221e10f8a281dd3757f88f1fbd33508569b0d7b44b3e3b58df4",
+        "signature": "b350dac5290adfc6af405f26bdd6ee536af281ee4f14366d87320a7705864c315061f84cd23bb73ce23aeb92c0406f66a01f027282bba2dc1b504aeacbed2c06"
+      },
+      "c1cadab46b74defa9f79b59b617fe2a50bdbce6b367e472b6109a7bc": {
+        "vKey": "c00ee16bffe23f4487310d8ee0a0c20f62399f1ef760873c59d07fe75c8a3b1e",
+        "signature": "95660a2d920c2d911df91b3f0d183c62ec19e0da483d47ee0f390246bd635551580b17f0cb73626740d0cf6b8814594b523ca014f875a662528be7cfc4acd100"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

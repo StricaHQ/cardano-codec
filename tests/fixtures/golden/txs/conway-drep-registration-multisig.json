@@ -1,0 +1,88 @@
+{
+  "body": {
+    "hash": "2df95643d95bc17f9aa92e6de093844aa9835bf0292638a4b82caca67b768957",
+    "inputs": [
+      {
+        "txId": "aa80490885c2933daf213848ea2574ea0e5dcdb561faaed1f1d98ace368b57be",
+        "index": 0
+      },
+      {
+        "txId": "aa80490885c2933daf213848ea2574ea0e5dcdb561faaed1f1d98ace368b57be",
+        "index": 1
+      },
+      {
+        "txId": "aa80490885c2933daf213848ea2574ea0e5dcdb561faaed1f1d98ace368b57be",
+        "index": 2
+      }
+    ],
+    "outputs": [
+      {
+        "address": "319eefb47a031566bdf59cf44b15aecb394022f099d211308c0734252eda57a2b6685e9bada621c9718623cccd41a28c040111007e8bc9bae4",
+        "amount": "9803083"
+      }
+    ],
+    "fee": "196917",
+    "certificates": [
+      {
+        "type": 16,
+        "cert": {
+          "dRepCredential": {
+            "key": "c76aaab603ba8b8233b1c7bf676be9ac47374514dc57d2b3df4e7d8d",
+            "type": 1
+          },
+          "deposit": "500000000",
+          "anchor": {
+            "url": "https://ipfs.io/ipfs/bafkreicbe43464a2wuuafgve6osfvj3iyscpwq3w3lp3rzw2s4lsnjrecq",
+            "hash": "eaf6e9e1f7eb8fa1383cd9e687f985eca56cfa853413a9d482934fa6e79e0e80"
+          }
+        }
+      }
+    ],
+    "auxiliaryDataHash": "bdaa99eb158414dea0a91d6c727e2268574b23efe6e08ab3b841abe8059a030c"
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "6005d95079c86901a2bc58e36b9c4e67efb59c8754ba85045872e2db": {
+        "vKey": "8fa35890f7aac3cab9f65dbfa973dbd0a0a4483fbbfe05fe8490c0f858a4d73a",
+        "signature": "222456fed4a0b50abbd2b8cc99d8bc7a52c4976a94343db77f7944332ab38776b2c600eea884273e0b2106d90e3005a8ee2b7ec992aaecff96f14042c813020d"
+      },
+      "601a57d0060b0fa5ad5c7dbf37d78593c52a40aafb1f9c5fad4690eb": {
+        "vKey": "61e43af14c12c2a5ad88a0dc93513546ca2e0992973331445c83f52e36a3c674",
+        "signature": "1950e256186d252a60896d2c876f6c2e9e308c28939a6265a60565f9f11e420cde981ca4427d50861de58fa26780d0c13d87442c3fe353ab0a5e77d1b7e1270a"
+      },
+      "8a73e6c60caa117c1398888b2a3e71e1d1103ee90816bf9e4ddadc3c": {
+        "vKey": "906328bd9e377d9a46d1a5459153a662a773422fba6bb422a4a17e853ce986fc",
+        "signature": "524963a97b9ae5e0d8c748de05124bf65332958ae48f13e1e97211ce0cf382c2b4b084a8e8211b60e0a933f019c92e7e7d6ef29e0f512e81002e10a32d2a6804"
+      },
+      "4f03f9e334f9cabb01cedc2b81c7d0c266a98e83a0b2c4360489f833": {
+        "vKey": "596c834fdf5cf398c4c8c4c48a38650d239237c6a4e1dbe1a6677e0c815d0bb1",
+        "signature": "756ad80de4a1cc05e42f68ff1da430401a0e4f66eb07086493569b33835cbe14129871703a79500df02a5126570d124eb74b58f8fa3b8c839860007ad924f805"
+      }
+    },
+    "nativeScripts": {
+      "9eefb47a031566bdf59cf44b15aecb394022f099d211308c0734252e": {
+        "n": 2,
+        "k": [
+          {
+            "pubKeyHash": "6005d95079c86901a2bc58e36b9c4e67efb59c8754ba85045872e2db"
+          },
+          {
+            "pubKeyHash": "8a73e6c60caa117c1398888b2a3e71e1d1103ee90816bf9e4ddadc3c"
+          }
+        ]
+      },
+      "c76aaab603ba8b8233b1c7bf676be9ac47374514dc57d2b3df4e7d8d": {
+        "n": 2,
+        "k": [
+          {
+            "pubKeyHash": "4f03f9e334f9cabb01cedc2b81c7d0c266a98e83a0b2c4360489f833"
+          },
+          {
+            "pubKeyHash": "601a57d0060b0fa5ad5c7dbf37d78593c52a40aafb1f9c5fad4690eb"
+          }
+        ]
+      }
+    }
+  },
+  "auxiliaryData": {}
+}

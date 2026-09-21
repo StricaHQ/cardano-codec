@@ -1,0 +1,71 @@
+{
+  "body": {
+    "hash": "8795b9cd59a1f6886547c6bec6d4e5738d9fba2b79823e7e1b2b70be3ea6e783",
+    "inputs": [
+      {
+        "txId": "cb363f364f9a88e776b093d6059812437676fc94c5f8bfc12a62ab7be7afd8f6",
+        "index": 0
+      },
+      {
+        "txId": "ded6f371ce80b8b784c12237bdde7d2b7478dd1941850d452d37cb4d6ad7e667",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "0163c4f56f03c308c801e5c728e8b49197313fb73c5af83c4fb81ed0d53c307c4bb413db1fe6e39cfa6e3f19b2ff498b3136bc9aff2d8acec5",
+        "amount": "297427861"
+      }
+    ],
+    "fee": "195993",
+    "ttl": 70420457,
+    "certificates": [
+      {
+        "type": 3,
+        "cert": {
+          "operator": "5a1d03356f7732b3bc71e9b1d1f2f1ca88e542bf013dbc7bed086c29",
+          "vrfKeyHash": "560dc1035ce4a3fd47695c086c6b421a995c3047aa7e45c6d324f65f2e066d8c",
+          "pledge": "100000000",
+          "cost": "345000000",
+          "margin": [
+            0,
+            1
+          ],
+          "rewardAccount": "e13c307c4bb413db1fe6e39cfa6e3f19b2ff498b3136bc9aff2d8acec5",
+          "poolOwners": [
+            "3c307c4bb413db1fe6e39cfa6e3f19b2ff498b3136bc9aff2d8acec5"
+          ],
+          "relays": [],
+          "poolMetadata": null
+        }
+      },
+      {
+        "type": 2,
+        "cert": {
+          "stakeCredential": {
+            "key": "3c307c4bb413db1fe6e39cfa6e3f19b2ff498b3136bc9aff2d8acec5",
+            "type": 0
+          },
+          "poolKeyHash": "5a1d03356f7732b3bc71e9b1d1f2f1ca88e542bf013dbc7bed086c29"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "3c307c4bb413db1fe6e39cfa6e3f19b2ff498b3136bc9aff2d8acec5": {
+        "vKey": "351445d538649343bd1cbf2568da508d11a9e14d11caf1c3016daa2609f01fae",
+        "signature": "286a8dd57b5833b73ed59f3da7060666f826dd9953ec0a8b00abb7ff1515d600dedfce20ec99792bf99ed8899812ed766d3370845de0b1d011be75306c239105"
+      },
+      "5a1d03356f7732b3bc71e9b1d1f2f1ca88e542bf013dbc7bed086c29": {
+        "vKey": "6ec129b9dfd5971dabc3b84d405a2afdf4980005f35879ed5cc3fab6ae857d06",
+        "signature": "8fdcfee5b2541cf7dbe475436a7358cfaa8e1edae14e4aaa2af1c2bcea63f5de2ba7301375192d2ba478b36c28babb269b19e86033dc388216f27f7ce114ba07"
+      },
+      "63c4f56f03c308c801e5c728e8b49197313fb73c5af83c4fb81ed0d5": {
+        "vKey": "26082d69c678b06d1734dff59b1abde4268132df2150e96e857d28f9f1844d62",
+        "signature": "c5d6e2ac0608b71ea31d00cc105db5a1a816814ab232b41d0c9f8377af71dd7fc2296f0cf9f3f2ca6b5c1ce98763f8c3a56548fdf3fb33fbaa388c0e063b640a"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

@@ -1,4 +1,3 @@
-import { Buffer } from "buffer";
 export enum Protocol {
   NODE_TO_CLIENT_CHAIN_SYNC = "NODE_TO_CLIENT_CHAIN_SYNC",
   LOCAL_TX_MONITOR = "LOCAL_TX_MONITOR",
@@ -24,7 +23,7 @@ export type IntersectNotFound = {
 };
 
 export type RollForward = {
-  block: Buffer;
+  block: Uint8Array;
   tip: Tip;
 };
 
@@ -42,12 +41,12 @@ export type NodeToClientChainSyncResponse = {
 };
 
 export type LocalTxMonitorResponse = {
-  nextTx?: Buffer | null;
+  nextTx?: Uint8Array | null;
   acquired?: number;
   await?: true;
 };
 
 export declare type LocalTransactionSubmissionResponse = {
   success?: boolean;
-  rejectionMessage?: any;
+  rejectionMessage?: unknown;
 };

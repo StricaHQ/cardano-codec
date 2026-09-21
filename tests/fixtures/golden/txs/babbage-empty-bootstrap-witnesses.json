@@ -1,0 +1,29 @@
+{
+  "body": {
+    "hash": "ed3b29a36b370cae5c944945113a068475741e7299665abba86c97e26dc7c67b",
+    "inputs": [
+      {
+        "txId": "b178c1539c05299a248214612d705392f9e0d6fd294193a0abedb39cffe49fcd",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "016f54a997bd19302270ccbb38860ed6e51ed1f549be0dab378ab4a071398358981e3cf8d4a604706176e9adec4592e37d3f35a708a96e009a",
+        "amount": "144052608"
+      }
+    ],
+    "fee": "876277",
+    "ttl": 118115504
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "9c3a1f6e35fa83c687654ec19e39b661917200db87184b170fb3709a": {
+        "vKey": "a2747bbc25cd82e3ed0d731e6adeb63999c073bb6ca8477775f4ae8f1b457b36",
+        "signature": "3bf9201b684522fa42c1f592e9645401fc2277070475e46178f0ad7bbeeec98abe03f4ca27b1d9e92399213fe632cc802c8b1f1115e613647a4ca51e379bff04"
+      }
+    },
+    "bootstrapWitness": {}
+  },
+  "auxiliaryData": null
+}

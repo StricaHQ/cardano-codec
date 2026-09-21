@@ -1,0 +1,40 @@
+{
+  "body": {
+    "hash": "a75645e0871f3dbb6207df867d9bd6a1a3a5befa40d68df6da651db4d6607fbf",
+    "inputs": [
+      {
+        "txId": "859b53fffd4b55891402705c27b0e05fb4f9b308974e413cd11e40f762472aa9",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "01470ef5747b64cc1b1185f5ce844bd597b06e96ef12e8b067722a0252f05fa31332a75f6cab5631c48faaf3da562435e05a6da26d6553eb91",
+        "amount": "1006134319"
+      }
+    ],
+    "fee": "180197",
+    "proposalProcedures": [
+      {
+        "deposit": "100000000000",
+        "rewardAccount": "e1f05fa31332a75f6cab5631c48faaf3da562435e05a6da26d6553eb91",
+        "govAction": {
+          "type": 6
+        },
+        "anchor": {
+          "url": "ipfs://QmXFz2SrMXustcHZzmg6kz3vXRThebgyZ4pChF9grxqqMD",
+          "hash": "d420037401626f4db20a255ca52d9d39764f68edfdc02686007cf9c731564f88"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "470ef5747b64cc1b1185f5ce844bd597b06e96ef12e8b067722a0252": {
+        "vKey": "9a7e015b9e266f4e9d0f6b4b952c3cd04a78024790209fad1b74019bbf255980",
+        "signature": "0d95ba322ac3847409160fb00180be862b4de3cc419d17b220431fd300a0426c46db1168a6022030b480c2282b3858344799ac64c6cdea47fdbfc455ea51e00c"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

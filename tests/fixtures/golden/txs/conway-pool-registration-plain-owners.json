@@ -1,0 +1,71 @@
+{
+  "body": {
+    "hash": "2b0923b60f78b77aaeb4a60350abf9f55ecd8893ac2da592b07c7b14bc246b42",
+    "inputs": [
+      {
+        "txId": "ab65bdc084086b74fef21e7faec2718de7be42f9fadd8de0165e3746f7f83ceb",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "014c113ff414fe04968a1d2254c1d4f148e8d53adcc046ab169dd516006f8881d9f3a240b265db8ca24dbc1c0bb7fccad6f81dd4981a51b8ee",
+        "amount": "545051508"
+      }
+    ],
+    "fee": "188689",
+    "ttl": 174399427,
+    "certificates": [
+      {
+        "type": 3,
+        "cert": {
+          "operator": "6a2eecc8015c24b496c70f60141477f9efcd98cf9dfd0b47d27f5bd5",
+          "vrfKeyHash": "2c237b1cad258c2ae44071c95bf420fb20c0513195bfa29bbf0eab7e784d2268",
+          "pledge": "500000000",
+          "cost": "170000000",
+          "margin": [
+            1,
+            25
+          ],
+          "rewardAccount": "e16f8881d9f3a240b265db8ca24dbc1c0bb7fccad6f81dd4981a51b8ee",
+          "poolOwners": [
+            "6f8881d9f3a240b265db8ca24dbc1c0bb7fccad6f81dd4981a51b8ee"
+          ],
+          "relays": [
+            {
+              "port": 3001,
+              "ipv4": "0fcc617d",
+              "ipv6": null
+            },
+            {
+              "port": 3001,
+              "ipv4": "0fcc6180",
+              "ipv6": null
+            }
+          ],
+          "poolMetadata": {
+            "url": "https://emurgo.github.io/cardano-pool-metadata/YORO3.json",
+            "metadataHash": "ca8eeecc0427515ce9ba95f7d915fc8ad22ce0b3135cbaa90cca5d0ef5a3113f"
+          }
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "4c113ff414fe04968a1d2254c1d4f148e8d53adcc046ab169dd51600": {
+        "vKey": "5262c65497594a0ec2f2d732659ad3629f065b712ea6918726383fc91abf4b47",
+        "signature": "d2529ed2409904070c9665c0423c1fab0f4e1cc0f7ea822d23dc424769efa06149fa681e295f5e60179919ceb6946fe3b6007cedaed4536b975ba16982caf906"
+      },
+      "6a2eecc8015c24b496c70f60141477f9efcd98cf9dfd0b47d27f5bd5": {
+        "vKey": "39562319aaf39f7ded6b66fa65172eefdb69bfb69c8dadd9637a4a07d9ce40eb",
+        "signature": "c2714f28179191941e26dbba2b49ccb8c8ee488fee382e840ea0e099c8a986bbb8a9b1cdd99e99414d5b80bd1d7b7642244bccc4e642bd277ed8d5b33e42fe03"
+      },
+      "6f8881d9f3a240b265db8ca24dbc1c0bb7fccad6f81dd4981a51b8ee": {
+        "vKey": "95d6a540bf164f81c346e881df19a35e24652a3bd2be281f14d45ca2577050ba",
+        "signature": "a703d68f4696c3fe2d687bbb68dd23007993f2604703b3a0a5878b02706af0f6d8c54a56c10a7ca3e19bbd970b14b961d4f0423113bc9b2bd01c25b847ee9f04"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

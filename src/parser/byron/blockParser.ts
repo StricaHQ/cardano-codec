@@ -1,17 +1,18 @@
-import { Buffer } from "buffer";
-import * as utils from "../../utils/utils";
+import { CborNode } from "@stricahq/cbors";
 import parseTransaction from "./transactionParser";
 import parseHeader from "./headerParser";
 import { ByronBlock, Header } from "../../types/byronTypes";
+import { encoded, items } from "../../utils/node";
 
-export const parseBlock = (block: any, blockCbor: Buffer): ByronBlock => {
-  const header = parseHeader(block[0], blockCbor);
-  const transactions = parseTransaction(block[1][0], blockCbor);
+export const parseBlock = (block: CborNode): ByronBlock => {
+  // [header, [txPayload, sscPayload, dlgPayload, updPayload], extra]
+  const [headerNode, body] = items(block);
+  const header = parseHeader(headerNode);
+  const transactions = parseTransaction(items(body)[0]);
 
-  const blockBuf = utils.getCborSpanBuffer(blockCbor, block);
   const blockHeader: Header = {
     ...header,
-    bodySize: blockBuf.length,
+    bodySize: encoded(block).length,
   };
   return {
     header: blockHeader,

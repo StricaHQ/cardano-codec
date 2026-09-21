@@ -1,0 +1,1028 @@
+{
+  "body": {
+    "hash": "f480f39ad17d6477b971e0092c8c38b0c41606abdf749caa915b8cb8b1fc9100",
+    "inputs": [
+      {
+        "txId": "29d794140dd30530ccc4782fd72f46a76f7465367f8805f0e13326a2758c84c4",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "61b651c2062463499961b9cd594da399a5ec910fceb5c63f9eb55a224a",
+        "amount": "81357552264"
+      }
+    ],
+    "fee": "433989",
+    "collaterals": [],
+    "ttl": 62091708,
+    "certificates": [
+      {
+        "type": 6,
+        "cert": {
+          "pot": 1,
+          "rewards": [
+            {
+              "amount": "156276539",
+              "stakeCredential": {
+                "key": "040b7c75de18db6d253797c84f02b20c6511d31dc5c0a3156a18ddaf",
+                "type": 0
+              }
+            },
+            {
+              "amount": "348539675",
+              "stakeCredential": {
+                "key": "041285abf62410a6981d0245ff2c1b8309634d179afd9f69ed426498",
+                "type": 0
+              }
+            },
+            {
+              "amount": "32905875",
+              "stakeCredential": {
+                "key": "041e03597d43227933066ae7e167a7cd3ee39713884b08761854830e",
+                "type": 0
+              }
+            },
+            {
+              "amount": "7231679965",
+              "stakeCredential": {
+                "key": "0423a44676880a7e274e4511fd967ca6dd1cb12318bcfbc68f42892c",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1938635",
+              "stakeCredential": {
+                "key": "044836d76d498bb9042d9651841740edee3b487a6e175e659fa9f957",
+                "type": 0
+              }
+            },
+            {
+              "amount": "181860703",
+              "stakeCredential": {
+                "key": "04625525228122d6db756d76f89cf4baad5f50040beec7315c7dff63",
+                "type": 0
+              }
+            },
+            {
+              "amount": "10740693",
+              "stakeCredential": {
+                "key": "0475ed60f710397601066d25d5355977907d08c7fe9323b717461e0c",
+                "type": 0
+              }
+            },
+            {
+              "amount": "161565049",
+              "stakeCredential": {
+                "key": "0477bf46a4553eb22cfa4b73757a9c370306042f82ac0b78748c4758",
+                "type": 0
+              }
+            },
+            {
+              "amount": "7867566826",
+              "stakeCredential": {
+                "key": "047bdf23f30adbd23f627e85dc657b526f233004445ab4f7d1bdbcc7",
+                "type": 0
+              }
+            },
+            {
+              "amount": "24158375",
+              "stakeCredential": {
+                "key": "047d3f63daa2bafecb9fd70e6887bf1ac5850e06fe1f3ef6473b9eb0",
+                "type": 0
+              }
+            },
+            {
+              "amount": "6034138",
+              "stakeCredential": {
+                "key": "047f6a01c814411a285b7389ef60ea3058f32d47034d99787d6360b7",
+                "type": 0
+              }
+            },
+            {
+              "amount": "17229483",
+              "stakeCredential": {
+                "key": "04a21d4da2802bf5562a06a76376175f0ce21cc93a788b73b96f7b73",
+                "type": 0
+              }
+            },
+            {
+              "amount": "141738595",
+              "stakeCredential": {
+                "key": "04a778dd0fb4b31f4903161eab7ec1a86bed07950e7f4a7f9ff84bf9",
+                "type": 0
+              }
+            },
+            {
+              "amount": "14610688",
+              "stakeCredential": {
+                "key": "04b46d9f282cd8de84d40c2a0bf904be29f978f200045e52a2b5b971",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3651762",
+              "stakeCredential": {
+                "key": "04bb33026b2ea7e06c837749a25bedf1ac3cd4a508bcb05afeb11a89",
+                "type": 0
+              }
+            },
+            {
+              "amount": "2869761",
+              "stakeCredential": {
+                "key": "04cd5060b23bdfada8491c28de0587e998a49c98cab63aa7b5481d83",
+                "type": 0
+              }
+            },
+            {
+              "amount": "6070510",
+              "stakeCredential": {
+                "key": "04cf61a274b32aedf6bd6bee66ff307a0095b6cd7ae2844cf2bc1d31",
+                "type": 0
+              }
+            },
+            {
+              "amount": "146288749",
+              "stakeCredential": {
+                "key": "04e3dd64ea03268f74462781b38ed65cb89a6294765e67d279aaa68f",
+                "type": 0
+              }
+            },
+            {
+              "amount": "118944174",
+              "stakeCredential": {
+                "key": "04e99b7d58f78b3209966be9c4a9bf4c262ce11fb34d13b9d7b2accc",
+                "type": 0
+              }
+            },
+            {
+              "amount": "365776433",
+              "stakeCredential": {
+                "key": "04f7ea0e1386fa5f99f4e294aa50b84096b5e888a8ad978d486517c4",
+                "type": 0
+              }
+            },
+            {
+              "amount": "19360890",
+              "stakeCredential": {
+                "key": "050b0fa95172581628510b96583f27fce857ba803d3e511ac0ec4a5a",
+                "type": 0
+              }
+            },
+            {
+              "amount": "2345079223",
+              "stakeCredential": {
+                "key": "050cb2bc9c01a374a9938d07da4b7a4182286c714c1195e0b25a6a3e",
+                "type": 0
+              }
+            },
+            {
+              "amount": "454910001",
+              "stakeCredential": {
+                "key": "0523913cbbd1940fdec1af0b7f700530269ceb106da16a1dbafca051",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1061924657",
+              "stakeCredential": {
+                "key": "0532a4fdee2d5757fe659cc3dc4b48cfeb0d259f5d164ac1a5ed4302",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1338007391",
+              "stakeCredential": {
+                "key": "0543d0d504468e5678ae7d1b1620613271b7bb68e701736533bed480",
+                "type": 0
+              }
+            },
+            {
+              "amount": "250764086",
+              "stakeCredential": {
+                "key": "054de425ed4e0334bef805b15caf0cf9754e66c144ea0b06ef957e42",
+                "type": 0
+              }
+            },
+            {
+              "amount": "30607156",
+              "stakeCredential": {
+                "key": "0567fc5887de0040e064be22a2f3d05e808d86d287beb3db18f08a95",
+                "type": 0
+              }
+            },
+            {
+              "amount": "197096993",
+              "stakeCredential": {
+                "key": "0578cf2dcba6f395eb2ef2002cdeacffd9ad2497877c4a4a9a6b5ab0",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3186199",
+              "stakeCredential": {
+                "key": "057ced1ab1cc2febf4891a6fec2835f8e62685632b6be63c8deab1ff",
+                "type": 0
+              }
+            },
+            {
+              "amount": "2113221",
+              "stakeCredential": {
+                "key": "05828a913286d1da13da59ea21f85f783bea6ff7c3cef88212dcb81d",
+                "type": 0
+              }
+            },
+            {
+              "amount": "196278620",
+              "stakeCredential": {
+                "key": "0582fd7a16e3b7dcc2bd16b628df741263eb3a88cd33f9c364027452",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1960458",
+              "stakeCredential": {
+                "key": "05876e305d68d8f318ddfdbc5ce05193d45ed4c7d61dfdfa6abb9b68",
+                "type": 0
+              }
+            },
+            {
+              "amount": "29174094",
+              "stakeCredential": {
+                "key": "058e6a454ca9af4cc6ba77b3b2ff968057e9a7055916bd7a51a85c72",
+                "type": 0
+              }
+            },
+            {
+              "amount": "5866826",
+              "stakeCredential": {
+                "key": "0595975874d7298f0026db970d6de78677656109642d44261869ac91",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1604295108",
+              "stakeCredential": {
+                "key": "059b5e50aad775851cf370c9855420693cbdec3cd0d406b264f4fb14",
+                "type": 0
+              }
+            },
+            {
+              "amount": "32342107",
+              "stakeCredential": {
+                "key": "059dbfb336acf5b8c4c54523684d7eec74fea2ec53bc07942f580068",
+                "type": 0
+              }
+            },
+            {
+              "amount": "37106857",
+              "stakeCredential": {
+                "key": "05be2be96fdca7aa36bbdfc7494365fa0343a09faac98476c6a12ecd",
+                "type": 0
+              }
+            },
+            {
+              "amount": "10136915",
+              "stakeCredential": {
+                "key": "05c6aa84de1fd5d5d15fa2cc0f30a5c804f52fb19725525aab54a839",
+                "type": 0
+              }
+            },
+            {
+              "amount": "4593801",
+              "stakeCredential": {
+                "key": "05cdccc87ac5989d0dcde9a142ba6083f68315311a76fed8f69f018e",
+                "type": 0
+              }
+            },
+            {
+              "amount": "88875325",
+              "stakeCredential": {
+                "key": "05e583603c85cf5accb25e764e96179790eb039e402b8da60a8ae854",
+                "type": 0
+              }
+            },
+            {
+              "amount": "42544492",
+              "stakeCredential": {
+                "key": "05ea64992f43d0fb6e96ebcd41b451832c028397fd5f84191718d366",
+                "type": 0
+              }
+            },
+            {
+              "amount": "109465594",
+              "stakeCredential": {
+                "key": "08127614064385be781a3634a7f4aea4548e1be5b9de2307363aaf15",
+                "type": 0
+              }
+            },
+            {
+              "amount": "17091268",
+              "stakeCredential": {
+                "key": "0813b15e99b181db4cf873a347f8406b9c244a1e888b60901480791f",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3353511",
+              "stakeCredential": {
+                "key": "0815895ce795f8d9f1637eaca1bb1953f39a26b22e096bd93099fef2",
+                "type": 0
+              }
+            },
+            {
+              "amount": "14551034975",
+              "stakeCredential": {
+                "key": "081db0364da4f28a9afbaa7be9685c80d1339162f00f47e8e7f712a3",
+                "type": 0
+              }
+            },
+            {
+              "amount": "430318796",
+              "stakeCredential": {
+                "key": "0823f0c98264516b96272f6f2c3526adda68e45217ac68134b93b516",
+                "type": 0
+              }
+            },
+            {
+              "amount": "298622549",
+              "stakeCredential": {
+                "key": "08349b75368d4f6474d97efd736ef0161301e40df81c8c2fcb4bffeb",
+                "type": 0
+              }
+            },
+            {
+              "amount": "9987789",
+              "stakeCredential": {
+                "key": "08687a8583fad4515291667d64752eb35e2f47f642a67aa2a8249699",
+                "type": 0
+              }
+            },
+            {
+              "amount": "9034839",
+              "stakeCredential": {
+                "key": "088dfdff53fad1ef0ab276e39ac6e61f9be9d81601208fb0b6935da6",
+                "type": 0
+              }
+            },
+            {
+              "amount": "146510619",
+              "stakeCredential": {
+                "key": "0899edbc1c5c92c2fea15fe34296145e09300659c6f5ed8017fd7dc9",
+                "type": 0
+              }
+            },
+            {
+              "amount": "14883479",
+              "stakeCredential": {
+                "key": "08aa30cb7264c98db2af90e833aa9ab63f7915e541fa2695fb6df458",
+                "type": 0
+              }
+            },
+            {
+              "amount": "21659609",
+              "stakeCredential": {
+                "key": "08b22e29938f2126e3ae9e834c664b67afe38ae2d16562bb3d6cc661",
+                "type": 0
+              }
+            },
+            {
+              "amount": "11166247",
+              "stakeCredential": {
+                "key": "08b6f7e1ccecc51465044253c5ed84eed8cc5307a0f9ff0211fcf074",
+                "type": 0
+              }
+            },
+            {
+              "amount": "74948433",
+              "stakeCredential": {
+                "key": "08c12c2e3caaca226b40dbefcfab3cbe6ac78b404afb9c0578471b32",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1880439",
+              "stakeCredential": {
+                "key": "08c58cab4c884479bd880a48a1e5fc5f7f1bcdad35fd914f406df991",
+                "type": 0
+              }
+            },
+            {
+              "amount": "139014321",
+              "stakeCredential": {
+                "key": "08cb175513b3653182f860b7451187e53434c0e356544ff39c892c6f",
+                "type": 0
+              }
+            },
+            {
+              "amount": "8762048",
+              "stakeCredential": {
+                "key": "08cb95c00df6bf38b2b445633be9df23f9ce7de126349092a130f997",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1938635",
+              "stakeCredential": {
+                "key": "08e1091ac35c0bd0f7d49e0c3b555b29629b0d91adb44cd519e4321f",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3647652875",
+              "stakeCredential": {
+                "key": "08e3a2bca42b822e7949ba0632762df5891a17852514c087a555efa7",
+                "type": 0
+              }
+            },
+            {
+              "amount": "30919956",
+              "stakeCredential": {
+                "key": "08e3b5339e7a132e05d46a2bd244f0ab604e1cba4526e455e951fc9f",
+                "type": 0
+              }
+            },
+            {
+              "amount": "28530307",
+              "stakeCredential": {
+                "key": "08e8c8f63f27577b4a362a378564cbeafb57dead5f79c1f5c5d2c6aa",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1146737215",
+              "stakeCredential": {
+                "key": "0900905b9a78bfd50b437377637ab19b4a8d1de38bb2a6830868208e",
+                "type": 0
+              }
+            },
+            {
+              "amount": "231977876",
+              "stakeCredential": {
+                "key": "0910a40a1ac6169d5ba72452f467f80869d28fa3178a066c2cdc15a6",
+                "type": 0
+              }
+            },
+            {
+              "amount": "12639318",
+              "stakeCredential": {
+                "key": "091af49e72044e8e63b7576be5dcc1124791f5c67f4b8b6e7269ec4d",
+                "type": 0
+              }
+            },
+            {
+              "amount": "170312548",
+              "stakeCredential": {
+                "key": "091be61e69cc1cb2abb1a3ed1c1ab8c6e0656d08a4d1e4475266580a",
+                "type": 0
+              }
+            },
+            {
+              "amount": "53972619",
+              "stakeCredential": {
+                "key": "091e1bf2362c0b72985a536d6518a238dd6966ba48abc599f6606bfc",
+                "type": 0
+              }
+            },
+            {
+              "amount": "12384713",
+              "stakeCredential": {
+                "key": "0926a3be9ba3c2610a43ea25b7ef9599c70d79cc9bdb6688a8fef9f4",
+                "type": 0
+              }
+            },
+            {
+              "amount": "10922553",
+              "stakeCredential": {
+                "key": "092c5033ce57ad5267d4359cb3fd18db70e7d42fb0750e6d31c7003b",
+                "type": 0
+              }
+            },
+            {
+              "amount": "18258814",
+              "stakeCredential": {
+                "key": "0931a05afd5d598c79141c18bf7181d0e10ff37695e63e5fb305e5b5",
+                "type": 0
+              }
+            },
+            {
+              "amount": "364128775",
+              "stakeCredential": {
+                "key": "0939c440dba1682daa45628d85f6aca314d7c1ab7ebf1fbcb0950e3d",
+                "type": 0
+              }
+            },
+            {
+              "amount": "71503991",
+              "stakeCredential": {
+                "key": "093f19e574dbcc5ca9e890b1638d9d675e8007ad785a474ba1014d62",
+                "type": 0
+              }
+            },
+            {
+              "amount": "38358059",
+              "stakeCredential": {
+                "key": "0947f8a62cf3b99f92c844312d4d114a1483a7adce9ae1c25924f43a",
+                "type": 0
+              }
+            },
+            {
+              "amount": "30570784",
+              "stakeCredential": {
+                "key": "09527be0af4fd3de5820d40f728546f214654fc282247e882c21937e",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1858616",
+              "stakeCredential": {
+                "key": "097ac17a567d2d42181116bb4a761465625752d94d682d2e16258cc5",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3848172",
+              "stakeCredential": {
+                "key": "09835eff9457f72c87de93b43277501875124db6b36c91731173e4f7",
+                "type": 0
+              }
+            },
+            {
+              "amount": "417166630",
+              "stakeCredential": {
+                "key": "09884b186a1f12e430bfa9ed761a2e254e372af1594f58d6a14adb36",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1924639100",
+              "stakeCredential": {
+                "key": "0997d8d69671ee446f36b4ea671afa57314b0a7a1f8353a29b608760",
+                "type": 0
+              }
+            },
+            {
+              "amount": "2273258",
+              "stakeCredential": {
+                "key": "0999ee63cef80d4b142bd2a957b466306656f9b8ec13b32d33c613db",
+                "type": 0
+              }
+            },
+            {
+              "amount": "11151698",
+              "stakeCredential": {
+                "key": "09b3ed1d0f6c32ad560462c42fe553a0aee01f5262bc9d595b5e435c",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1037762644",
+              "stakeCredential": {
+                "key": "09b6e1b01410e76edcf407b9efe479d28bf36f556e1b715ae194f98b",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3637257717",
+              "stakeCredential": {
+                "key": "09b7256307676707a6e67474b19f96c0c881219c2bed9c7a6048ffe8",
+                "type": 0
+              }
+            },
+            {
+              "amount": "13043049",
+              "stakeCredential": {
+                "key": "09b916611b6ec515e82e691204b12972174ffc2ad6a6a1ee75e3e82f",
+                "type": 0
+              }
+            },
+            {
+              "amount": "10613390",
+              "stakeCredential": {
+                "key": "09bd4336a66328800845b76ba72ad77e77006957fa36df1fedc52b08",
+                "type": 0
+              }
+            },
+            {
+              "amount": "184759563",
+              "stakeCredential": {
+                "key": "09bd5f9adc21e207e1ea0f4ff13b1fc2b8e8140de42cba41a4418e2b",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1825881",
+              "stakeCredential": {
+                "key": "09be3b1d04d329afa3f906eab7208d3bdf6ce25a07636ade12d3bc79",
+                "type": 0
+              }
+            },
+            {
+              "amount": "173978860",
+              "stakeCredential": {
+                "key": "09bee55f634dc69207cef2896b84dd45f6f343b5a9976473f0ea288c",
+                "type": 0
+              }
+            },
+            {
+              "amount": "7943675",
+              "stakeCredential": {
+                "key": "09d794e64a44ebf7cccdb3e7498aec2795d2e54a637f9a5ca7063bd8",
+                "type": 0
+              }
+            },
+            {
+              "amount": "5503104",
+              "stakeCredential": {
+                "key": "09d8888e7b4a5b8f94b76958a8c1dda35c5f18c8838ce5f80c0423a9",
+                "type": 0
+              }
+            },
+            {
+              "amount": "365878275",
+              "stakeCredential": {
+                "key": "09e2988bd464fcf98702d58d9d626631469fa80ec54a27c30b91ddb5",
+                "type": 0
+              }
+            },
+            {
+              "amount": "182886397",
+              "stakeCredential": {
+                "key": "09f5de2b5377a1b8c32ced858c25d784c687a87079f2dd6d77b19b6d",
+                "type": 0
+              }
+            },
+            {
+              "amount": "17935102",
+              "stakeCredential": {
+                "key": "09fe3259127785796bf85df2d0e5c682b9f50f3df4f0ab1221c48dbb",
+                "type": 0
+              }
+            },
+            {
+              "amount": "141713134",
+              "stakeCredential": {
+                "key": "0c0375d640bf98b47964b734bb8c4eadad0a72ee1f5c1e87921dc1c0",
+                "type": 0
+              }
+            },
+            {
+              "amount": "58450030",
+              "stakeCredential": {
+                "key": "0c18dd392293582b997251e6e947e52b7e7d173159a4f9d7e2ba5ab6",
+                "type": 0
+              }
+            },
+            {
+              "amount": "401744843",
+              "stakeCredential": {
+                "key": "0c2e811c00de40bc22e83f590116a776df73f82591bf99cd0c042f0f",
+                "type": 0
+              }
+            },
+            {
+              "amount": "10766153",
+              "stakeCredential": {
+                "key": "0c324b0ca963e3f5e4c0d2925ca33ffe7198900cb398f33bcb712531",
+                "type": 0
+              }
+            },
+            {
+              "amount": "138214134",
+              "stakeCredential": {
+                "key": "0c34f5942c5fcc61f9b2d3c55729ffa57ce01d99f0c91fd9060cc5d0",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1457097054",
+              "stakeCredential": {
+                "key": "0c4ece1911abc75f51333e82d6a4a6e5aa4350b143cc0505fbc43e50",
+                "type": 0
+              }
+            },
+            {
+              "amount": "27268193",
+              "stakeCredential": {
+                "key": "0c55745b570d7a6a52c185c10e711ef56d8c226077fa3e346b50ccb8",
+                "type": 0
+              }
+            },
+            {
+              "amount": "7532670",
+              "stakeCredential": {
+                "key": "0c569536f5aeea309ed9cfaaf3847e040f84f395f1a9351422e958a5",
+                "type": 0
+              }
+            },
+            {
+              "amount": "41442417",
+              "stakeCredential": {
+                "key": "0c5a8f7b063a450951e5bcc00d0134d52c244115cecdd630bd218119",
+                "type": 0
+              }
+            },
+            {
+              "amount": "4943297634",
+              "stakeCredential": {
+                "key": "0c6097d069175d9484de7a9616cd6675620edd98542825bb468efe1c",
+                "type": 0
+              }
+            },
+            {
+              "amount": "47676602",
+              "stakeCredential": {
+                "key": "0c6705dbc824af4bcd4ba9071e9aaa6ea4a94adcee8c77770cbafa47",
+                "type": 0
+              }
+            },
+            {
+              "amount": "315513771",
+              "stakeCredential": {
+                "key": "0c695a8f8a7527825ec5694f7a5714e9c78f120cce1835516553f5bb",
+                "type": 0
+              }
+            },
+            {
+              "amount": "2622431",
+              "stakeCredential": {
+                "key": "0c79bd7328ad27a8511f77812560d0f2fe213747ada6731f93cf6b1f",
+                "type": 0
+              }
+            },
+            {
+              "amount": "110422181",
+              "stakeCredential": {
+                "key": "0c828a97c437bf0e621ee512230018f482aa8db726fa21a679df3849",
+                "type": 0
+              }
+            },
+            {
+              "amount": "109127333",
+              "stakeCredential": {
+                "key": "0c87f28c762e826425e3f21937567ab4a3b39d6f2301402700fd575c",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3638177932",
+              "stakeCredential": {
+                "key": "0c89ebfc58a559b74be5c7b05ecb79de842c3b831dd36fa31c9dc8b2",
+                "type": 0
+              }
+            },
+            {
+              "amount": "40540388",
+              "stakeCredential": {
+                "key": "0c8cb1473eca2eb07c06f98d160c9f5696a18c28074b134190e3f14d",
+                "type": 0
+              }
+            },
+            {
+              "amount": "869508758",
+              "stakeCredential": {
+                "key": "0c90ca693c8bd6583ded23f9b782ca10429ad7da4b7e65699a5c4141",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1884076",
+              "stakeCredential": {
+                "key": "0cbfe9502e320d2983f10dfcfa58dd15aa4179a6d267f2c20d23a198",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1938635",
+              "stakeCredential": {
+                "key": "0cccf185a7961475c613fb35c35e57b8f45b064fbc5ddd15417edeb6",
+                "type": 0
+              }
+            },
+            {
+              "amount": "308952237",
+              "stakeCredential": {
+                "key": "0cd2c01228379f42bbd2911dd2adecd3932f1fbadfffd14230414169",
+                "type": 0
+              }
+            },
+            {
+              "amount": "2760645",
+              "stakeCredential": {
+                "key": "0cdd835a419c5002fb6187f046cae819b0b9c5bf4180470968f1903a",
+                "type": 0
+              }
+            },
+            {
+              "amount": "21819647",
+              "stakeCredential": {
+                "key": "0ce01b5846405c7ec33c3d2dbe863ff9883b9fb9d0e1b9286638e0a5",
+                "type": 0
+              }
+            },
+            {
+              "amount": "79076671",
+              "stakeCredential": {
+                "key": "0ce295dd89308914b8b75331fa0a71daad90b509089bfe1cc8615114",
+                "type": 0
+              }
+            },
+            {
+              "amount": "22274298",
+              "stakeCredential": {
+                "key": "0ce672d621313290c3bd083d8e61c014e7f334a7c596e9462bcf4c84",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3677223",
+              "stakeCredential": {
+                "key": "0d045b8167300251fde978bed5815e374788cd3f90c1af6a2c3b76a8",
+                "type": 0
+              }
+            },
+            {
+              "amount": "545953106",
+              "stakeCredential": {
+                "key": "0d0a21de2da4bbfa590408159ffe274ed3b4f847bf3cea39f2f1b0d7",
+                "type": 0
+              }
+            },
+            {
+              "amount": "555860877",
+              "stakeCredential": {
+                "key": "0d281e00923d5f51a28d7d10d42c667c314df5a28a2256907683a8f7",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3448078",
+              "stakeCredential": {
+                "key": "0d2a4b16dc862273c4a96c7fb1fae4e2a4342ea996257a15089cc93e",
+                "type": 0
+              }
+            },
+            {
+              "amount": "3174895064",
+              "stakeCredential": {
+                "key": "0d686f37095a185bfd716c30c17fc917c79e07c23933c3640c6c36e4",
+                "type": 0
+              }
+            },
+            {
+              "amount": "97331848",
+              "stakeCredential": {
+                "key": "0d6bfac9b5e06d6ad04a42658271a47a679e9a75f24ad79a68906f09",
+                "type": 0
+              }
+            },
+            {
+              "amount": "7990959",
+              "stakeCredential": {
+                "key": "0d6f59c2cb867f8aca9bb391b4d6a9936e623161947fd62130e92519",
+                "type": 0
+              }
+            },
+            {
+              "amount": "49164222",
+              "stakeCredential": {
+                "key": "0d6f825e5444f1907c1afe59a91118c5110192cef60e25dd1616977f",
+                "type": 0
+              }
+            },
+            {
+              "amount": "817511146",
+              "stakeCredential": {
+                "key": "0d71b150d1f5ea5c2d0fd69b6807c6bbf8400f0578f25261af2319b8",
+                "type": 0
+              }
+            },
+            {
+              "amount": "20404770",
+              "stakeCredential": {
+                "key": "0d749588e559f0a2fee456bcba860c7835551c8b3e2e2efe14df2d01",
+                "type": 0
+              }
+            },
+            {
+              "amount": "17294952",
+              "stakeCredential": {
+                "key": "0d78c32dd5c2f612f4e77e9f0660e35e1a7e4cf34560015105b18d8b",
+                "type": 0
+              }
+            },
+            {
+              "amount": "175542862",
+              "stakeCredential": {
+                "key": "0d9634b63022e3b4a46381cd00f22b29b85a8909f511f09d79fa5386",
+                "type": 0
+              }
+            },
+            {
+              "amount": "54736434",
+              "stakeCredential": {
+                "key": "0d9cff29d53651172ca2c23c7157f915342d668c952ba06321dff38d",
+                "type": 0
+              }
+            },
+            {
+              "amount": "2007742",
+              "stakeCredential": {
+                "key": "0d9d0a888d618c9988a2879740728f9e05148bad9efe3b9512630f99",
+                "type": 0
+              }
+            },
+            {
+              "amount": "37568784",
+              "stakeCredential": {
+                "key": "0d9f2138298f59e171b1e65dae36684711235b43b3750a56c8a7fad7",
+                "type": 0
+              }
+            },
+            {
+              "amount": "1334308344",
+              "stakeCredential": {
+                "key": "0dc46aaf20abe8d43b62e9b08937ebece498f635c80682a78239537a",
+                "type": 0
+              }
+            },
+            {
+              "amount": "274315048",
+              "stakeCredential": {
+                "key": "0dee6807a8adc694bad008f3dcd8469d6fee469fbd1bb552a7ffecb9",
+                "type": 0
+              }
+            },
+            {
+              "amount": "15694578",
+              "stakeCredential": {
+                "key": "0df8ae2d8cc5f7fa356789c8087387f9e8a3c390af6d7b39b1fbb777",
+                "type": 0
+              }
+            },
+            {
+              "amount": "30992701",
+              "stakeCredential": {
+                "key": "0df8dfc28324626aa8504c8a0b5534b7b012321d97dbf06de6cdc5a9",
+                "type": 0
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "requiredSigners": [],
+    "auxiliaryDataHash": "96f01a742e7e75a2c8dd22ff03d117c220e5d39a74bcd50d1d1044b34be5cf4c"
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "1d4f2e1fda43070d71bb22a5522f86943c7c18aeb4fa47a362c27e23": {
+        "vKey": "61261a95b7613ee6bf2067dad77b70349729b0c50d57bc1cf30de0db4a1e73a8",
+        "signature": "7d17f4b21b9eb340a8bc74073175f2fbb348dc6a69e7dd3c666d38b73bdc12eb81808d75afb43c3fb945c9fb2bd5aa7b44f641351149a863a1cc20cd6df6d605"
+      },
+      "4485708022839a7b9b8b639a939c85ec0ed6999b5b6dc651b03c43f6": {
+        "vKey": "9180d818e69cd997e34663c418a648c076f2e19cd4194e486e159d8580bc6cda",
+        "signature": "dc437ef6d74769dea243359a5d912d57d77339cb7234273f8d0f16a0e028da79765d4b72c514ff7d7770c91ef36a7b8edba945ad882a6e905f56a40b42b37606"
+      },
+      "6535db26347283990a252313a7903a45e3526ec25ddba381c071b25b": {
+        "vKey": "89c29f8c4af27b7accbe589747820134ebbaa1caf3ce949270a3d0c7dcfd541b",
+        "signature": "d2120b89e62869e36494a1d4dd0a6f21ec31792c835faf7d5c2c76393b03634dfbbdfb03564e8665a4d5208294ec28f1deea5757ff01373a26b35f909069120d"
+      },
+      "69ae12f9e45c0c9122356c8e624b1fbbed6c22a2e3b4358cf0cb5011": {
+        "vKey": "f14f712dc600d793052d4842d50cefa4e65884ea6cf83707079eb8ce302efc85",
+        "signature": "5faf69cc9f57dfecb640321f999d34ebe6005214569933440098468e56a432d8745d721005ccaca6192dd3c8c0da0dd0cab6347c63c8fbd373da0e798968cd03"
+      },
+      "7f72a1826ae3b279782ab2bc582d0d2958de65bd86b2c4f82d8ba956": {
+        "vKey": "8b53207629f9a30e4b2015044f337c01735abe67243c19470c9dae8c7b732798",
+        "signature": "1e0b214b731902947831c3844a2240cd7894aaf1d0863e55830bb3900f46ee5d21c865613c1754db7411bb296a48ff1e077715b15bbfaab30adc604132d02f00"
+      },
+      "855d6fc1e54274e331e34478eeac8d060b0b90c1f9e8a2b01167c048": {
+        "vKey": "5fddeedade2714d6db2f9e1104743d2d8d818ecddc306e176108db14caadd441",
+        "signature": "0a9b5e349283dbf51b8d1dce166ac533efe530d357fbb316a03fd4435b17c18beb9072383882ac4c54ba066099ed22e53e52ae304a441eb6a4afe732c7c68703"
+      },
+      "b651c2062463499961b9cd594da399a5ec910fceb5c63f9eb55a224a": {
+        "vKey": "4c0232db0800fe53ce90a8d3842cc0d3964e675701f45ead680042e4049465b1",
+        "signature": "bab456996d72a3a254b16097b3b2afa8be09f768ace83f0a179fc85b8faf225c56ddc8b69bdeeac65a6af2283888e1a9d1b127d6e2067b2a09279098ee5f7c04"
+      },
+      "d9e5c76ad5ee778960804094a389f0b546b5c2b140a62f8ec43ea54d": {
+        "vKey": "e8c03a03c0b2ddbea4195caf39f41e669f7d251ecf221fbb2f275c0a5d7e05d1",
+        "signature": "d39767c366667d246ae73d2b9b9ad85c7ef468acf05ae2cf57e4d66c9ad011eadb1df3c330bb2d8c1d961d6644fa5096fc1310412eda527ad064dee00b9de109"
+      }
+    }
+  },
+  "auxiliaryData": {
+    "metadata": [
+      {
+        "label": 0,
+        "data": {
+          "$map": [
+            [
+              "catalyst",
+              "voting-rewards-fund8"
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}

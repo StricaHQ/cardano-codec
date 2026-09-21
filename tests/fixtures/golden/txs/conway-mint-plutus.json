@@ -1,0 +1,338 @@
+{
+  "body": {
+    "hash": "bf84e99f7edf65be823fd645b721e702d7639599fa97a864b58eb3860b019ac0",
+    "inputs": [
+      {
+        "txId": "43efcb04b5fe642dafa544925a03faf3ee8bc2a0886887ff9cffd1e1a2c09b87",
+        "index": 0
+      },
+      {
+        "txId": "6496d5081734d3d4a882208c4d889f035ab932a3d5896bfd058b421c46b5d00f",
+        "index": 1
+      },
+      {
+        "txId": "f3d8e4204bebc2d0c21d3c49bf930dbb6cc398e069c9fed6563e014584925795",
+        "index": 1
+      },
+      {
+        "txId": "535f8178221a6a2428c7761ef1074647ce4463a4f1e964b8d8eece46185598ca",
+        "index": 1
+      },
+      {
+        "txId": "98a0a9ff1f87ae8962169ddf7f5811f5552bafe3fd368efcb60f861829696787",
+        "index": 0
+      },
+      {
+        "txId": "89fe03b8fc7cc9e4fae4de3fc7ee3b3be7326d0092b51d1b43902cf8ea479a5e",
+        "index": 1
+      }
+    ],
+    "outputs": [
+      {
+        "address": "316a67658782f20360cc4cdf5a808ab9363bbeaeb2f8773d27a2b514eb00000000000410c2d9e01e8ec78ab1dc6bbc383fae76cbe2689beb02",
+        "amount": "9530863164",
+        "tokens": [
+          {
+            "policyId": "016be5325fd988fea98ad422fcfd53e5352cacfced5c106a932a35a4",
+            "assetName": "42544e",
+            "amount": "6279861870"
+          },
+          {
+            "policyId": "279c909f348e533da5808898f87f9a14bb2c3dfbbacccd631d927a3f",
+            "assetName": "534e454b",
+            "amount": "136830"
+          },
+          {
+            "policyId": "577f0b1342f8f8f4aed3388b80a8535812950c7a892495c0ecdf0f1e",
+            "assetName": "0014df10464c4454",
+            "amount": "5099167351"
+          },
+          {
+            "policyId": "5d16cc1a177b5d9ba9cfa9793b07e60f1fb70fea1f8aef064415d114",
+            "assetName": "494147",
+            "amount": "4214525797"
+          }
+        ],
+        "plutusDataHash": "94f0f0d9aac2aa37a95d0c0910597704345e03135c5b5110f0d3ca79d798636d",
+        "plutusData": "d87c9fd87b80ff"
+      },
+      {
+        "address": "013258f32901c7ac8acfb0815ac78515d7e27f949e7ec71f23ee1aa7bc9f132e134cb8aa14921b341ff73d0a80dee2d5c80994d4c61287f9cf",
+        "amount": "5702130",
+        "tokens": [
+          {
+            "policyId": "00000000000410c2d9e01e8ec78ab1dc6bbc383fae76cbe2689beb02",
+            "assetName": "4d49444153",
+            "amount": "72651452"
+          },
+          {
+            "policyId": "016be5325fd988fea98ad422fcfd53e5352cacfced5c106a932a35a4",
+            "assetName": "42544e",
+            "amount": "952980544428"
+          },
+          {
+            "policyId": "0691b2fecca1ac4f53cb6dfb00b7013e561d1f34403b957cbb5af1fa",
+            "assetName": "4e49474854",
+            "amount": "200780989517"
+          },
+          {
+            "policyId": "098acff2feb062d4ec63e26d7fec90b7a1467873fdbec3bb0dba1bc5",
+            "assetName": "724f5054494d",
+            "amount": "1"
+          },
+          {
+            "policyId": "279c909f348e533da5808898f87f9a14bb2c3dfbbacccd631d927a3f",
+            "assetName": "534e454b",
+            "amount": "4326466"
+          },
+          {
+            "policyId": "279f842c33eed9054b9e3c70cd6a3b32298259c24b78b895cb41d91a",
+            "assetName": "54554e41",
+            "amount": "100000000"
+          },
+          {
+            "policyId": "2852268cf6e2db42e20f2fd3125f541e5d6c5a3d70b4dda17c2daa82",
+            "assetName": "",
+            "amount": "31175981356"
+          },
+          {
+            "policyId": "29d222ce763455e3d7a09a665ce554f00ac89d2e99a1a83d267170c6",
+            "assetName": "4d494e",
+            "amount": "12946466727"
+          },
+          {
+            "policyId": "2da97f55d49be13dabc8450a2eabab0412f3075a03f7519d32d46925",
+            "assetName": "0014df1050554c5345",
+            "amount": "912681694941"
+          },
+          {
+            "policyId": "41142faeb5e3c644625966715c0a844bb4d6aeef2bcdbf535b14e5a5",
+            "assetName": "7448414e444c45",
+            "amount": "1"
+          },
+          {
+            "policyId": "561b992c34312bff7d9267a48cc440ad927a9886e4507413c1ac8f65",
+            "assetName": "43617264616e6f506f69736f6e30373031",
+            "amount": "1"
+          },
+          {
+            "policyId": "577f0b1342f8f8f4aed3388b80a8535812950c7a892495c0ecdf0f1e",
+            "assetName": "0014df10464c4454",
+            "amount": "147112564233"
+          },
+          {
+            "policyId": "5bb425e01f981adef5c6b154723ef53132a553f5289d04fdbb6e2d98",
+            "assetName": "000de140404d49434148",
+            "amount": "1"
+          },
+          {
+            "policyId": "5d16cc1a177b5d9ba9cfa9793b07e60f1fb70fea1f8aef064415d114",
+            "assetName": "494147",
+            "amount": "122014446102"
+          },
+          {
+            "policyId": "62d92603fa2d9ac72dbd620d765db57b18656e4f5cdf56e161406185",
+            "assetName": "444a4544",
+            "amount": "1"
+          },
+          {
+            "policyId": "8483844875ce4d61c2aa459240f277d32081ee08fe0ad16899a0f581",
+            "assetName": "0014df10544954414e",
+            "amount": "10000"
+          },
+          {
+            "policyId": "8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd61",
+            "assetName": "446a65644d6963726f555344",
+            "amount": "2381321831"
+          },
+          {
+            "policyId": "8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd61",
+            "assetName": "5368656e4d6963726f555344",
+            "amount": "876491890"
+          },
+          {
+            "policyId": "8fef2d34078659493ce161a6c7fba4b56afefa8535296a5743f69587",
+            "assetName": "41414441",
+            "amount": "92808076"
+          },
+          {
+            "policyId": "9293316c91ff5143e3bc60d78d44dfb87edff59d61b99cf4c938d908",
+            "assetName": "4142544e",
+            "amount": "1"
+          },
+          {
+            "policyId": "9abf0afd2f236a19f2842d502d0450cbcd9c79f123a9708f96fd9b96",
+            "assetName": "454e4353",
+            "amount": "1505203685"
+          },
+          {
+            "policyId": "b41d06ebccb6278d3ee7b4cd2faa321537156c9fd9c8dd40e95f91ea",
+            "assetName": "627574616e65",
+            "amount": "12491666000000"
+          },
+          {
+            "policyId": "c6935b76bc1f8c13442f0277769557388b5cacf70fb5f9dd5a871f17",
+            "assetName": "",
+            "amount": "2500000000000"
+          },
+          {
+            "policyId": "d85439c247aa27adcc770ad3b63141b5bc71e6e94c7969f9e4431895",
+            "assetName": "244f42594d415245",
+            "amount": "1"
+          },
+          {
+            "policyId": "da8c30857834c6ae7203935b89278c532b3995245295456f993e1d24",
+            "assetName": "4c51",
+            "amount": "415431271"
+          },
+          {
+            "policyId": "dca5fd5a6c8de1d8e69be91323cf8dfc745ede1aaff38b899a8407b8",
+            "assetName": "32303235464f524b454e494e47",
+            "amount": "1"
+          }
+        ]
+      },
+      {
+        "address": "013258f32901c7ac8acfb0815ac78515d7e27f949e7ec71f23ee1aa7bc9f132e134cb8aa14921b341ff73d0a80dee2d5c80994d4c61287f9cf",
+        "amount": "584054990689"
+      }
+    ],
+    "fee": "729966",
+    "ttl": 185691390,
+    "withdrawals": [
+      {
+        "rewardAccount": "f10298c2c0d456eab1b0d1b4ed86c41868c6154b3aaa8f3cfc181218ab",
+        "amount": "0"
+      },
+      {
+        "rewardAccount": "f104ece354512d41f8d7826d6dbb1ff022b1fedf0c8d8a388faf9f5944",
+        "amount": "0"
+      },
+      {
+        "rewardAccount": "f148700f5e36479abbf1f9f354bdbca4c489c42cb678005f3d712c5191",
+        "amount": "0"
+      }
+    ],
+    "validityIntervalStart": 185691032,
+    "mint": [
+      {
+        "policyId": "00000000000410c2d9e01e8ec78ab1dc6bbc383fae76cbe2689beb02",
+        "assetName": "",
+        "amount": "-1"
+      },
+      {
+        "policyId": "00000000000410c2d9e01e8ec78ab1dc6bbc383fae76cbe2689beb02",
+        "assetName": "4d49444153",
+        "amount": "-18901613710"
+      }
+    ],
+    "scriptDataHash": "0c74ae846812627429d2ff58a1c4d316cbb25c54acd2ff824afdc2fd48df28e2",
+    "collaterals": [
+      {
+        "txId": "6496d5081734d3d4a882208c4d889f035ab932a3d5896bfd058b421c46b5d00f",
+        "index": 1
+      }
+    ],
+    "requiredSigners": [
+      "3258f32901c7ac8acfb0815ac78515d7e27f949e7ec71f23ee1aa7bc"
+    ],
+    "collateralOutput": {
+      "address": "013258f32901c7ac8acfb0815ac78515d7e27f949e7ec71f23ee1aa7bc9f132e134cb8aa14921b341ff73d0a80dee2d5c80994d4c61287f9cf",
+      "amount": "217129246415",
+      "tokens": [
+        {
+          "policyId": "00000000000410c2d9e01e8ec78ab1dc6bbc383fae76cbe2689beb02",
+          "assetName": "4d49444153",
+          "amount": "12395280119"
+        }
+      ]
+    },
+    "totalCollateral": "1094949",
+    "referenceInputs": [
+      {
+        "txId": "cb7ad22a889e1b521b0c79f9cdcac668e9b7af9c12931231a35d94a601c4aefc",
+        "index": 0
+      },
+      {
+        "txId": "374cd4426ad2886e65adf490e0f5f49fd90c1f315db46716da6d6c97e40c7e45",
+        "index": 0
+      },
+      {
+        "txId": "4752c91da9aad816b41aeef86b83eacebed9805570f1a29a6fb099276d62d552",
+        "index": 0
+      },
+      {
+        "txId": "16486ac8687636cb095bad4a2638451975de5d71051657b7f3550514016557c4",
+        "index": 0
+      },
+      {
+        "txId": "0b9965f18e20db487e13bfdc07a21a299dd8894adb94b2a9aa742838565ecb10",
+        "index": 0
+      },
+      {
+        "txId": "5aa7f73d364eea0a2924e4a1ba8025a66d83dee910e260a9fb5d2ce7c0463b36",
+        "index": 0
+      },
+      {
+        "txId": "f2789d7dff0193cab2d9e1edb84c8d69b6187ef8fccb06b1a95b6a9f7f9611ba",
+        "index": 0
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "3258f32901c7ac8acfb0815ac78515d7e27f949e7ec71f23ee1aa7bc": {
+        "vKey": "1a39632f658747bf52ee901a74b3cf430ed57c82d6a27f49a3c5d4cd245cf271",
+        "signature": "e925ad9b12baf26eff6392eb6fdfd4e9c5ea905bb8e48722f0efcfedc412ec7e5da6f639ea1e1b2945cf9e6182a0f28579312bd5c5258bcef17b4effb0e35d09"
+      }
+    },
+    "redeemers": [
+      {
+        "index": 0,
+        "tag": 0,
+        "plutusData": "00",
+        "exUnits": {
+          "mem": 15477,
+          "steps": 7142936
+        }
+      },
+      {
+        "index": 0,
+        "tag": 1,
+        "plutusData": "00",
+        "exUnits": {
+          "mem": 16009,
+          "steps": 7243078
+        }
+      },
+      {
+        "index": 0,
+        "tag": 3,
+        "plutusData": "9fd8799fd8799f9fc25f584008dc4936077c3bbf3606a52bd4ab30cdb5b6207175cde7f3ace965dc6f001ff52d472b5ee0f8520ae69e10133bed8e8e9ba803d8cf45030b16251fa7e31a6c755822b45a20f96cf4e47f3c785fa4048f348f77584ee23c65e79e57ed80e0000000000000ffc25f584001580c7997afff5e80b573427e465be9b29875ab5035702e41e3d3d90e0e74dd492f4aaeb7dd7737421a9ea53ccd3503efe4d7176b9282a28b75274f8195aa5c5822fa4a89be39455ae30b5e05e9500c5a8f865575e797b1fea2b4402b130a1044000000ffc25f58404309e5e1ebf0818e66f7be7747374e9eb9d354de1639bb4b8e9879730de140a3853c3e2909f50d686de89181cfe6ba6ee783dfe84c6f1e69e362f91e333247ad5823e1ec92d7357eee522c10fe5f2c061610c6e74684eedbf7292d65bba650605d60000000ffc25f58402ebffcdb929968da9bedc87ee2880971a838b624fb6a77405c7292ab18dc563e47094500b61a145c9628e902ab128806dc867596276f844ee059cde63712e7675821b6701e19ece80961e71b7d81f4c91dfea52380ee963cf21b3681280bbe18000000ffc25f5840022b3ba9406488eaaa9d70fd3cea621d260be59390aa3540870ddbe699c32cc850729f0a6886b17591aed0949cf1170803a2c42d19b509751d239d0f4654b4b558225941ec6f039d3b0a84332b7634c048d70c53e0630389a9b301c271d36a6416000000ffc25f5840fe86da76da1098d3cbe3d6f94aef51c770d0e28b95ed189caf7061ed6a9f033f895be418524d6970bdc9f886d12225cdf93c0c2c22361499395f78422d15f49f58213163501ba5eca63a9b1e41137aef0c052dfff96380a5ab45acd59695be66000000ffc25f5840062aba75312a4b35c24038abe57863aa28d2426a59ed1f422a47e810e69f9ec0229cab0c43702576319ced2abf64dc7238c884ab1e2e2af8dca1e33230bed61c58223b5aab382b42f065c310c604191c7cac15cfba67584c64e21c1091d24fcb0b600000ffc25f584002dd2f349cb5b00a51daf32f9586e40dc1e37154858c09bc7bd2c4b73822bb611ebb517dcfffd51eab0ae064f7c3ef385c7a007d90d558f9659462608156d8e15821bf7fadf5105204a5f35aa70f7f568a7c6069f33428cd5a39c6fa76c3508c000000ffc25f5840082be507ab09251ccbd9bcf9dba8ef79937a4701260caa3cffadc5db1c861d94062d2c6647ad034d82b56fa7a94d7035553c2503fa3584ec8a87a820fece03895821f369f8311054d3cb0be491cfcea0d0be1879c730599b3ed8cfac40dad2e8400000ffc25f58400b79aa6747bffd6773628f0c03011210e372d120dcfc4afbf263601992c60ad9411990b0f18482dd25e536548dfb636a2d391eda747b5342438ae417733ba15c5821f965567c50e3aeaa869c4aa670295b4fd608f08b4d055bee5acb190f4096000000ffc25f584006fe3d61ad63610892b0d7902915e6c03afb4741584224bf6d7d8f85fa888217039e66c7484d9a892762531bbb0b2a6c03bccbec1f82fb86c5779892a2b6d9ea58221ee570db0bb1bb45876065a7129532d21066133ed8d268e9045ded1ab1f270000000ffc25f5840013ce17717682c91af51441ddbaa7242a812222883fcc459ae639044056a7bd8006c21814d38c16490c0a8b1be99989d8aad906bd979a62cd27a3a828cf0febf58241ee7fa1050786d01b5f4425c75929c0e6111850b17250ad70336b161bd20c781fce46029ffff454d49444153c25f5840a3348fc3f9334f089aefa97c14722d64c62023ef3f31b081815deedb718df7bd805052088bfac8c01fd96776d1bff447a2d0a809571349bc16073bcfbd3dd0905822e3b0c685426fb8c972b913f89dda9cec665ea94513f4a804cbabbaa8000000000000ffd8799fd8799fd87a9f1b0000019dccca978fffd87a80ffd8799fd87a9f1b0000019dccd015cfffd87980ffffff5840896c0a3680687621f72632471166b761e19b48478b0e3d962ebb82521085fb17aa07a2d55d3f38e017ce67e467f33f158cacbac5adc1aba108616d7252b5e402ffff",
+        "exUnits": {
+          "mem": 23290,
+          "steps": 120838522
+        }
+      },
+      {
+        "index": 1,
+        "tag": 3,
+        "plutusData": "d8799fd8799f5820374cd4426ad2886e65adf490e0f5f49fd90c1f315db46716da6d6c97e40c7e45ff00ff",
+        "exUnits": {
+          "mem": 67259,
+          "steps": 28315860
+        }
+      },
+      {
+        "index": 2,
+        "tag": 3,
+        "plutusData": "d8799f9fd8799fd8798000d87980ffff80ff",
+        "exUnits": {
+          "mem": 1639850,
+          "steps": 503283231
+        }
+      }
+    ]
+  },
+  "auxiliaryData": null
+}

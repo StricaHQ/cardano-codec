@@ -1,0 +1,50 @@
+{
+  "body": {
+    "hash": "fdc991295d0c5cddb2246fe7886a81dca4bf3302efd6bfc3a40139f004392596",
+    "inputs": [
+      {
+        "txId": "cfff5deddb6e162dfc0238ac08233d4ebab3aad6ce1cbdb2f43c4f27c8487291",
+        "index": 2
+      }
+    ],
+    "outputs": [
+      {
+        "address": "00839d70cb0415e52b6fda3c1557b79b52fbbcda53e728a5fea626380a4e641f833be7026d9948ff6ab61791123166a1c84f58fd472a6b33a5",
+        "amount": "21824423"
+      }
+    ],
+    "fee": "175577",
+    "proposalProcedures": [
+      {
+        "deposit": "100000000000",
+        "rewardAccount": "e04e641f833be7026d9948ff6ab61791123166a1c84f58fd472a6b33a5",
+        "govAction": {
+          "type": 5,
+          "action": {
+            "prevActionId": null,
+            "constitution": {
+              "anchor": {
+                "url": "https://metadata-govtool.cardanoapi.io/data/data.jsonId",
+                "hash": "ff806a1cf5293426954d6fa5dccd9493a5913b89a39e454ec5cfcbbb828418a1"
+              },
+              "scriptHash": null
+            }
+          }
+        },
+        "anchor": {
+          "url": "https://metadata-govtool.cardanoapi.io/data/subito",
+          "hash": "49888ab7d5483efdf7e4ba8385f6c6393a844cb515d727b3705e4f1298cd8c44"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "839d70cb0415e52b6fda3c1557b79b52fbbcda53e728a5fea626380a": {
+        "vKey": "0c126ab74bacccb0f91f89077e466fdbec4a26d739ac61a6b34d316c6a8344fc",
+        "signature": "2c3c99c0741d47b895765ec981597fdaf618cb9ed0c1e7f582ae93afec9dd9c7b069907d86e743441b46cdaf789816a9b4c5f71a2645899ccc047b0ae3534f01"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

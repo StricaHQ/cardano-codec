@@ -1,0 +1,47 @@
+{
+  "body": {
+    "hash": "aa21b5e3292ffa0cb05e537984fa12f61b7ec8caf5fefd6dbc72bc26482dff31",
+    "inputs": [
+      {
+        "txId": "2055f8a4e24f29181e2609c0dcfd7260d19d50a82bae3239c76d459f569305b5",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "01affb45066ccab5d3e2596944b50b589db315b2ffbe769b97ae1e47b67f4e4779aea2c4966af5053460c75a6b05eb6e344c99740be033b602",
+        "amount": "2992782392"
+      }
+    ],
+    "fee": "172805",
+    "ttl": 196716961,
+    "certificates": [
+      {
+        "type": 9,
+        "cert": {
+          "stakeCredential": {
+            "key": "7f4e4779aea2c4966af5053460c75a6b05eb6e344c99740be033b602",
+            "type": 0
+          },
+          "dRep": {
+            "type": 1,
+            "key": "c5e14dbf0a2216f0487e397461929c33bec14d8e812d4a0a3160807c"
+          }
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "7f4e4779aea2c4966af5053460c75a6b05eb6e344c99740be033b602": {
+        "vKey": "041d58bf4a341e38a5a698b2dd577665daadf186a4a9b7486e4cbfebb826b23a",
+        "signature": "b6e66d73b852c0882facaf1dd6a95cd647d82d5cf629197e4703438bd92fb68bea21b9efeb0452c78b192f12bccfaa63a3a672a993c328c6cb418f39b4f39309"
+      },
+      "affb45066ccab5d3e2596944b50b589db315b2ffbe769b97ae1e47b6": {
+        "vKey": "61705aa38772e937c74d727fb5a63fc3ba64c437f364a6f25a7058b87853feea",
+        "signature": "2d80cdf62cedb13e21e761ccd32a09a998bae3b46108543b3aef3c09017a0a8bad19fe6042f05160b3c8a136dd8edd7149c6dfe2ea860e0e1c3fa6ad32293706"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

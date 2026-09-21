@@ -1,11 +1,10 @@
 {
-  "$comment": "Real block and transaction CBOR, with the values the ledger records for them. To add a new era, drop its block CBOR hex in blocks/ and add an entry here.",
+  "$comment": "Real block and transaction CBOR, with the values the ledger records for them. To add a new era, drop its block CBOR hex in blocks/ and add an entry here. The transactions added for parser coverage (from shelley-pool-registration-relays on) take their values from Koios tx_info, except certificateCount, which counts the certificates in the CBOR (Koios splits MIR and combined certificates into several rows). `synthetic` lists the fixtures synthetic/build.mjs writes for shapes no real transaction was found for; they are only checked against their golden output. Every synthetic transaction also has an output with an empty multiasset map. `deep` lists real blocks with items nested deeper than cbors' default maxDepth (1024) and than recursion can walk. Their parsed output is too deep for the goldens (normalize, JSON.stringify and toStrictEqual all recurse), so blocks.spec.ts checks them on their own.",
   "blocks": [
     {
-      "name": "byron-mainnet",
+      "name": "byron",
       "note": "Byron main block, 2 txs",
-      "file": "blocks/byron-mainnet.hex",
-      "network": "mainnet",
+      "file": "blocks/byron.hex",
       "era": "Byron",
       "parser": "byron",
       "epoch": 150,
@@ -23,10 +22,9 @@
       }
     },
     {
-      "name": "shelley-mainnet",
+      "name": "shelley",
       "note": "Shelley block, 4 txs",
-      "file": "blocks/shelley-mainnet.hex",
-      "network": "mainnet",
+      "file": "blocks/shelley.hex",
       "era": "Shelley",
       "parser": "alonzo",
       "epoch": 215,
@@ -53,10 +51,9 @@
       }
     },
     {
-      "name": "allegra-mainnet",
+      "name": "allegra",
       "note": "Allegra block, 3 txs",
-      "file": "blocks/allegra-mainnet.hex",
-      "network": "mainnet",
+      "file": "blocks/allegra.hex",
       "era": "Allegra",
       "parser": "alonzo",
       "epoch": 240,
@@ -82,10 +79,9 @@
       }
     },
     {
-      "name": "mary-mainnet",
+      "name": "mary",
       "note": "Mary block, multiasset era",
-      "file": "blocks/mary-mainnet.hex",
-      "network": "mainnet",
+      "file": "blocks/mary.hex",
       "era": "Mary",
       "parser": "alonzo",
       "epoch": 259,
@@ -113,10 +109,9 @@
       }
     },
     {
-      "name": "alonzo-mainnet",
+      "name": "alonzo",
       "note": "Alonzo block, 34 txs, plutus v1",
-      "file": "blocks/alonzo-mainnet.hex",
-      "network": "mainnet",
+      "file": "blocks/alonzo.hex",
       "era": "Alonzo",
       "parser": "alonzo",
       "epoch": 308,
@@ -178,10 +173,9 @@
       }
     },
     {
-      "name": "babbage-mainnet",
+      "name": "babbage",
       "note": "Babbage block, 6 txs",
-      "file": "blocks/babbage-mainnet.hex",
-      "network": "mainnet",
+      "file": "blocks/babbage.hex",
       "era": "Babbage",
       "parser": "babbage",
       "epoch": 432,
@@ -214,10 +208,9 @@
       }
     },
     {
-      "name": "conway-preview",
+      "name": "conway",
       "note": "Conway block, 6 txs, inline datums",
-      "file": "blocks/conway-preview.hex",
-      "network": "preview",
+      "file": "blocks/conway.hex",
       "era": "Conway",
       "parser": "conway",
       "epoch": 751,
@@ -251,7 +244,6 @@
       "name": "mary-mint-native-script",
       "note": "mint + native (timelock) script",
       "file": "txs/mary-mint-native-script.hex",
-      "network": "mainnet",
       "era": "Mary",
       "parser": "alonzo",
       "epoch": 251,
@@ -291,7 +283,6 @@
       "name": "alonzo-plutus-v1",
       "note": "alonzo plutus v1 spend",
       "file": "txs/alonzo-plutus-v1.hex",
-      "network": "mainnet",
       "era": "Alonzo",
       "parser": "alonzo",
       "epoch": 295,
@@ -327,7 +318,6 @@
       "name": "babbage-refscript-plutus-v2",
       "note": "babbage-era output carrying a plutusV2 reference script",
       "file": "txs/babbage-refscript-plutus-v2.hex",
-      "network": "mainnet",
       "era": "Babbage",
       "parser": "babbage",
       "epoch": 375,
@@ -365,7 +355,7 @@
             "plutusDataHash": "923918e403bf43c34b4ef6b48eb2ee04babed17320d8d1b9ff9ad086e86f44ec",
             "hasInlineDatum": false,
             "scriptRef": {
-              "type": "PLUTUS_V2",
+              "type": 2,
               "hash": "fda170f7f9ecf6a5d4840ed0b6698d0aa4f2c7f6e582b13954661e70"
             }
           }
@@ -385,7 +375,6 @@
       "name": "conway-refscript-plutus-v2",
       "note": "conway-era output carrying a plutusV2 reference script",
       "file": "txs/conway-refscript-plutus-v2.hex",
-      "network": "mainnet",
       "era": "Conway",
       "parser": "conway",
       "epoch": 536,
@@ -404,7 +393,7 @@
             "plutusDataHash": null,
             "hasInlineDatum": false,
             "scriptRef": {
-              "type": "PLUTUS_V2",
+              "type": 2,
               "hash": "6a67658782f20360cc4cdf5a808ab9363bbeaeb2f8773d27a2b514eb"
             }
           },
@@ -431,7 +420,6 @@
       "name": "conway-drep-vote",
       "note": "governance: DRep voting procedure",
       "file": "txs/conway-drep-vote.hex",
-      "network": "mainnet",
       "era": "Conway",
       "parser": "conway",
       "epoch": 642,
@@ -467,7 +455,6 @@
       "name": "conway-treasury-proposal",
       "note": "governance: treasury withdrawal proposal procedure",
       "file": "txs/conway-treasury-proposal.hex",
-      "network": "mainnet",
       "era": "Conway",
       "parser": "conway",
       "epoch": 641,
@@ -504,7 +491,6 @@
       "name": "conway-plutus-withdrawal",
       "note": "plutus + withdrawal + reference inputs + inline datums + collateral",
       "file": "txs/conway-plutus-withdrawal.hex",
-      "network": "mainnet",
       "era": "Conway",
       "parser": "conway",
       "epoch": 642,
@@ -565,7 +551,6 @@
       "name": "conway-certificates",
       "note": "stake certificates",
       "file": "txs/conway-certificates.hex",
-      "network": "mainnet",
       "era": "Conway",
       "parser": "conway",
       "epoch": 642,
@@ -601,7 +586,6 @@
       "name": "conway-mint-plutus",
       "note": "mint + plutus + inline datum",
       "file": "txs/conway-mint-plutus.hex",
-      "network": "mainnet",
       "era": "Conway",
       "parser": "conway",
       "epoch": 627,
@@ -695,7 +679,6 @@
       "name": "conway-refscript-plutus-v3",
       "note": "output carrying a plutusV3 reference script",
       "file": "txs/conway-refscript-plutus-v3.hex",
-      "network": "preview",
       "era": "Conway",
       "parser": "conway",
       "epoch": 1317,
@@ -714,7 +697,7 @@
             "plutusDataHash": null,
             "hasInlineDatum": false,
             "scriptRef": {
-              "type": "PLUTUS_V3",
+              "type": 3,
               "hash": "a0980fcd225f135ca2771922c63f86c37f42758895021bc19b3beb63"
             }
           },
@@ -751,7 +734,6 @@
       "name": "conway-refscript-native",
       "note": "output carrying a native (timelock) reference script",
       "file": "txs/conway-refscript-native.hex",
-      "network": "preview",
       "era": "Conway",
       "parser": "conway",
       "epoch": 1353,
@@ -781,7 +763,7 @@
             "plutusDataHash": null,
             "hasInlineDatum": false,
             "scriptRef": {
-              "type": "NATIVE_SCRIPT",
+              "type": 0,
               "hash": "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a"
             }
           },
@@ -806,6 +788,2632 @@
         "proposalCount": 0,
         "hasMetadata": true
       }
+    },
+    {
+      "name": "shelley-pool-registration-relays",
+      "note": "pool registration with IPv4, IPv4+IPv6, DNS name and SRV relays",
+      "file": "txs/shelley-pool-registration-relays.hex",
+      "era": "Shelley",
+      "parser": "alonzo",
+      "epoch": 227,
+      "expected": {
+        "hash": "d834ea224f9ee6564ee28a6964355e965d316092ced29cf8a958f2e67009258c",
+        "fee": "2000000",
+        "ttl": 15770560,
+        "validityIntervalStart": null,
+        "inputs": [
+          "08e52972b1f2a07b766ca74a8898e4a8d991c26f3d46c9df6ce825b9996b69e4#0"
+        ],
+        "outputs": [
+          {
+            "amount": "8000000",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "mary-pool-registration-no-port",
+      "note": "stake registration, delegation and pool registration with a DNS name relay without a port; no outputs",
+      "file": "txs/mary-pool-registration-no-port.hex",
+      "era": "Mary",
+      "parser": "alonzo",
+      "epoch": 257,
+      "expected": {
+        "hash": "0d44708e7076290c7aeb737bf59efc5dc75b0bb0a5b0a6b3e8d49d44e5331617",
+        "fee": "488089",
+        "ttl": 26280972,
+        "validityIntervalStart": null,
+        "inputs": [
+          "02f08a54d0a35230997eb0db2f479c548de1962ca88b88ae12e440dd8d52a951#1"
+        ],
+        "outputs": [],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 3,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "mary-stake-registration",
+      "note": "stake registration and delegation",
+      "file": "txs/mary-stake-registration.hex",
+      "era": "Mary",
+      "parser": "alonzo",
+      "epoch": 262,
+      "expected": {
+        "hash": "cef925706b7cfb285f97b6fb2639b7ca33f4de194b907eacb4d2390b4bcd481f",
+        "fee": "174257",
+        "ttl": 28249455,
+        "validityIntervalStart": null,
+        "inputs": [
+          "49c36ab3ffb39290e55819e95a55156db24b385cfd1972509d5e4a3cb23e3704#0"
+        ],
+        "outputs": [
+          {
+            "amount": "247825743",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "mary-update-proposal-entropy",
+      "note": "update proposal injecting extra entropy",
+      "file": "txs/mary-update-proposal-entropy.hex",
+      "era": "Mary",
+      "parser": "alonzo",
+      "epoch": 258,
+      "expected": {
+        "hash": "4820a52eb681843d119a70ed3af8b3feb43c964251d02733200d48fe1a83d6e8",
+        "fee": "217553",
+        "ttl": 26254541,
+        "validityIntervalStart": null,
+        "inputs": [
+          "b2bdbe07d5cd4da8b8dbef9eee67ff6fb1877055d0b8309fbd4718591389eac5#0"
+        ],
+        "outputs": [
+          {
+            "amount": "4782447",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "alonzo-mir",
+      "note": "MIR certificate paying 135 rewards from the treasury; Alonzo-format auxiliary data",
+      "file": "txs/alonzo-mir.hex",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "epoch": 341,
+      "expected": {
+        "hash": "f480f39ad17d6477b971e0092c8c38b0c41606abdf749caa915b8cb8b1fc9100",
+        "fee": "433989",
+        "ttl": 62091708,
+        "validityIntervalStart": null,
+        "inputs": [
+          "29d794140dd30530ccc4782fd72f46a76f7465367f8805f0e13326a2758c84c4#0"
+        ],
+        "outputs": [
+          {
+            "amount": "81357552264",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "alonzo-network-id",
+      "note": "network id field, output with a datum hash, witness datums; Alonzo-format auxiliary data",
+      "file": "txs/alonzo-network-id.hex",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "epoch": 360,
+      "expected": {
+        "hash": "09bb7a3d739435669e035c9df2a7df6f74beb1ad3f7f4cba0d9b5e2f5fa3d674",
+        "fee": "185257",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "d983bcf8e1ee30754ccaed4d6bb60ce87e1046105d64a0706139bf89d537e9f2#1",
+          "df5120cd9a188b222d20832dfe0dbf3f25a228fab47420c5cadbfdbf0ba6ac18#1"
+        ],
+        "outputs": [
+          {
+            "amount": "145769655",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "2004030298",
+            "tokens": [],
+            "plutusDataHash": "fe37018919cf1eae1393b91cbf2ebb6346ab41bfefed07abbcd58c2dfb330e45",
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "alonzo-pool-registration-no-metadata",
+      "note": "pool registration without metadata, plus a stake delegation",
+      "file": "txs/alonzo-pool-registration-no-metadata.hex",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "epoch": 360,
+      "expected": {
+        "hash": "8795b9cd59a1f6886547c6bec6d4e5738d9fba2b79823e7e1b2b70be3ea6e783",
+        "fee": "195993",
+        "ttl": 70420457,
+        "validityIntervalStart": null,
+        "inputs": [
+          "cb363f364f9a88e776b093d6059812437676fc94c5f8bfc12a62ab7be7afd8f6#0",
+          "ded6f371ce80b8b784c12237bdde7d2b7478dd1941850d452d37cb4d6ad7e667#0"
+        ],
+        "outputs": [
+          {
+            "amount": "297427861",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "alonzo-pool-retirement",
+      "note": "pool retirement",
+      "file": "txs/alonzo-pool-retirement.hex",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "epoch": 300,
+      "expected": {
+        "hash": "d473d523c85d93db8c875e8ab28f278eab1b734ff616b236680f04fd86f75bb8",
+        "fee": "177733",
+        "ttl": 44364043,
+        "validityIntervalStart": null,
+        "inputs": [
+          "522cad499a140099a45b704ba5fa1e91fe3ae6e719385fed0d1fa50e43659b53#1"
+        ],
+        "outputs": [
+          {
+            "amount": "3290916",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-aux-allegra-form",
+      "note": "Allegra-format auxiliary data; native scripts with an invalid-before bound",
+      "file": "txs/babbage-aux-allegra-form.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 503,
+      "expected": {
+        "hash": "64b6ee8266882003247e35056529780156df2cbe0826a0692c9eba682cb567da",
+        "fee": "192825",
+        "ttl": 132367458,
+        "validityIntervalStart": 132363858,
+        "inputs": [
+          "75651f5f75420861f48c8e8385ec74dfd20534adb5967bd4f5d5be56661da8bf#1"
+        ],
+        "outputs": [
+          {
+            "amount": "2000000",
+            "tokens": [
+              "badace88588666d4885e4f38607a6c1e87d592b7d4d9ad9cb134e655.4d6f62794469636b3132=1"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "1000000",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "33392278",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [
+          "badace88588666d4885e4f38607a6c1e87d592b7d4d9ad9cb134e655.4d6f62794469636b3132=1"
+        ],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "babbage-bootstrap-witness",
+      "note": "spends from a Byron address: one bootstrap witness and an empty vkey witness list",
+      "file": "txs/babbage-bootstrap-witness.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 470,
+      "expected": {
+        "hash": "c56c1bcd083296fe34c0a29ff51ecadc4f27b2e2650cc2ce6c3770817f72ae8e",
+        "fee": "876277",
+        "ttl": 118115652,
+        "validityIntervalStart": null,
+        "inputs": [
+          "c433bdaa4e6463c2868fe7d882604d207122aba8055c06c6d52e7ef1d6f20b9e#6"
+        ],
+        "outputs": [
+          {
+            "amount": "129999123723",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-empty-bootstrap-witnesses",
+      "note": "an empty bootstrap witness list next to a vkey witness",
+      "file": "txs/babbage-empty-bootstrap-witnesses.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 470,
+      "expected": {
+        "hash": "ed3b29a36b370cae5c944945113a068475741e7299665abba86c97e26dc7c67b",
+        "fee": "876277",
+        "ttl": 118115504,
+        "validityIntervalStart": null,
+        "inputs": [
+          "b178c1539c05299a248214612d705392f9e0d6fd294193a0abedb39cffe49fcd#0"
+        ],
+        "outputs": [
+          {
+            "amount": "144052608",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-mir-treasury",
+      "note": "MIR certificate paying rewards from the treasury; Alonzo-format auxiliary data",
+      "file": "txs/babbage-mir-treasury.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 409,
+      "expected": {
+        "hash": "4b4ca196d524ae3877f772d5f0871e76aeedbf0330d2549178a834158593b299",
+        "fee": "203385",
+        "ttl": 91565708,
+        "validityIntervalStart": null,
+        "inputs": [
+          "4903c93be970a2503ed115ab3db495b8055bc20cf4ef34adda1629a8ed8fbe73#0"
+        ],
+        "outputs": [
+          {
+            "amount": "99796615",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "babbage-output-datum-hash",
+      "note": "map-form output with a datum hash; a PlutusV1 script in Alonzo-format auxiliary data",
+      "file": "txs/babbage-output-datum-hash.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 470,
+      "expected": {
+        "hash": "630f798047f6d17334096b3225583e797f7f762466fe008913c3da3c5b5dbf35",
+        "fee": "330568",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "05b7a9c68341682cd49adac6df4b4cce68d5e67a7b6d7760b5921864d90ec6cb#0",
+          "a060661c43cdef5e1de79a8bb4f56e9aa95b2c42a72c8d6dd41758192d6a53d3#17",
+          "a060661c43cdef5e1de79a8bb4f56e9aa95b2c42a72c8d6dd41758192d6a53d3#4"
+        ],
+        "outputs": [
+          {
+            "amount": "1728310",
+            "tokens": [
+              "92d4de86b80a3df1c02e0494d364cea0296d82b67118de9b407b3262.315315529f6fdac532fbe6520e291a19b7273ae6dbad8232c3d0a02cfa59fa7f=20",
+              "9a3ed6b29dda73af0a4fb34c4134abf6621b415cdffc6102e9d9f4d0.315315529f6fdac532fbe6520e291a19b7273ae6dbad8232c3d0a02cfa59fa7f=2480"
+            ],
+            "plutusDataHash": "9685125dc32087ffe20e181a27605e6e9926a4d73d568afed0ce996b4a287485",
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "1271450",
+            "tokens": [
+              "92d4de86b80a3df1c02e0494d364cea0296d82b67118de9b407b3262.315315529f6fdac532fbe6520e291a19b7273ae6dbad8232c3d0a02cfa59fa7f=10"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "2952014251",
+            "tokens": [
+              "7914fae20eb2903ed6fd5021a415c1bd2626b64a2d86a304cb40ff5e.4c494649=11978105148",
+              "7e58b3308075c3e8d95263ccb64b654a9ebfe5ee773a81c20e4a804a.486f72697a6f6e444558=42",
+              "804f5544c1962a40546827cab750a88404dc7108c0f588b72964754f.56594649=2250000",
+              "8434cc23a47cfa0d68d729b480169bfa3f910310a8184f43cfbcc02c.0014df104c5459=7104402251",
+              "8654e8b350e298c80d2451beb5ed80fc9eee9f38ce6b039fb8706bc3.4c4f4253544552=4000000",
+              "867d31740e1fa4ff05a7de492d30db97baeb2fb7c11421083fd9e9fe.524c4f4253544552=2",
+              "86abe45be4d8fb2e8f28e8047d17d0ba5592f2a6c8c452fc88c2c143.58524159=124362561497",
+              "88691a70bb0fe49cf9124b4f78553c36c09fa6264844e2b294119173.4575736b6f=30",
+              "8d632dc475ae322efaf2f76c1a7aff29a2d7efa91a7fa474035b54eb.72434e4354=24000",
+              "8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd61.446a65644d6963726f555344=7953",
+              "8db269c3ec630e06ae29f74bc39edd1f87c819f1056206e879a1cd61.5368656e4d6963726f555344=4",
+              "8fef2d34078659493ce161a6c7fba4b56afefa8535296a5743f69587.41414441=971424834",
+              "95a427e384527065f2f8946f5e86320d0117839a5e98ea2c0b55fb00.48554e54=4004358861",
+              "96ad5ab136d2193dda2afb662285b93e48d265e14df59ee0f33925ae.4447454d=4000000"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "4010698875",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": "4504148",
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "babbage-pool-registration",
+      "note": "pool registration with an IPv4 relay and metadata, plus a stake delegation",
+      "file": "txs/babbage-pool-registration.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 420,
+      "expected": {
+        "hash": "979d5b275e5018fc1ef0d97f100c05be4b99803981a91fc30c01491a54dd8137",
+        "fee": "196037",
+        "ttl": 96097561,
+        "validityIntervalStart": null,
+        "inputs": [
+          "7d7d25fe796adc9b348dc2862aa5e23597433f86cc8e49fe55aed93a4c4eb185#0"
+        ],
+        "outputs": [
+          {
+            "amount": "1998805826",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-pool-registration-no-metadata",
+      "note": "pool registration with a DNS name relay and no metadata, plus a stake delegation",
+      "file": "txs/babbage-pool-registration-no-metadata.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 484,
+      "expected": {
+        "hash": "c56390ee76b8bc32a36430af0cdd3f4780c884f1b7648ef89004414d9965e8f1",
+        "fee": "192737",
+        "ttl": 123879277,
+        "validityIntervalStart": null,
+        "inputs": [
+          "2e2618590208832d18d505c48772a1b4449a95498a2135e30a10b024fc057d35#0"
+        ],
+        "outputs": [
+          {
+            "amount": "36633050",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-pool-registration-relays",
+      "note": "pool registration with DNS name, IPv6 and SRV relays",
+      "file": "txs/babbage-pool-registration-relays.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 420,
+      "expected": {
+        "hash": "e87bbde7d975f546f1f3293e71c06ade6f9bba87bd8195d5aa635088cc2d3c52",
+        "fee": "205365",
+        "ttl": 96181377,
+        "validityIntervalStart": null,
+        "inputs": [
+          "8e8362bb1da796ee8e5b8e20c0d2069908936a9ccc5c229aece4cdd776e6cb09#0"
+        ],
+        "outputs": [
+          {
+            "amount": "42432174",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-pool-retirement",
+      "note": "pool retirement",
+      "file": "txs/babbage-pool-retirement.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 420,
+      "expected": {
+        "hash": "3dd66bafb24eec6806f02098a65d722d3f106057714cf7e6eefb5e3230cf43c0",
+        "fee": "179009",
+        "ttl": 96251737,
+        "validityIntervalStart": null,
+        "inputs": [
+          "f8a52f4f587c0909eaef360845842c4fa99e65cdfbdb466cb1c95bd519e5285a#0"
+        ],
+        "outputs": [
+          {
+            "amount": "27256717",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-script-withdrawal",
+      "note": "withdrawal from a script stake address (reward redeemer); a PlutusV2 witness script next to an empty PlutusV1 list",
+      "file": "txs/babbage-script-withdrawal.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 500,
+      "expected": {
+        "hash": "1ae02d8286d028130a5d28778f8e1226be69be13cf1d8fde62f2605d9cec48f1",
+        "fee": "336295",
+        "ttl": 131058467,
+        "validityIntervalStart": 131056467,
+        "inputs": [
+          "06386ec1b3aae8a7b823764871c8e411095214d451b13b3554277ed64711cc9a#0",
+          "3000e3ee68519836f20c24536d05efae25a69de16bebf2598c8165d1578ae66c#2",
+          "72d61d6c150c283452728c2621d9d41e9b8f5ee1af3aaece4105b98245262c28#0"
+        ],
+        "outputs": [
+          {
+            "amount": "5267647378",
+            "tokens": [
+              "83f22ab6467de8ed6754f9851d7a92a2377071cf94d101d87ca2dbe6.5045534f=80977103",
+              "e0302560ced2fdcbfcb2602697df970cd0d6a38f94b32703f51c312b.000de1400bc2dd8fa9608b0d1004e3ccf921839e840e965197cd827e6ce46dfb=1"
+            ],
+            "plutusDataHash": "b0ebe22df921b47bc96da5d548efe9db23d1db6b45ce1d3e9c49cff7d2d500a8",
+            "hasInlineDatum": true,
+            "scriptRef": null
+          },
+          {
+            "amount": "56906828",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "6009166",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [
+          "0"
+        ],
+        "certificateCount": 0,
+        "referenceInputCount": 3,
+        "collateralCount": 1,
+        "collateralOutputAmount": "1112028",
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-stake-deregistration",
+      "note": "stake deregistration",
+      "file": "txs/babbage-stake-deregistration.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 470,
+      "expected": {
+        "hash": "7788e875970ae99c5d190dfc687383d6ac4abcad65efa046bd7352dcf99b73cf",
+        "fee": "171485",
+        "ttl": 118115865,
+        "validityIntervalStart": null,
+        "inputs": [
+          "23b849ce3b58274177492685663036c5d59e150334955698606c76ee216d032b#0"
+        ],
+        "outputs": [
+          {
+            "amount": "585690742",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-stake-registration",
+      "note": "stake registration and delegation",
+      "file": "txs/babbage-stake-registration.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 400,
+      "expected": {
+        "hash": "aa0290a020052375da2d1b4eae4d51d65e05d87c0745c0d7838be62a57dae8e4",
+        "fee": "183990",
+        "ttl": 87864807,
+        "validityIntervalStart": null,
+        "inputs": [
+          "728b9b8718819cbe9faeb09858eb13b4e1e3bfc478f45b1a36e7bcf99a13c882#0"
+        ],
+        "outputs": [
+          {
+            "amount": "7816010",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-update-proposal",
+      "note": "update proposal: PlutusV1/V2 cost models and protocol version 9.0",
+      "file": "txs/babbage-update-proposal.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 506,
+      "expected": {
+        "hash": "9ba6a580bceb8f94e65a683e8291c89382835f46e3cf928eb521f5581ade4820",
+        "fee": "266481",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "4bbffc43b7e0355b070c01d68cb030e0c00fd7e850590f864540c0cd02e86717#1"
+        ],
+        "outputs": [
+          {
+            "amount": "49046089",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-aux-allegra-form",
+      "note": "Allegra-format auxiliary data; native scripts in the witness set",
+      "file": "txs/conway-aux-allegra-form.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 520,
+      "expected": {
+        "hash": "58b62d066b56a8bc783fe552a3b2b72785ef9ed1ee1864b0c912395e305d1545",
+        "fee": "209941",
+        "ttl": 171080096,
+        "validityIntervalStart": null,
+        "inputs": [
+          "4d164b7d3167758133f2afdf9da3f27a4cef8610ef5080648f5183448a67117e#0"
+        ],
+        "outputs": [
+          {
+            "amount": "2790059",
+            "tokens": [
+              "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1.43424a53503031383234=1"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "153000000",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [
+          "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1.43424a53503031383234=1"
+        ],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "conway-bootstrap-witness",
+      "note": "spends from a Byron address (bootstrap witness)",
+      "file": "txs/conway-bootstrap-witness.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 520,
+      "expected": {
+        "hash": "8f45f9538c3961500d3adf431793c0c2669cf01f749470ee15f150cfa1ff84ea",
+        "fee": "177398",
+        "ttl": 180000000,
+        "validityIntervalStart": null,
+        "inputs": [
+          "79c37545dcd7cd66a638d3ec94a475998f4eda3db85b8d17731278fb99f6a0b6#0"
+        ],
+        "outputs": [
+          {
+            "amount": "49547433",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-bootstrap-witness-tagged",
+      "note": "spends from a Byron address, bootstrap witnesses in a tag-258 set",
+      "file": "txs/conway-bootstrap-witness-tagged.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 620,
+      "expected": {
+        "hash": "aa9956bc9623f328312e91448fcdcabc1f8f3fa482fa7a2b640938e44dea9582",
+        "fee": "168581",
+        "ttl": 182888589,
+        "validityIntervalStart": null,
+        "inputs": [
+          "95944b5eeb8d174ae1b84797bf88a06b978e124ed69422b95148412db86bba7a#1"
+        ],
+        "outputs": [
+          {
+            "amount": "111712375",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "25034579",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-committee-hot-auth",
+      "note": "constitutional committee hot key authorization by a script cold credential (cert redeemer)",
+      "file": "txs/conway-committee-hot-auth.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 653,
+      "expected": {
+        "hash": "d0f8573a76cf4dd49ffd3f263a37d820ad9e3bd0094f08de346e33c5233cde51",
+        "fee": "220178",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "2f0a6fbbf50c3f162e893548b3247b747028ed7eb0569f62df08b94ec2834685#2",
+          "fecd5e48e10be7786977e228a686999e2da1087764c0c7a876999528fa79a2ac#0"
+        ],
+        "outputs": [
+          {
+            "amount": "11070857",
+            "tokens": [
+              "a8bbc7001fdb226055baa1e5133acbcc25a70ba83864153a8bc1f958.536d61727457616c6c657420566f756368657220=3",
+              "e9dd7480c604eec7c25f2dce6c55620024d60c9ac05bd4ea12584def.536d61727457616c6c65744d696e7441646d696e=1",
+              "e9dd7480c604eec7c25f2dce6c55620024d60c9ac05bd4ea12584def.536d61727457616c6c6574566f756368657241646d696e=1"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 2,
+        "collateralCount": 1,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-drep-deregistration",
+      "note": "DRep deregistration",
+      "file": "txs/conway-drep-deregistration.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 655,
+      "expected": {
+        "hash": "55451fa2dd7d45d04dd6ba2fb66da725e13b47cf45ccfc2958292ba1c1493385",
+        "fee": "171837",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "dfe51b59b51f32f15a83fe90213d2e86f0f0c0928747f7ba17a3f89f2eac9ce9#0"
+        ],
+        "outputs": [
+          {
+            "amount": "509828163",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-drep-registration",
+      "note": "DRep registration without an anchor, and a vote delegation",
+      "file": "txs/conway-drep-registration.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 562,
+      "expected": {
+        "hash": "b12b7e1d6a62694fa75350b8dfacb2f8ba24ec37572b6dfc21f362bedf28493b",
+        "fee": "179229",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "a5e8d4892bf75ebca1db5b9433d21c448aad3dba2a6c7f60c2a3e51a25f20138#3"
+        ],
+        "outputs": [
+          {
+            "amount": "2892859088",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-drep-registration-multisig",
+      "note": "DRep registration with an anchor, witnessed by an n-of-k native script",
+      "file": "txs/conway-drep-registration-multisig.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 604,
+      "expected": {
+        "hash": "2df95643d95bc17f9aa92e6de093844aa9835bf0292638a4b82caca67b768957",
+        "fee": "196917",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "aa80490885c2933daf213848ea2574ea0e5dcdb561faaed1f1d98ace368b57be#0",
+          "aa80490885c2933daf213848ea2574ea0e5dcdb561faaed1f1d98ace368b57be#1",
+          "aa80490885c2933daf213848ea2574ea0e5dcdb561faaed1f1d98ace368b57be#2"
+        ],
+        "outputs": [
+          {
+            "amount": "9803083",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "conway-drep-update-multisig",
+      "note": "DRep update with an anchor, witnessed by an any-of native script",
+      "file": "txs/conway-drep-update-multisig.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 571,
+      "expected": {
+        "hash": "f40eab630309f3a68c3ab170eab57c770be3b5c8920f3b011dca1655974352a3",
+        "fee": "185653",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "3655cf38e3369f4f181cd7216f4a745d3313f5c85564ba93a7ab68662984be51#0"
+        ],
+        "outputs": [
+          {
+            "amount": "4074947",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-drep-update-no-anchor",
+      "note": "DRep update without an anchor, and a vote delegation to a key-hash DRep",
+      "file": "txs/conway-drep-update-no-anchor.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 632,
+      "expected": {
+        "hash": "402dc4dbc0601b3f261db269e670a8570635bce5f7344584a112acd9c03721ae",
+        "fee": "179053",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "774bc3dc027357885dc76e58c950646bbdf8039f15614e0d929100f6bd27a3e8#169"
+        ],
+        "outputs": [
+          {
+            "amount": "21239772",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-hard-fork-initiation",
+      "note": "governance: hard fork initiation without a previous action",
+      "file": "txs/conway-hard-fork-initiation.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 529,
+      "expected": {
+        "hash": "0b19476e40bbbb5e1e8ce153523762e2b6859e7ecacbaf06eae0ee6a447e79b9",
+        "fee": "183893",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "41bfdf1ed20d0d8b89de2308dc8136180b70d199625bfb7a76a6a79f3fe9f466#0",
+          "fff0df644d328a5367212f45bab59060bde3c4091dc96c723062896fd6197314#0"
+        ],
+        "outputs": [
+          {
+            "amount": "895702",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-hard-fork-initiation-prev",
+      "note": "governance: hard fork initiation with a previous action",
+      "file": "txs/conway-hard-fork-initiation-prev.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 637,
+      "expected": {
+        "hash": "fdd468da5cc4ac8431dcd7e2b3211666c73bc229f85879469f67f1d9d51d344d",
+        "fee": "184069",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "c75bb221606687aa858ec89c7a15c88e9c17054f2e045ae31ecc8a9687cd206e#0",
+          "c8a7dc38c2a5590b328ac53971d8e0281c021ba7fb17a36618f3fb5e2b626aa3#0"
+        ],
+        "outputs": [
+          {
+            "amount": "2817039",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-info-action",
+      "note": "governance: info action",
+      "file": "txs/conway-info-action.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 640,
+      "expected": {
+        "hash": "a75645e0871f3dbb6207df867d9bd6a1a3a5befa40d68df6da651db4d6607fbf",
+        "fee": "180197",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "859b53fffd4b55891402705c27b0e05fb4f9b308974e413cd11e40f762472aa9#0"
+        ],
+        "outputs": [
+          {
+            "amount": "1006134319",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-legacy-output-datum-hash",
+      "note": "array-form output with a datum hash; PlutusV1 scripts and datums in the witness set",
+      "file": "txs/conway-legacy-output-datum-hash.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 520,
+      "expected": {
+        "hash": "33e47a4817b4f926f419b3a032c4f5cca4258eb67485124d2ffd62b221e63ad7",
+        "fee": "542182",
+        "ttl": 139718293,
+        "validityIntervalStart": 139706293,
+        "inputs": [
+          "87c7570414e29c8b4fd07b86d2f48fd865e3feb09dc0f5cd177a3eb2280f9baf#3",
+          "91a6d6a6a7af0594b088fdbab656fe96fdafa4df56047defe8534ea89dfab53b#3",
+          "dd854499263ca5eb311a55c0a55661cf28e014b1d50528337fe6591655ef8fab#3"
+        ],
+        "outputs": [
+          {
+            "amount": "2000000",
+            "tokens": [
+              "a238606b343ead0285717cb3e068994bef234ed9a8f28604ff9c32e8.=1",
+              "ab0dec21aa7d939ad124ffaf95faf8ed72b1018ff72fffd8f9974907.474f4b4559=272614286"
+            ],
+            "plutusDataHash": "fa7b0d414bbaa86f20b54527d3da327660dcf25867eaa85f33c75863b25cd5d2",
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "2458995471",
+            "tokens": [
+              "016be5325fd988fea98ad422fcfd53e5352cacfced5c106a932a35a4.42544e=8000",
+              "10a49b996e2402269af553a8a96fb8eb90d79e9eca79e2b4223057b6.4745524f=4000000",
+              "420000029ad9527271b1b1e3c27ee065c18df70a4a4cfc3093a41a44.41584f=4000000",
+              "5d16cc1a177b5d9ba9cfa9793b07e60f1fb70fea1f8aef064415d114.494147=91275160",
+              "8fef2d34078659493ce161a6c7fba4b56afefa8535296a5743f69587.41414441=6000",
+              "9a9693a9a37912a5097918f97918d15240c92ab729a0b7c4aa144d77.53554e444145=4000000",
+              "a0028f350aaabe0545fdcb56b039bfb08e4bb4d8c4d7c3c7d481c235.484f534b59=2000000",
+              "b6a7467ea1deb012808ef4e87b5ff371e85f7142d7b356a40d9b42a0.436f726e75636f70696173205b76696120436861696e506f72742e696f5d=10000000",
+              "ececc92aeaaac1f5b665f567b01baec8bc2771804b4c21716a87a4e3.53504c415348=70000",
+              "edfd7a1d77bcb8b884c474bdc92a16002d1fb720e454fa6e99344479.4e5458=40000",
+              "f43a62fdc3965df486de8a0d32fe800963589c41b38946602a0dc535.41474958=2500000"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [
+          "a238606b343ead0285717cb3e068994bef234ed9a8f28604ff9c32e8.=1"
+        ],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "conway-network-id-vote",
+      "note": "network id field, and a DRep vote without an anchor",
+      "file": "txs/conway-network-id-vote.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 643,
+      "expected": {
+        "hash": "b5fc32a33e4b0bdfc7fa25a6d18e9bf5dcd80df6de9396df9e593ec5e76b5591",
+        "fee": "177937",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "096f6b0b4a5cb12dd88f6052ac59562fd56fd61851680f61d982b0c0d71f8881#0"
+        ],
+        "outputs": [
+          {
+            "amount": "1475881",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 1,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-new-constitution",
+      "note": "governance: new constitution with a guardrails script, no previous action",
+      "file": "txs/conway-new-constitution.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 537,
+      "expected": {
+        "hash": "8c653ee5c9800e6d31e79b5a7f7d4400c81d44717ad4db633dc18d4c07e4a4fd",
+        "fee": "187237",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "0b19476e40bbbb5e1e8ce153523762e2b6859e7ecacbaf06eae0ee6a447e79b9#0",
+          "fea19449e2944210b87d6a3b579e0886f27a799f452a73c2f5e3f06e0e8e83d4#0"
+        ],
+        "outputs": [
+          {
+            "amount": "1708465",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-new-constitution-prev",
+      "note": "governance: new constitution with a guardrails script and a previous action",
+      "file": "txs/conway-new-constitution-prev.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 586,
+      "expected": {
+        "hash": "c882f194684d672316212f01efc6d28177e8965b7cd6956981fe37cc6715961e",
+        "fee": "183805",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "26b680dc14cfa488ef0695571dfe0ff6ab20d8a25618bcd49bf6059ac4ca98c2#0"
+        ],
+        "outputs": [
+          {
+            "amount": "99816195",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-output-datum-hash",
+      "note": "map-form outputs with datum hashes; PlutusV1 witness scripts and datums",
+      "file": "txs/conway-output-datum-hash.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 520,
+      "expected": {
+        "hash": "0e5946ddaa08e10a98295938a735094f551dbbd98f1acaafda692d3a635af6cc",
+        "fee": "1122246",
+        "ttl": 139709888,
+        "validityIntervalStart": 139706289,
+        "inputs": [
+          "2a2a15a276e797b742401b3e3a4636f2b75605a2dab383d9b9beafb8691cfd45#0",
+          "819e8cbb0a4ecef5199a39f3e6a6cb4161b2bacb49eb0dfc1fda17e8ce46e61e#3",
+          "86808069b369230f37ed6a6805765081830d154e79db09df435e0a9548757319#0"
+        ],
+        "outputs": [
+          {
+            "amount": "596132391867",
+            "tokens": [
+              "0029cb7c88c7567b63d1a512c0ed626aa169688ec980730c0473b913.702004=1",
+              "1d7f33bd23d85e1a25d87d86fac4f199c3197a2f7afeb662a0f34e1e.776f726c646d6f62696c65746f6b656e=1509207333391"
+            ],
+            "plutusDataHash": "738a0a1de3538491bae112ad1ab0b0253619faafa17fdcfb3e91c04a9d20b3ce",
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "1377754",
+            "tokens": [],
+            "plutusDataHash": "7445634d9e96d8a3cc892dc1ed28cf491859efee0a284f80a110745437b97441",
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "2000000",
+            "tokens": [
+              "1d7f33bd23d85e1a25d87d86fac4f199c3197a2f7afeb662a0f34e1e.776f726c646d6f62696c65746f6b656e=2946246482"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "2000000",
+            "tokens": [
+              "e8a447d4e19016ca2aa74d20b4c4de87adb1f21dfb5493bf2d7281a6.73636f6f706572202e0b=1"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-param-change-cost-models",
+      "note": "governance: cost model update without a previous action",
+      "file": "txs/conway-param-change-cost-models.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 518,
+      "expected": {
+        "hash": "51f495aa23f4b3b3aa90afde4a0e67823bb7ac4ac65f5ffbb138373b863f2f74",
+        "fee": "355452",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "7f2cbe0c2aa24f1f260e06d4b20b6f8930ab8bad943861601fc6d7f34a53228f#0"
+        ],
+        "outputs": [
+          {
+            "amount": "1644548",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": "100001466822",
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-plutus-v1-witness-datums",
+      "note": "PlutusV1 scripts and datums in tag-258 witness sets; Alonzo-format auxiliary data",
+      "file": "txs/conway-plutus-v1-witness-datums.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 651,
+      "expected": {
+        "hash": "7894cebf6fe02eeab5ac05665aca5dcc078e0c7a00989cae5f5dc7fd803d1f19",
+        "fee": "213621",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "aeb36002d14262ab122a1916c70c022fc8f0eda31f2dd4138c1e7d11106c0031#0"
+        ],
+        "outputs": [
+          {
+            "amount": "53786379",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": true
+      }
+    },
+    {
+      "name": "conway-plutus-v2-witness-tagged",
+      "note": "PlutusV2 scripts and vkeys in tag-258 witness sets, map-form mint redeemer",
+      "file": "txs/conway-plutus-v2-witness-tagged.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 520,
+      "expected": {
+        "hash": "682b4b0f2721b804f3451e09ef2353712dbe720e1f59f7c21aa8d200c0de2352",
+        "fee": "256347",
+        "ttl": 139707546,
+        "validityIntervalStart": null,
+        "inputs": [
+          "0725a2e475f6717f91eb9b33eb2b7e8c61c22b6e5ecf3adcd325c53b4631cab1#2",
+          "0e5946ddaa08e10a98295938a735094f551dbbd98f1acaafda692d3a635af6cc#2",
+          "2d2ee2c5b4cc8e998a5746138bd6468bdf9f471fa19453dc42d77727db6624d9#2",
+          "368531081fcb258cbf5eeb2f6a0337a4d1a06380703c6feb8637aa55da0472b3#1",
+          "44d83d4304fa837ee946c9b9118c2ec7513165d6dd288e02facc18a30b65bb2d#2",
+          "57aa2f6096307f0a4821508e092d116c731c29595da918ea70e8d2eb9198e268#1",
+          "5d673b035f9d2925a6bbd044b0e87a0439a0969cbf4a5d951defbeb6f434cafd#1",
+          "74f2af57338f7943b92396ddd3b1f521f6605b2f5cab8d03535f56d996fb0034#1",
+          "db7a35f81918ebfc5e8b18fba39fea9bdd776491f35dac06d2866e8a77575e79#1",
+          "ede3cdfdb1677c7045bf78e3fa51befb9641975c86e42612843a973ba4d016e6#2",
+          "f776738d602389e15d1a3abc0699b400bbb8492b5b7dad67dba573b9c25be7f8#1",
+          "f7ada89487625cbe57192b6958c9348f2d6714bd80d7dfcb012f3ae09248c40b#1"
+        ],
+        "outputs": [
+          {
+            "amount": "1224040",
+            "tokens": [
+              "1d7f33bd23d85e1a25d87d86fac4f199c3197a2f7afeb662a0f34e1e.776f726c646d6f62696c65746f6b656e=30000000000"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "2000000",
+            "tokens": [
+              "1d7f33bd23d85e1a25d87d86fac4f199c3197a2f7afeb662a0f34e1e.776f726c646d6f62696c65746f6b656e=675255356"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "1245590",
+            "tokens": [
+              "e5a42a1a1d3d1da71b0449663c32798725888d2eb0843c4dabeca05a.576f726c644d6f62696c65546f6b656e58=30000000000"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          },
+          {
+            "amount": "11561157163",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [
+          "e5a42a1a1d3d1da71b0449663c32798725888d2eb0843c4dabeca05a.576f726c644d6f62696c65546f6b656e58=30000000000"
+        ],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-pool-registration-ipv6",
+      "note": "pool registration with an IPv6-only relay",
+      "file": "txs/conway-pool-registration-ipv6.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 636,
+      "expected": {
+        "hash": "a88501f6e355bb87bc66cf4b4b10782294de7793566689a104bee304cf6e51df",
+        "fee": "204529",
+        "ttl": 189632435,
+        "validityIntervalStart": null,
+        "inputs": [
+          "c721c82795dd8a73f3952e6bace5ad2a477ce4093ee201ec835237d862d1cb6b#0"
+        ],
+        "outputs": [
+          {
+            "amount": "204963995218",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-pool-registration-no-metadata",
+      "note": "pool registration without metadata",
+      "file": "txs/conway-pool-registration-no-metadata.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 639,
+      "expected": {
+        "hash": "c836055f563e4d961f6991cdda6ed69fd4c601a5b9eb4db72540a5f1fccb6705",
+        "fee": "181165",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "4fa75462afc579e462b8590aff6c6af8c1cc637f1a7fab5217689c99a81fd0c9#0"
+        ],
+        "outputs": [
+          {
+            "amount": "5318835",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-pool-registration-plain-owners",
+      "note": "pool registration with an untagged owner list",
+      "file": "txs/conway-pool-registration-plain-owners.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 600,
+      "expected": {
+        "hash": "2b0923b60f78b77aaeb4a60350abf9f55ecd8893ac2da592b07c7b14bc246b42",
+        "fee": "188689",
+        "ttl": 174399427,
+        "validityIntervalStart": null,
+        "inputs": [
+          "ab65bdc084086b74fef21e7faec2718de7be42f9fadd8de0165e3746f7f83ceb#0"
+        ],
+        "outputs": [
+          {
+            "amount": "545051508",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-pool-registration-srv",
+      "note": "pool registration with a tag-258 owner set, DNS name and SRV relays",
+      "file": "txs/conway-pool-registration-srv.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 577,
+      "expected": {
+        "hash": "50a7298031b8e3c3eaa84d479818524074fa6e2c9c6fc8a29f9a76989a477dd5",
+        "fee": "206445",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "6194c1fec2ccf6d486c40fa159ea197b8c4001df72eb4438b1346ac7096f5f29#0"
+        ],
+        "outputs": [
+          {
+            "amount": "94457484",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-pool-retirement",
+      "note": "pool retirement in a tag-258 certificate set",
+      "file": "txs/conway-pool-retirement.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 600,
+      "expected": {
+        "hash": "94a6cd766697157cbb5eb4a5be133e36b2d8eced32a0d17598d5acc9002b7e89",
+        "fee": "180329",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "4101fa43c7fcdcd45c30a05fbb9db163508e4fe2c74bd45fdc18bf08da101bf8#0"
+        ],
+        "outputs": [
+          {
+            "amount": "4819671",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-stake-deregistration",
+      "note": "stake deregistration with a deposit refund (cert 8)",
+      "file": "txs/conway-stake-deregistration.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 580,
+      "expected": {
+        "hash": "f4d9bba0dfccd42e965954ea01dfcf3045aa45d7782ae56c0313c3e4e47ab102",
+        "fee": "171617",
+        "ttl": 165619347,
+        "validityIntervalStart": null,
+        "inputs": [
+          "655fba8fdf7370fe66667401edf415b3e4c550cfc6431dd1ec13512410e31ffe#0"
+        ],
+        "outputs": [
+          {
+            "amount": "10052374",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-stake-deregistration-legacy",
+      "note": "stake deregistration without a deposit (cert 1)",
+      "file": "txs/conway-stake-deregistration-legacy.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 580,
+      "expected": {
+        "hash": "9a8dcb16b9110e17c80fef82a419f418acb26a5fd02dd8aba98c24a59c614d75",
+        "fee": "171782",
+        "ttl": 165612352,
+        "validityIntervalStart": null,
+        "inputs": [
+          "8e3a21cd6ff578f625a0c17a8c1251665cd31f89a89783bd8ddcda4916e1bc6d#0"
+        ],
+        "outputs": [
+          {
+            "amount": "2710452217",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-stake-registration-legacy",
+      "note": "stake registration without a deposit (cert 0), and a vote delegation to always-abstain",
+      "file": "txs/conway-stake-registration-legacy.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 542,
+      "expected": {
+        "hash": "6242cea6c6e839fa2c539dfd510719f81e8d54cdb71008db40655a46757b5ef2",
+        "fee": "185521",
+        "ttl": 149011667,
+        "validityIntervalStart": null,
+        "inputs": [
+          "47dca85c4c58499184a4bee0a3347b8d802e557ec5609a591aaa3ce0c9250b11#0"
+        ],
+        "outputs": [
+          {
+            "amount": "127274814479",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-update-committee",
+      "note": "governance: update committee removing members (tag-258 set), with a previous action",
+      "file": "txs/conway-update-committee.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 646,
+      "expected": {
+        "hash": "729daaf2f9f89f842a61f6e3ebf7e57d16d6fa4116e29c13114780cb39090850",
+        "fee": "194761",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "ab474223d40e2e3540555364be27e161a809c33651408f43d84acff10c0ba306#0",
+          "e404e5f9afc5091204fb954485a79ae31d22cf3cb9869b2303ba4089a3a85224#0"
+        ],
+        "outputs": [
+          {
+            "amount": "2720225",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-vote-delegation-no-confidence",
+      "note": "vote delegation to always-no-confidence",
+      "file": "txs/conway-vote-delegation-no-confidence.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 655,
+      "expected": {
+        "hash": "82afca0494ef9bd3ddb1a69f34104db08507de106f9e52536c8e17e86558c672",
+        "fee": "171914",
+        "ttl": 197938543,
+        "validityIntervalStart": null,
+        "inputs": [
+          "8d9cb6469d7e10fd0785900034f408e7d3cc9b89f256b3022dfc7f871acdd1b4#0"
+        ],
+        "outputs": [
+          {
+            "amount": "119832571",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-vote-delegation-script-drep",
+      "note": "vote delegation to a script DRep",
+      "file": "txs/conway-vote-delegation-script-drep.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 652,
+      "expected": {
+        "hash": "aa21b5e3292ffa0cb05e537984fa12f61b7ec8caf5fefd6dbc72bc26482dff31",
+        "fee": "172805",
+        "ttl": 196716961,
+        "validityIntervalStart": null,
+        "inputs": [
+          "2055f8a4e24f29181e2609c0dcfd7260d19d50a82bae3239c76d459f569305b5#0"
+        ],
+        "outputs": [
+          {
+            "amount": "2992782392",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "babbage-pool-registration-no-port",
+      "note": "pool registration with an IPv4 relay and a DNS name relay without a port",
+      "file": "txs/babbage-pool-registration-no-port.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "epoch": 38,
+      "expected": {
+        "hash": "f133e32f1451682288db3053909fa9f103d0d59e2c1302746c213653faab90cc",
+        "fee": "197269",
+        "ttl": 15117596,
+        "validityIntervalStart": null,
+        "inputs": [
+          "02b36726f6560c966f85006cd43ce8e6a584193af22bbfe25f42c6079d828e58#0"
+        ],
+        "outputs": [
+          {
+            "amount": "9486452017",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-no-confidence-prev",
+      "note": "governance: no confidence with a previous action",
+      "file": "txs/conway-no-confidence-prev.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 295,
+      "expected": {
+        "hash": "7c6f684a5370636030f83117beda22e34a3c947ce46a0e46589fd41dfaa3a79b",
+        "fee": "183113",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "46ec6fcc62fb354438bc2597807787d2538e62ba021f9835648cf2de06463242#0"
+        ],
+        "outputs": [
+          {
+            "amount": "411419776754",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-stake-reg-delegation",
+      "note": "combined stake registration and pool delegation (cert 11)",
+      "file": "txs/conway-stake-reg-delegation.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 283,
+      "expected": {
+        "hash": "8a416edce3befaca9962e3303510dc34d87b300bcf250643416a3fa3655d8b34",
+        "fee": "193221",
+        "ttl": 120831942,
+        "validityIntervalStart": null,
+        "inputs": [
+          "9403fe51274b43ead39b953165b4297f3487ea755aa896806eccdc5a89816058#0"
+        ],
+        "outputs": [
+          {
+            "amount": "79801034596",
+            "tokens": [
+              "0ed7b909dcd1bfe653b2d9e1275ce601aa93751e3e7d30179fa33e3d.4c656f546f6b656e54657374=2",
+              "0ed7b909dcd1bfe653b2d9e1275ce601aa93751e3e7d30179fa33e3d.4d657368546f6b656e=3",
+              "648823ffdad1610b4162f4dbc87bd47f6f9cf45d772ddef661eff198.444149=10000000",
+              "648823ffdad1610b4162f4dbc87bd47f6f9cf45d772ddef661eff198.446a6564=10000000",
+              "648823ffdad1610b4162f4dbc87bd47f6f9cf45d772ddef661eff198.55534443=10000000",
+              "648823ffdad1610b4162f4dbc87bd47f6f9cf45d772ddef661eff198.55534454=13000000",
+              "648823ffdad1610b4162f4dbc87bd47f6f9cf45d772ddef661eff198.69555344=10000000",
+              "648823ffdad1610b4162f4dbc87bd47f6f9cf45d772ddef661eff198.77444f4745=38",
+              "648823ffdad1610b4162f4dbc87bd47f6f9cf45d772ddef661eff198.77455448=51",
+              "659ab0b5658687c2e74cd10dba8244015b713bf503b90557769d77a7.57696e67526964657273=158006405",
+              "6b728428c0eb014949d72c94449bbef4b10b6ad2b1b86bd4e92476f0.4c616365436f696e32=18",
+              "7615b1a9c13a073bcc31cbec2a7a15b0926b0add4ee8409b04b886d2.4d554c4e4654=2",
+              "9772ff715b691c0444f333ba1db93b055c0864bec48fff92d1f2a7fe.446a65645f746573744d6963726f555344=2000000000",
+              "9772ff715b691c0444f333ba1db93b055c0864bec48fff92d1f2a7fe.5368656e5f746573744d6963726f555344=2000000",
+              "cc10e4c3b496ec6da41c51f63ee40474c691cc7a0cc8a645d7c4a899.4a616e75737a436f696e=1",
+              "cc10e4c3b496ec6da41c51f63ee40474c691cc7a0cc8a645d7c4a899.546f6d6d79436f696e=1",
+              "f6f49b186751e61f1fb8c64e7504e771f968cea9f4d11f5222b169e3.74484f534b59=15"
+            ],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-vote-reg-delegation",
+      "note": "combined stake registration and vote delegation (cert 12), with a cert redeemer",
+      "file": "txs/conway-vote-reg-delegation.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 309,
+      "expected": {
+        "hash": "5ad44bbd1009d18474f0c0fcc10506f553d191ca754da5a064f8cc0b12ed53ea",
+        "fee": "335121",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "1830e5b71821508d93560a5adb0503f4d5080bea42fc9516bb8787eefe87447e#0"
+        ],
+        "outputs": [
+          {
+            "amount": "247664879",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 1,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": "245000000",
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-new-constitution-no-script",
+      "note": "governance: new constitution without a guardrails script",
+      "file": "txs/conway-new-constitution-no-script.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 1085,
+      "expected": {
+        "hash": "fdc991295d0c5cddb2246fe7886a81dca4bf3302efd6bfc3a40139f004392596",
+        "fee": "175577",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "cfff5deddb6e162dfc0238ac08233d4ebab3aad6ce1cbdb2f43c4f27c8487291#2"
+        ],
+        "outputs": [
+          {
+            "amount": "21824423",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-no-confidence",
+      "note": "governance: no confidence without a previous action",
+      "file": "txs/conway-no-confidence.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 988,
+      "expected": {
+        "hash": "1ed2479b2abab685bd0c148e880d9b4c006bf21991b0b5a0000e66df62d6ee4a",
+        "fee": "171441",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "8fb5927bc3804d1aae7fd4062840d26bbab2fb17730fb60cab29598a0b96b284#5"
+        ],
+        "outputs": [
+          {
+            "amount": "21828559",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-param-change-drep-thresholds",
+      "note": "governance: parameter change of the DRep voting thresholds (26)",
+      "file": "txs/conway-param-change-drep-thresholds.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 757,
+      "expected": {
+        "hash": "1fb793f6b8460ed5f63c5b0f3c8919657e1f70cac9676fd5f16e5d7e69eb425b",
+        "fee": "374806",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "a003201b997db0777751c1f8f3f1d5ca761248ce5fd683e886a647dca53c2039#0"
+        ],
+        "outputs": [
+          {
+            "amount": "99996906633",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-param-change-many",
+      "note": "governance: parameter change of 27 protocol parameters, incl. execution prices (19) and the reference script fee (33)",
+      "file": "txs/conway-param-change-many.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 1047,
+      "expected": {
+        "hash": "8db9c91ab04f4f198d98e9bda5dbf08870154514f2a213d0858f2ba51a1d7a16",
+        "fee": "482602",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "216dca4b838ffc5b6aef5d973f927ebaa1a308d0f53b7162f6ea86968bdbcecf#0",
+          "56de8cfb4f8db31354afe3b956a008e04dbd20915fc0bff7278b5ca132cef2c3#0",
+          "5f880f70b104eb5e61b59f7cfdfddc11c67358b80f0ef8ee2d995b2bd4e826fe#0",
+          "72c092891f3645f25a810bc204bfd0f6b79dade8252402a103e5ffa9def50e9b#0",
+          "9a7d9150589afe5748ac4c03253a35c7bf3857e7de743915362b1fd14e7b4c0f#0",
+          "aa206eb33f903d9386989aadb18979018c3f99278ff9b7acfe74dd3105f68b72#0",
+          "b0b7277d104ffe9fc4d735e33d302a62e1407aa8853e43a3539dcdb7f1d1e6f3#0",
+          "ba12c574a335a412035609f9894d44ab624c5d269c870a2cc5e92aacddb56fb5#0",
+          "bd00003e3800a0af1a8d9f794bf2fe3dc046a5a0026505d0c6730094bc895bcc#0",
+          "bd5a32e851b4f547503679aa21ba6d3bc7e368b1c5bdd13819486254e9dd94b2#0",
+          "cca8d5846ee0ddd088ad0c7eb2878dd0db558dcfb99747d7327bf099e3e02b2f#0"
+        ],
+        "outputs": [
+          {
+            "amount": "9997693499",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": "9999110288",
+        "voteCount": 0,
+        "proposalCount": 1,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-param-change-pool-thresholds",
+      "note": "governance: parameter change of the pool voting thresholds (25)",
+      "file": "txs/conway-param-change-pool-thresholds.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 750,
+      "expected": {
+        "hash": "aa1fe93e5a421a4589fe526d75d0704b46a34bdf914a54adcae9872212340f6b",
+        "fee": "722496",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "7fe706e13dd4130891eaef4a02e2023452ede770c0e7d09df553173c6845755e#0",
+          "808163e2564948d4904ff05de8a6c9c833bffe561a93d929475c86f346e033f1#0",
+          "8088b7e490f8f7ed0ffa6ffa4979b98c5edfcefcf03fc3608080889d3b310b72#0",
+          "80c30a4f00cb84a9380dec816e93b94fd008fab046f80f6edb832648774db78b#0",
+          "80d424f09e1361434df0777e78653efa10a8743ca08f94f7114f0419c0373652#0",
+          "82c21df09b2ba2b107fd1fee8797057714c31642c0ddc9818a9a91fd53563294#0",
+          "83ec723d80c3a985e637ff21f07868056c749abb01846128ea05a6ce9bf4858e#0",
+          "841b50d1d3a132580ce0a99cd39f9f31f0cfbc82b516b66768965225e002bf71#0",
+          "850f0ceb743e8a3279bf5f2e8855b30e064ad175c09fb8848c4580e138a1ea78#0",
+          "85230c90eac1eee6eb08dc51f965edd4ab71e7b57e2efd6758d1ee308f46caff#0",
+          "855d70720735bc216ce6438cdcee6df0d965967bce385e75f0db1b56ffed0f69#0",
+          "85ef266e1db2b284eb09bbb41c02764335ddf11a06fd1659ea2f8753192909fa#0",
+          "86d4cff278f03364830b82851b65b6b648bd022ed63549e752460661b9e335b5#0",
+          "87a22915d61731eb14106fbedb07ee7c0c1001a60b621daaac35e712a8cdfa47#0",
+          "8929826b094be2c5b4c7ca5d3cc2b722ffe54f0986b9e0ede8f32bfc4ce04346#0",
+          "8a21ad642117dcc83ec8b00cc2a9f14d2deb70b9aa0215620d1c98b68aa73562#0",
+          "8abfda43f6dd454160dc0fe2d23b7454821c1aa7167a1a6f7ba5c6c8c4ca81b2#0",
+          "8c06ee460e08757c64f97ecd8f32c6ef0859688f6be6a9699fec2a5b81aed490#0",
+          "8c14bb6bb8c1757c1c740e58d990867f846b5d7c2ee55eadf261226180e22472#0",
+          "8c45c7c2b51feba8b0dbdf827d35cbca06eae56085c2c74cf94fa2004be0e972#0",
+          "8c8602aca5d17b436b8fd38e1c02e745cc38f1fb9d03d72c6b3c5d706a6dbe0c#0",
+          "8cf90584cb1bf4818a3e84321f89ec8cd5786aecb53e3b7c7f842478670febf9#0",
+          "8dd386c28c304114cee5bbacb09cede9be42789fee297ff0ac548d5506d084fb#0",
+          "914deacb9f628235326d0ad39a1e2b30cfa89963cb3ab810b2660e6afd4185ca#0",
+          "91743a5e7fb59cff3c245ef0a48eb70063dd85a819c5816169ec8266ed46e2da#0",
+          "91a4ceacc72bbdc472639d07067dc9a2b4c579966fb4d7d9676bda3ce87be561#0",
+          "91d60ca46688498daca9ba0776c9588c4ff7e2b352a8295678d3ff48142a092c#0",
+          "91d74ccab739deea2a65e18f34342e74050cebbf0284b18ba18540a289cffeef#0",
+          "92a08fa45ebc4a8ab8f79275a44b32d89d00df1256b7cc98d9d2e3afce52b023#0",
+          "9338334a14e1de7e95dbb07106015dc14f6161e424a30c5d65aabfbd029dba4f#0",
+          "93603f77c6a70d9b7b26e283e85b0a08956862b6d138af6690da6366485dca01#0",
+          "93ac468313b668e455fc7b17302754a8d21147a79f80361190b96f41973dcafc#0",
+          "93b13f35c0aa313ef8557c42df967a155c2bba0338b28091edf61943d698b019#0",
+          "970ecc514fcef5a030a4676a067ae20f949e332bcaca3c84cc055079374d98ad#0",
+          "9719cb1915621edb9fd065b0577cf5ce4e9d44480706133f1a112646b68dc9ff#0",
+          "9738b35a31285ca524bd69c5ebd2d366288a860d31e67a540e0104a09cb574c4#0",
+          "97e379ca883221b6f8df1523bcbbab5f99eabbaba6b74ef81f41170ae269575b#0",
+          "988c9597373a0ecdb74f928d35d142e39ac8ba584689b7f471d3417a9e91b210#0",
+          "99456df4072699cc3bbd7721b11ecaef733cc4bf3a57037c3101fa202d756919#0",
+          "9adc7d6c3838f533b12b324c80a44d37d5a0d6666886be35aeccc8a21f02a6a2#0",
+          "9b5968e6c47dcaee004347fb78ea3faa4683160ff24fccfe76d05e8429ebcde9#0",
+          "9c79adb9b6421bf1a395ab61989202db265854c58399972c56180ac2b0473da3#0",
+          "9ce7de7e9f110942694dafa299ad8cd91305094e4fcade961393f11a0f72e1c2#0",
+          "9d62f07875870ffefc937057ec816ff85e1fce7cd19e30dd5a310482d8ed666b#0",
+          "9ee9b388e9ecde3b7e99cb40b4ad8a47cf79682f4ec15d5af96757b01366bdae#0",
+          "a0682f14cb981af39a34dfdf664f4f85c2d93c9faccc188a9d4ece8eca3478df#0",
+          "a078afe23cf67793a78f52797b59dc339fd51fbde5df21caa51c97e9cf45af2f#0",
+          "a087eb1ad0b816d5cb855c96da8a731b2842f7d71688d99ec87a80ac9d3eadcb#0",
+          "a0ceba4140a98ec19d4a9ec5133e85cf5439ec58b323f2fdeeb8ca4f39451818#0",
+          "a1612fed66704079ac7e0e78f802b818366c5a265cf3215493db9a0f9ed85226#0",
+          "a202e0af4dd33aa81bfad4b2b404de3cce4ffd87176b545684d0fe2edfd4b8d5#0"
+        ],
+        "outputs": [
+          {
+            "amount": "9999277504",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 0,
+        "referenceInputCount": 0,
+        "collateralCount": 1,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 5,
+        "hasMetadata": false
+      }
+    },
+    {
+      "name": "conway-pool-registration-no-port",
+      "note": "pool registration with an IPv4 relay and a DNS name relay without a port",
+      "file": "txs/conway-pool-registration-no-port.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 752,
+      "expected": {
+        "hash": "72071ad47fceacb78ddb4364ed7d06a2d19d4a66a1d3aa01d95923fc3dd7643e",
+        "fee": "202153",
+        "ttl": null,
+        "validityIntervalStart": null,
+        "inputs": [
+          "caf7950d6ced325189b8efe249636a6c6c96b7dff93154411b06e23a3e7a4617#0"
+        ],
+        "outputs": [
+          {
+            "amount": "9497617166",
+            "tokens": [],
+            "plutusDataHash": null,
+            "hasInlineDatum": false,
+            "scriptRef": null
+          }
+        ],
+        "mint": [],
+        "withdrawalAmounts": [],
+        "certificateCount": 2,
+        "referenceInputCount": 0,
+        "collateralCount": 0,
+        "collateralOutputAmount": null,
+        "voteCount": 0,
+        "proposalCount": 0,
+        "hasMetadata": false
+      }
+    }
+  ],
+  "deep": [
+    {
+      "name": "conway-deep-nesting",
+      "note": "Conway block, 23 txs. A witness set in it holds a native script of thousands of nested `all` scripts, so the block nests deeper than recursion can walk.",
+      "file": "blocks/conway-deep-nesting.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "epoch": 313,
+      "expected": {
+        "hash": "bac1660208e7a8f63fc7caf97cfefcd3066a517d3ca4d971e1b316d1e43708e5",
+        "blockHeight": 5183974,
+        "slot": 133883340,
+        "txHashes": [
+          "f8fc2546a6da712a25c3ab5d12c030bc797d9d23eff06898d39813357bc72244",
+          "4982bdbaf8a74f7ff88af29f275a50e9622747308da77e654bb157c3bb6d3070",
+          "2c78213431d91d188d35b059110a04849aca0540427332f118df610b87ffa644",
+          "f90dce5765108da976abdbb9fc618f9a6ffd9fa4d93b2f288eed1808545424c9",
+          "5265897ba0b728b51e24d4083e02845b7eb302e1f57d0639bc3da07428f99848",
+          "e0668752dd3870b6711c56a1488b5e1707887e0606b21a101c721619b5857148",
+          "ab10a91f0dd0eb8ce540b548139dbaf6a9bd9ae72583d631f1bfba5fd42651b1",
+          "3a612c04210774e3136553bf36e507c5826ffcf3d9d19e9f0a684bc63ecc57c2",
+          "5e419cd4f24d2ece978a39bf009cfb0090bdc4ac5a9c13221172e0d5fa817fb3",
+          "138c8d2c17a412552b2db43cb7461c1fec13a338e6eb138c7c5fc05f9e7d3098",
+          "ad976cd4e970edbad99cd76f7cf9097f391b12fdb65e588fdbb1d35fb6a5d648",
+          "92ec351c01643e63ad7da88c84b602914bf884bfd9600fc1bb3ea49613161c4c",
+          "66ecad7fff6ebd07f2ab2718ca69c73bb92c1e93f392ae349e2959bb3bbb4b51",
+          "dba9af517e1aaf95211d1ff6bd3f18105ef30ddb14bb9cfb3b65467d75bbb1a7",
+          "f7d3e4ea452c047fa246b31ce5cfa0650a1f6fcfacc698e106857d605845521f",
+          "074750a5a40bd4195966904a922184ccf34eae13668806230e6306843dd4291e",
+          "7ca4c0e1e22229988a61767a1c1985f18ad432866cb1770700c57c2a36cd8f2f",
+          "64e830287a52a0c34737c0015df718c6a74613e6217ecdbea488d83bc831c182",
+          "4e66cde4e85e7288d1d4f7335fb0ff2e2cbcd6ffd7f909fc90b34e5e5256e51c",
+          "ba89058012d7cd36d5b49c19a49cb8ebc5063d61231816c74b8013148e19e6cc",
+          "6d49edbd5b57b6df01a9add4ae7fff315181b22ae766f25069058710c50e4540",
+          "71a4bad537f5eaf8cb67c26b239e5f8e5ac5d8096fc522d80fbd625eefbd19a6",
+          "d642e453c56d31d7c8c2f73fe160338d2a92a67fb1ed50b886849a34b6260385"
+        ]
+      }
+    }
+  ],
+  "synthetic": [
+    {
+      "name": "byron-ebb",
+      "note": "epoch boundary block",
+      "file": "synthetic/byron-ebb.hex",
+      "era": "Byron",
+      "parser": "byron",
+      "kind": "ebBlock"
+    },
+    {
+      "name": "alonzo-update-all-params",
+      "note": "update proposal setting every protocol parameter 0-24, incl. execution prices and a cost model entry beyond 2^53",
+      "file": "synthetic/alonzo-update-all-params.hex",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "kind": "tx"
+    },
+    {
+      "name": "alonzo-certificates",
+      "note": "genesis key delegation, MIR certificates moving coin between the reserves and the treasury, a stake registration with a script credential, and a pool registration with an IPv6-only relay and an IPv4 relay without a port",
+      "file": "synthetic/alonzo-certificates.hex",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "kind": "tx"
+    },
+    {
+      "name": "alonzo-scripts",
+      "note": "PlutusV1 witness scripts and datums, redeemers with all four tags, a non-minimally encoded integer datum, an empty mint; Alonzo-format auxiliary data with metadata (bytes, integers beyond 2^53), native and PlutusV1 scripts",
+      "file": "synthetic/alonzo-scripts.hex",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "kind": "tx"
+    },
+    {
+      "name": "alonzo-aux-allegra-scripts",
+      "note": "Allegra-format auxiliary data with metadata and a native script of every kind",
+      "file": "synthetic/alonzo-aux-allegra-scripts.hex",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "kind": "tx"
+    },
+    {
+      "name": "alonzo-block-assembled",
+      "note": "the header of blocks/alonzo.hex with prev_hash null, and the transactions of txs/alonzo-plutus-v1, alonzo-network-id and alonzo-mir; tx 0 marked invalid",
+      "file": "synthetic/alonzo-block-assembled.hex",
+      "era": "Alonzo",
+      "parser": "alonzo",
+      "kind": "block"
+    },
+    {
+      "name": "babbage-update-all-params",
+      "note": "update proposal setting every Babbage protocol parameter, incl. execution prices",
+      "file": "synthetic/babbage-update-all-params.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "kind": "tx"
+    },
+    {
+      "name": "babbage-certificates",
+      "note": "genesis key delegation, MIR certificates moving coin between the reserves and the treasury, a stake registration with a script credential, and a pool registration with an IPv6-only relay and an IPv4 relay without a port",
+      "file": "synthetic/babbage-certificates.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "kind": "tx"
+    },
+    {
+      "name": "babbage-scripts",
+      "note": "outputs with a native and a PlutusV1 reference script, an empty mint; PlutusV2 witness scripts and datums, redeemers with all four tags, a non-minimally encoded integer datum; Alonzo-format auxiliary data with native, PlutusV1 and PlutusV2 scripts",
+      "file": "synthetic/babbage-scripts.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "kind": "tx"
+    },
+    {
+      "name": "babbage-aux-allegra-scripts",
+      "note": "Allegra-format auxiliary data with metadata and a native script of every kind",
+      "file": "synthetic/babbage-aux-allegra-scripts.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "kind": "tx"
+    },
+    {
+      "name": "babbage-block-assembled",
+      "note": "the header of blocks/babbage.hex with prev_hash null, and the transactions of txs/babbage-script-withdrawal, babbage-aux-allegra-form and babbage-output-datum-hash; tx 0 marked invalid",
+      "file": "synthetic/babbage-block-assembled.hex",
+      "era": "Babbage",
+      "parser": "babbage",
+      "kind": "block"
+    },
+    {
+      "name": "conway-certificates-rare",
+      "note": "stake and vote delegation certificates 10 and 13, committee resignations with and without an anchor, and a pool registration with an IPv4 relay without a port",
+      "file": "synthetic/conway-certificates-rare.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "kind": "tx"
+    },
+    {
+      "name": "conway-governance",
+      "note": "parameter change and treasury withdrawal without a guardrails script; current treasury value and a donation",
+      "file": "synthetic/conway-governance.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "kind": "tx"
+    },
+    {
+      "name": "conway-scripts",
+      "note": "outputs with a PlutusV1 reference script and a non-canonically encoded native one; PlutusV3 witness scripts and datums, redeemers with all four tags, a non-minimally encoded integer datum; Alonzo-format auxiliary data with every script language",
+      "file": "synthetic/conway-scripts.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "kind": "tx"
+    },
+    {
+      "name": "conway-aux-allegra-scripts",
+      "note": "Allegra-format auxiliary data with metadata and a native script of every kind",
+      "file": "synthetic/conway-aux-allegra-scripts.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "kind": "tx"
+    },
+    {
+      "name": "conway-block-assembled",
+      "note": "the header of blocks/conway.hex with prev_hash null, and the transactions of txs/conway-plutus-withdrawal, conway-plutus-v1-witness-datums, conway-aux-allegra-form and conway-drep-vote (auxiliary data in all three formats); tx 1 marked invalid",
+      "file": "synthetic/conway-block-assembled.hex",
+      "era": "Conway",
+      "parser": "conway",
+      "kind": "block"
     }
   ]
 }

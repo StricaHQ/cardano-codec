@@ -1,0 +1,36 @@
+{
+  "body": {
+    "hash": "5aa7f73d364eea0a2924e4a1ba8025a66d83dee910e260a9fb5d2ce7c0463b36",
+    "inputs": [
+      {
+        "txId": "4752c91da9aad816b41aeef86b83eacebed9805570f1a29a6fb099276d62d552",
+        "index": 1
+      }
+    ],
+    "outputs": [
+      {
+        "address": "015f0dd183897970ef5bf17d1c11fad8f5dfccc898399c1031936611abc78075e77e21f96ab6f944d3adb5cb1edd1b097d408e4f57bf169601",
+        "amount": "1633490",
+        "scriptRef": {
+          "type": 2,
+          "script": "588d01000033232323232322222533300532330010013756601460166016601660166016601660106ea8c028c020dd50011129998050008a5013253330083375e00e6012601800429444cc00c00c004c030004526136565734aae7555cf2ab9f5742ae89300126d8799fd87a9f581c04ece354512d41f8d7826d6dbb1ff022b1fedf0c8d8a388faf9f5944ffff0001",
+          "hash": "6a67658782f20360cc4cdf5a808ab9363bbeaeb2f8773d27a2b514eb"
+        }
+      },
+      {
+        "address": "01a8aea0703190368a82f7a97095dbe35c85bfc8b1d531f7e45ca2a9539b8dd7a1fd8fec542cf3325a5505dced9f764cac99f53ba0213c32fb",
+        "amount": "2958386113"
+      }
+    ],
+    "fee": "174917"
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "a8aea0703190368a82f7a97095dbe35c85bfc8b1d531f7e45ca2a953": {
+        "vKey": "2794cc01a2d683d5258999e66c58c5b68f45c790737873d687c6c67134d62e85",
+        "signature": "b2c95872a4f8d0f8690b27250430ea55633d4f6119afdfa0ff9abe82d5b77362be8d4621c7e44da5a042dc04c74fc091711d62f6776885052ba9fde2e0ef710b"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

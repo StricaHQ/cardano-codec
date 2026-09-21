@@ -1,0 +1,52 @@
+{
+  "body": {
+    "hash": "0d48922f8944c59e649f292179ac255012096e616345a871cf84b5511b56f1af",
+    "inputs": [
+      {
+        "txId": "7bd10b4228a8ca87954d70e0fc56ce4d66c403908f14f4ba09f8ded72d4a607e",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "010afbe78bdf0a674216d4796ab3d290e7d02dce447de651713171918e6da4975e94c1194fdad58e62c853035fb314b78642f202d0e04da95a",
+        "amount": "122993718"
+      }
+    ],
+    "fee": "178657",
+    "votingProcedures": [
+      {
+        "voter": {
+          "key": "b6f4547ad049d7443ee5695761e1aa5e446cfccf72c7ed0d8ad8edfa",
+          "type": 2
+        },
+        "votes": [
+          {
+            "govActionId": {
+              "txId": "b3d452bff7769d7f557ec6b8974760ee6c5e496c276652b654032966621e0ccf",
+              "index": 6
+            },
+            "vote": 2,
+            "anchor": {
+              "url": "https://most-brass-sun.quicknode-ipfs.com/ipfs/QmWKYqhvR87R8GaDJnEQwA6inUiEGrziTwGGUPLWiCD4QX",
+              "hash": "ea83c3804e241c1ed3a5bd056d33cb75312abeeb87065705dcd4c36aaf9071d2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "0afbe78bdf0a674216d4796ab3d290e7d02dce447de651713171918e": {
+        "vKey": "0fd6cb48aab7db87f865cba4d007d10cd3b67b6f15813092bdb799006b2acb04",
+        "signature": "0f6d69d725074822d024c151103581b9519b88ea7291ad79f4c2f1b9aa2e77c2b3ad7d5fb5cd8cce0a0d825f665ecc75d59011c32e84117c6dc0ba48145dca00"
+      },
+      "b6f4547ad049d7443ee5695761e1aa5e446cfccf72c7ed0d8ad8edfa": {
+        "vKey": "be66250d2267f16608feba5d1091171aa6e2c1b3223c7c75babb160926e5b47a",
+        "signature": "740c671ba24162845b4fa31fc060790ce634b65d95514e5ad52761b1b087a40a84c77e6f0ae7928303ddc04de9cdb5e8d3a99fcd208073681cf0fa3a5d28d906"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

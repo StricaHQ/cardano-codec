@@ -1,0 +1,92 @@
+{
+  "body": {
+    "hash": "4b4ca196d524ae3877f772d5f0871e76aeedbf0330d2549178a834158593b299",
+    "inputs": [
+      {
+        "txId": "4903c93be970a2503ed115ab3db495b8055bc20cf4ef34adda1629a8ed8fbe73",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "61b651c2062463499961b9cd594da399a5ec910fceb5c63f9eb55a224a",
+        "amount": "99796615"
+      }
+    ],
+    "fee": "203385",
+    "ttl": 91565708,
+    "certificates": [
+      {
+        "type": 6,
+        "cert": {
+          "pot": 1,
+          "rewards": [
+            {
+              "amount": "8931404863383",
+              "stakeCredential": {
+                "key": "024ad5c090a78a38b381510470555f4f1966c3415af7703df4a22877",
+                "type": 0
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "auxiliaryDataHash": "074a30cf8da94471ad52d78fe083f3e29b3b6b24d3cfa79ef9c1898f81229509"
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "4485708022839a7b9b8b639a939c85ec0ed6999b5b6dc651b03c43f6": {
+        "vKey": "9180d818e69cd997e34663c418a648c076f2e19cd4194e486e159d8580bc6cda",
+        "signature": "941d93abfc492cdafcc90bab80642b0dc4c7e90fc03d69d8d0019d1ddcdd15f5173829f6f9260f3149027aea218b07014d769a4b52c892e840019c2c0ef1fd07"
+      },
+      "69ae12f9e45c0c9122356c8e624b1fbbed6c22a2e3b4358cf0cb5011": {
+        "vKey": "f14f712dc600d793052d4842d50cefa4e65884ea6cf83707079eb8ce302efc85",
+        "signature": "86de13f9bfedd3d1efc443f7515e573cdf6022dd49f4bfd69d9895ce70249abc5ef67148ed161d252071f8100a6e6699e4e6c5d25d63f39776c254bf5f65150c"
+      },
+      "7f043fe52de60f2c30b31c9d3e3efff5651cdeba2eeba24b438e787b": {
+        "vKey": "e48efb2a67baf497e2f6ddcb73caa8657f8aebe25c2b68dd7747214f0da2e876",
+        "signature": "c1dc2c1e1b8eb27783ff99169135fd6e630d3cd52450a5bbf67fff2df1f926f31dfc440687e1caf104c11b05f1c91862386ea883b26f1c3bea9fe46c31495e0f"
+      },
+      "7f72a1826ae3b279782ab2bc582d0d2958de65bd86b2c4f82d8ba956": {
+        "vKey": "8b53207629f9a30e4b2015044f337c01735abe67243c19470c9dae8c7b732798",
+        "signature": "1e9da1cd1af69e52b3770fc913fc287f7c764bc081bd018cc28081cc2d300d4846463986833c25abce451bf083de019c407d413228aa4ea09d8b7f58c79ae10c"
+      },
+      "855d6fc1e54274e331e34478eeac8d060b0b90c1f9e8a2b01167c048": {
+        "vKey": "5fddeedade2714d6db2f9e1104743d2d8d818ecddc306e176108db14caadd441",
+        "signature": "84eb59fe1a22ab8196b8f7542ebea4ec39fff6a8764c897a1ac856496aa24a9e2b969ba59c3c1551f0cddb1ada2b96a543c31261a3c20d7b237fa1ed606c9700"
+      },
+      "98599cbfede2ff9471797f7115ce2f745d83026936759fcf95092cc1": {
+        "vKey": "01eca324c21d04ec2cc5af61eafde94b44bce5f998cb64004c19e21ee5e9289c",
+        "signature": "20078156e4f23151ee664e1461864e530dfe663ff6d58a695f01e4de5e9011ebf5e8967ab1f94447dca4c935622707a4fae71493312aa537047df61dfdf40b0f"
+      },
+      "b651c2062463499961b9cd594da399a5ec910fceb5c63f9eb55a224a": {
+        "vKey": "4c0232db0800fe53ce90a8d3842cc0d3964e675701f45ead680042e4049465b1",
+        "signature": "bfa21464d8310b6c10c55aab2b546ffc0e62fdb08867e648dd5514224fec2461c799dad48a48e3dc3c4e395eeeb87a9a19d51294070414526499b7f70196dd0d"
+      },
+      "d9e5c76ad5ee778960804094a389f0b546b5c2b140a62f8ec43ea54d": {
+        "vKey": "e8c03a03c0b2ddbea4195caf39f41e669f7d251ecf221fbb2f275c0a5d7e05d1",
+        "signature": "9ca2b2d213f15ce3cbef010017d6ef370b13fdbfde9ef390c0e9ca4cb9e8bc5d6c6d6327f78af86347e0ba83917c6af4f29a94f71438c50dd5040daed778ca08"
+      }
+    }
+  },
+  "auxiliaryData": {
+    "metadata": [
+      {
+        "label": 0,
+        "data": {
+          "$map": [
+            [
+              "catalyst",
+              "seed-catalyst-fund"
+            ],
+            [
+              "x-rate",
+              "0.3893"
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}

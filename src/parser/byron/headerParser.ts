@@ -1,17 +1,25 @@
-import { Buffer } from "buffer";
+import { CborNode } from "@stricahq/cbors";
+import { Header } from "../../types/byronTypes";
+import { encoded, hex, items, num } from "../../utils/node";
 import * as utils from "../../utils/utils";
 
-export const parseHeader = (header: any, blockCbor: Buffer) => {
-  const headerBuf = utils.getCborSpanBuffer(blockCbor, header);
+export const parseHeader = (header: CborNode): Omit<Header, "bodySize"> => {
+  // [protocolMagic, prevBlock, bodyProof, consensusData, extraData]
+  const [, prevBlock, , consensusData] = items(header);
+  // [[epoch, slot], issuer, [difficulty], signature]
+  const [slotId, , difficulty] = items(consensusData);
+  const [epoch, slot] = items(slotId);
   // byron block header is hashed with an array with first item 1
-  const headerHash = utils.createHash32(Buffer.from(`8201${headerBuf.toString("hex")}`, "hex"));
+  const headerHash = utils.createHash32(
+    utils.concatBytes(Uint8Array.of(0x82, 0x01), encoded(header))
+  );
 
   return {
     hash: headerHash,
-    blockHeight: header[3][2][0],
-    slot: header[3][0][1],
-    epoch: header[3][0][0],
-    prevHash: header[1].toString("hex"),
+    blockHeight: num(items(difficulty)[0]),
+    slot: num(slot),
+    epoch: num(epoch),
+    prevHash: hex(prevBlock),
   };
 };
 

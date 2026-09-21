@@ -1,0 +1,60 @@
+{
+  "body": {
+    "hash": "402dc4dbc0601b3f261db269e670a8570635bce5f7344584a112acd9c03721ae",
+    "inputs": [
+      {
+        "txId": "774bc3dc027357885dc76e58c950646bbdf8039f15614e0d929100f6bd27a3e8",
+        "index": 169
+      }
+    ],
+    "outputs": [
+      {
+        "address": "0112452bf1bf63555ecde7212163fae8192bac3c9523a0a7d8052b45043596ea035b30a4fe97c45c9c8fe955dcefa45f851d75a5919b8c0573",
+        "amount": "21239772"
+      }
+    ],
+    "fee": "179053",
+    "certificates": [
+      {
+        "type": 18,
+        "cert": {
+          "dRepCredential": {
+            "key": "bfd3b5acb2900c561e832c1ca5b0ccd74c866ee06dff6034c4080375",
+            "type": 0
+          },
+          "anchor": null
+        }
+      },
+      {
+        "type": 9,
+        "cert": {
+          "stakeCredential": {
+            "key": "3596ea035b30a4fe97c45c9c8fe955dcefa45f851d75a5919b8c0573",
+            "type": 0
+          },
+          "dRep": {
+            "type": 0,
+            "key": "bfd3b5acb2900c561e832c1ca5b0ccd74c866ee06dff6034c4080375"
+          }
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "48247f3d9ff0b91a78b2844afa4cdbc2d96aa5d29e8a8a838d1de37c": {
+        "vKey": "a70173de3e2cd5ffe5707bdb41ebd8d76b05f0a7f7fdc474f916c68a75d73e62",
+        "signature": "05b489d8fe6ea5f4d62fa686b70ea0512542206c8226d6fc5efcfbdbbd450d617614a101f2391032b6eacbab54b1ff66a749e74c531b4a38b785fc6b55aac303"
+      },
+      "3596ea035b30a4fe97c45c9c8fe955dcefa45f851d75a5919b8c0573": {
+        "vKey": "c55939b6fe6b4a2254fc994a4039aa9e1216bf8a087885139f7cd4aeabdadb77",
+        "signature": "b8b02efdc88f0487af7da0d5b95e0ace82e7ebe83f9bbd9bb0ef97d717fd7934e5ec6aa67f22410b982392a6f2bd2e5b5772826e340a2445fe88dd90ce6aea08"
+      },
+      "bfd3b5acb2900c561e832c1ca5b0ccd74c866ee06dff6034c4080375": {
+        "vKey": "cf0aaad59e4caeacdec19b0e6f5d31dd004f5fee79de5107ebbb23390ecfc53e",
+        "signature": "9a5507887cc216f00256f137611e388cb2db49596e53483d02c3d25d02584bb18a005c5cd2f7116c1c40feb0f0d796b0c9f1af01950bb20cf9b1f975d6eb0b04"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

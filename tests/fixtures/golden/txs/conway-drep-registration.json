@@ -1,0 +1,61 @@
+{
+  "body": {
+    "hash": "b12b7e1d6a62694fa75350b8dfacb2f8ba24ec37572b6dfc21f362bedf28493b",
+    "inputs": [
+      {
+        "txId": "a5e8d4892bf75ebca1db5b9433d21c448aad3dba2a6c7f60c2a3e51a25f20138",
+        "index": 3
+      }
+    ],
+    "outputs": [
+      {
+        "address": "01a5be98bbac48839c8e752b5123dea4ebed4beb0586d7c7173cee6aa959c2421ccb0145b5aaa08931c5fccf822bb1dc2f175b8fa5b018bcf1",
+        "amount": "2892859088"
+      }
+    ],
+    "fee": "179229",
+    "certificates": [
+      {
+        "type": 16,
+        "cert": {
+          "dRepCredential": {
+            "key": "002e87e32c1735bef2af2825943a9c06714857d1fc19385b86e429a3",
+            "type": 0
+          },
+          "deposit": "500000000",
+          "anchor": null
+        }
+      },
+      {
+        "type": 9,
+        "cert": {
+          "stakeCredential": {
+            "key": "59c2421ccb0145b5aaa08931c5fccf822bb1dc2f175b8fa5b018bcf1",
+            "type": 0
+          },
+          "dRep": {
+            "type": 0,
+            "key": "002e87e32c1735bef2af2825943a9c06714857d1fc19385b86e429a3"
+          }
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "a5be98bbac48839c8e752b5123dea4ebed4beb0586d7c7173cee6aa9": {
+        "vKey": "65851a7bd9bcd393deec93ccd017575514421fc1f616ab0d2ec2527da6714565",
+        "signature": "e158b19837b3ac4a8672ef438d51360a633fae6c42cc3628ba732e0f94b7cf4646d40198f99b60a336f0a27334a4dba15e39f775a70bb1f83de409d29f083c0b"
+      },
+      "002e87e32c1735bef2af2825943a9c06714857d1fc19385b86e429a3": {
+        "vKey": "34c15454b5b777142bb2183b540e33efe0d8c3a82ee2e2a8b76bb4ea7364c250",
+        "signature": "5ed25a96693bc9a7913e84a940c6580373224fefcd3d789b2ce37e1e429f82a2d88e055ba6209a2ea23f55e2dd56069dca5c96b05c19972068f8dc9ef533ce06"
+      },
+      "59c2421ccb0145b5aaa08931c5fccf822bb1dc2f175b8fa5b018bcf1": {
+        "vKey": "1ab0eb8c16e779dd17977620bde7b6e904b8207509d813a5e2c7f8abebe0b92b",
+        "signature": "ba7873be2dac065b8e2a94fa0d10beb634ccf485e0023d7a015f26cf93d7c9f30689980709614ec18ef94d6ff9758ea76f03112d6371d81a6f1c2c1a219eaf02"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

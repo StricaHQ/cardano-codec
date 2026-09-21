@@ -1,0 +1,43 @@
+{
+  "body": {
+    "hash": "1ed2479b2abab685bd0c148e880d9b4c006bf21991b0b5a0000e66df62d6ee4a",
+    "inputs": [
+      {
+        "txId": "8fb5927bc3804d1aae7fd4062840d26bbab2fb17730fb60cab29598a0b96b284",
+        "index": 5
+      }
+    ],
+    "outputs": [
+      {
+        "address": "008dd5e982fc764f0c14d80cd5f4919d79a638f492a029286d6ed79abb4e641f833be7026d9948ff6ab61791123166a1c84f58fd472a6b33a5",
+        "amount": "21828559"
+      }
+    ],
+    "fee": "171441",
+    "proposalProcedures": [
+      {
+        "deposit": "100000000000",
+        "rewardAccount": "e04e641f833be7026d9948ff6ab61791123166a1c84f58fd472a6b33a5",
+        "govAction": {
+          "type": 3,
+          "action": {
+            "prevActionId": null
+          }
+        },
+        "anchor": {
+          "url": "https://metadata-govtool.cardanoapi.io/data/cattus",
+          "hash": "33bbe6e580616fbaa840042f483c444bdcc095e83bcd2f03e447ddd8f2ed81c9"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "8dd5e982fc764f0c14d80cd5f4919d79a638f492a029286d6ed79abb": {
+        "vKey": "ab3f1470d1007b60a68344db866ad1427f3703ba19971a6a907c48aed8c3a518",
+        "signature": "4581fa39963aafb0bf6c4f98fe987295bd1187210ee2762280198469210c79784482f6aa4006504a5c6f433e92520f6d9b62de2b09439164eca84d88977fb000"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

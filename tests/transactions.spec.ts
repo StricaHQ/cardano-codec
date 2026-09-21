@@ -1,4 +1,7 @@
 import { describe, it, expect } from "vitest";
+import { CborTag } from "@stricahq/cbors";
+import { common, conway } from "../src/index";
+import { decodeCbor, fromHex, txBody } from "./helpers/build";
 import { txFixtures, parseTxFixture, inputKeys, tokenKeys } from "./helpers/fixtures";
 
 type Output = {
@@ -8,7 +11,7 @@ type Output = {
   plutusData?: string;
 };
 
-describe.each(txFixtures)("$era tx from $network ($name)", (fx) => {
+describe.each(txFixtures)("$era tx ($name)", (fx) => {
   const tx = parseTxFixture(fx);
   const { expected } = fx;
 
@@ -35,8 +38,8 @@ describe.each(txFixtures)("$era tx from $network ($name)", (fx) => {
   });
 
   it("reads the datum on each output", () => {
-    // for an inline datum the parser hashes the datum itself; the chain reports
-    // that same hash, so this checks the datum bytes were sliced out correctly
+    // an inline datum is hashed here and by the chain, so the hashes agree only if
+    // the datum bytes were sliced out correctly
     expect(tx.outputs.map((o: Output) => o.plutusDataHash ?? null)).toEqual(
       expected.outputs.map((o) => o.plutusDataHash)
     );
@@ -80,4 +83,45 @@ describe.each(txFixtures)("$era tx from $network ($name)", (fx) => {
       expect(tx.auxiliaryDataHash).toMatch(/^[0-9a-f]{64}$/);
     });
   }
+});
+
+describe("metadata", () => {
+  it("copies byte strings out of the input", () => {
+    // {1: h'bbbbbbbb'}
+    const [{ data }] = common.parseMetadata(decodeCbor(fromHex("a10144bbbbbbbb")));
+    expect(data).toStrictEqual(fromHex("bbbbbbbb"));
+    // four bytes of memory of its own: a result neither pins nor aliases the caller's buffer
+    expect((data as Uint8Array).buffer.byteLength).toBe(4);
+  });
+
+  it("reads strings written in chunks as one string", () => {
+    // the ledger accepts indefinite-length text and byte strings in metadata:
+    // {1: [(_ "ab", "c"), (_ h'01', h'0203')]}
+    const [{ data }] = common.parseMetadata(
+      decodeCbor(fromHex("a101827f6261626163ff5f4101420203ff"))
+    );
+    expect(data).toStrictEqual(["abc", fromHex("010203")]);
+  });
+});
+
+describe("malformed CBOR", () => {
+  it("throws naming what the parser found and where", () => {
+    // the inputs as a byte string: {0: h'0000', 1: [], 2: 200000}
+    expect(() => conway.parseTransaction(txBody([[0, new Uint8Array(2)]]))).toThrow(
+      "Expected array at bytes [2, 5), got bytes"
+    );
+    // the inputs in tag 259: only the set tag 258 is looked through
+    const input = [new Uint8Array(32), 0];
+    expect(() => conway.parseTransaction(txBody([[0, new CborTag([input], 259)]]))).toThrow(
+      "Expected array at bytes [2, 42), got tag 259"
+    );
+    // an input without its index
+    expect(() => conway.parseTransaction(txBody([[0, [[new Uint8Array(32)]]]]))).toThrow(
+      "Expected integer, got nothing"
+    );
+    // auxiliary data in tag 258 rather than 259
+    expect(() => conway.parseAuxiliaryData(decodeCbor(fromHex("d90102a0")))).toThrow(
+      "Expected tag 259 at bytes [0, 4), got tag 258"
+    );
+  });
 });

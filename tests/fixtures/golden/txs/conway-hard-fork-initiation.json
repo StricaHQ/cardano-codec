@@ -1,0 +1,51 @@
+{
+  "body": {
+    "hash": "0b19476e40bbbb5e1e8ce153523762e2b6859e7ecacbaf06eae0ee6a447e79b9",
+    "inputs": [
+      {
+        "txId": "41bfdf1ed20d0d8b89de2308dc8136180b70d199625bfb7a76a6a79f3fe9f466",
+        "index": 0
+      },
+      {
+        "txId": "fff0df644d328a5367212f45bab59060bde3c4091dc96c723062896fd6197314",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "619de6194b5f8c5c5547f3735f7d1e53b83c15134abe89de232fd162e7",
+        "amount": "895702"
+      }
+    ],
+    "fee": "183893",
+    "proposalProcedures": [
+      {
+        "deposit": "100000000000",
+        "rewardAccount": "e111ce01cd0e4dbba24d7f99d3516ae9229f0199ed4b9315fe4693b64b",
+        "govAction": {
+          "type": 1,
+          "action": {
+            "prevActionId": null,
+            "protocolVersion": [
+              10,
+              0
+            ]
+          }
+        },
+        "anchor": {
+          "url": "https://raw.githubusercontent.com/IntersectMBO/governance-actions/refs/heads/main/mainnet/2024-10-30-hf10/metadata.jsonld",
+          "hash": "8a1bd37caa6b914a8b569adb63a0f41d8f159c110dc5c8409118a3f087fffb43"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "9de6194b5f8c5c5547f3735f7d1e53b83c15134abe89de232fd162e7": {
+        "vKey": "4875efa51fa3649240cc150cca73f8ec7f48123a6e22995cfd2041b6dbac4fad",
+        "signature": "20f2c90cf2be5db78b75ed8e6af9ef1e3d03691147e21729d00d2522e37dbf19c6a11e05f2af75960f2f4aa57c33e30cc277a622060301a1b00b180fd4d4520d"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

@@ -1,4 +1,4 @@
-import { Buffer } from "buffer";
+import { CborNode } from "@stricahq/cbors";
 import { parseTransaction } from "./transactionBodyParser";
 import parseHeader from "./headerParser";
 import {
@@ -8,26 +8,31 @@ import {
   Transaction,
   Witnesses,
 } from "../../types/babbageTypes";
+import { entries, isNil, items, num } from "../../utils/node";
 import parseWitnessMap from "./witnessesParser";
 import { parseAuxiliaryData } from "./auxiliaryDataParser";
 
-export const parseBlock = (block: any, blockCbor: Buffer): BabbageBlock => {
-  const header = parseHeader(block[0], blockCbor);
+export const parseBlock = (input: CborNode): BabbageBlock => {
+  // [header, tx bodies, witness sets, auxiliary data, invalid transactions]
+  const block = items(input);
+  const header = parseHeader(block[0]);
 
   const transactions: Array<Transaction> = [];
-  for (const trx of block[1]) {
-    transactions.push(parseTransaction(trx, blockCbor));
+  for (const trx of items(block[1])) {
+    transactions.push(parseTransaction(trx));
   }
-  const invalidTransactions: Array<InvalidTransaction> = block[4] ? block[4] : [];
+  const invalidTransactions: Array<InvalidTransaction> = isNil(block[4])
+    ? []
+    : items(block[4]).map(num);
   const witnesses: Array<Witnesses> = [];
-  for (const witness of block[2]) {
-    witnesses.push(parseWitnessMap(witness, blockCbor));
+  for (const witness of items(block[2])) {
+    witnesses.push(parseWitnessMap(witness));
   }
 
   const auxiliaryDataMap: Map<number, AuxiliaryData> = new Map();
 
-  for (const [txIndex, auxData] of block[3].entries()) {
-    auxiliaryDataMap.set(txIndex, parseAuxiliaryData(auxData));
+  for (const { key: txIndex, value: auxData } of entries(block[3])) {
+    auxiliaryDataMap.set(num(txIndex), parseAuxiliaryData(auxData));
   }
 
   return {

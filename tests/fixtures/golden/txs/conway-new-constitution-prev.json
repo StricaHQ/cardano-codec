@@ -1,0 +1,57 @@
+{
+  "body": {
+    "hash": "c882f194684d672316212f01efc6d28177e8965b7cd6956981fe37cc6715961e",
+    "inputs": [
+      {
+        "txId": "26b680dc14cfa488ef0695571dfe0ff6ab20d8a25618bcd49bf6059ac4ca98c2",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "016878e4c51866756e3bdd49882c6e218a8ea18850ad89ac2a582b35f429b3155178e987f4eb0e8b60bb5ef4498d960145fa23156744c89122",
+        "amount": "99816195"
+      }
+    ],
+    "fee": "183805",
+    "proposalProcedures": [
+      {
+        "deposit": "100000000000",
+        "rewardAccount": "e129b3155178e987f4eb0e8b60bb5ef4498d960145fa23156744c89122",
+        "govAction": {
+          "type": 5,
+          "action": {
+            "prevActionId": {
+              "txId": "8c653ee5c9800e6d31e79b5a7f7d4400c81d44717ad4db633dc18d4c07e4a4fd",
+              "index": 0
+            },
+            "constitution": {
+              "anchor": {
+                "url": "ipfs://bafkreibyaftvpujgjernbcj2rgrwg3fntsg37cxx5bdgpy4hyt4eki5r2e",
+                "hash": "9fc568bb8ae398ff2e9b1cf7ca459c3648f865338a70248dd753aea175b0d4d4"
+              },
+              "scriptHash": "fa24fb305126805cf2164c161d852a0e7330cf988f1fe558cf7d4a64"
+            }
+          }
+        },
+        "anchor": {
+          "url": "ipfs://bafkreig4ural237c4gczp4srzygsmlaquiibixiskus2lwy4a6vilivgiy",
+          "hash": "bbdd72333d18e36283ef8cfd8959a9382c90a1fd864845ed62120882455aa8fb"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "29b3155178e987f4eb0e8b60bb5ef4498d960145fa23156744c89122": {
+        "vKey": "b60063e15be0c756d755575449d6e153519f39dc0c5b746694788a4fc36de883",
+        "signature": "21855b5ccf2def96c579d2888677a2f5e496b57753f619dbe0cfdbc57e2488efb5535f208f57b340dd5391632f88e22d375236cfdf0015b34c868a7a8a00bf0e"
+      },
+      "6878e4c51866756e3bdd49882c6e218a8ea18850ad89ac2a582b35f4": {
+        "vKey": "5b8361f8149dc62bf2e6c2365535afa9ed18e65f8e267e9db9db0d909bbaf64b",
+        "signature": "5624f2ac169fe84480be8cb598b9ac73b271f2cddafb6cfd784f85a887d9b0393103331758a4f604bf1cc4a59c0a2fe83dd3c533cb092da7563cfe8706a1100c"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

@@ -1,0 +1,31 @@
+{
+  "body": {
+    "hash": "c56c1bcd083296fe34c0a29ff51ecadc4f27b2e2650cc2ce6c3770817f72ae8e",
+    "inputs": [
+      {
+        "txId": "c433bdaa4e6463c2868fe7d882604d207122aba8055c06c6d52e7ef1d6f20b9e",
+        "index": 6
+      }
+    ],
+    "outputs": [
+      {
+        "address": "016f54a997bd19302270ccbb38860ed6e51ed1f549be0dab378ab4a071398358981e3cf8d4a604706176e9adec4592e37d3f35a708a96e009a",
+        "amount": "129999123723"
+      }
+    ],
+    "fee": "876277",
+    "ttl": 118115652
+  },
+  "witnesses": {
+    "vKeyWitnesses": {},
+    "bootstrapWitness": {
+      "22f63de6e4ed3bd6fb91d09a6e9d87a6c3740c8b7092100af3083b4e": {
+        "publicKey": "96c5173a791d6396d99650dc45edab23b64283e1f6fdc8e6297f8e4ec411da0b",
+        "signature": "93d3dddddd76f2724fa63893fb13ab26fb72525da99a76d661fc55faf5b8cf83c747bab25341a9ab288745b6336d0e8c7d44027749b5c8a576a51423a7c2bc0b",
+        "chainCode": "755fdc29e2d5f71c99048366a29622055f4dd20960b8d330b4f1fd049b99f50d",
+        "attributes": "a101581e581cfb4322611ad1d27fb5dd1653acf3009b89018f012e89af6cb204d04f"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

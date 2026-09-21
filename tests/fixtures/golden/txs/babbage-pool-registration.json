@@ -1,0 +1,76 @@
+{
+  "body": {
+    "hash": "979d5b275e5018fc1ef0d97f100c05be4b99803981a91fc30c01491a54dd8137",
+    "inputs": [
+      {
+        "txId": "7d7d25fe796adc9b348dc2862aa5e23597433f86cc8e49fe55aed93a4c4eb185",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "01ce02202944c7409cce5f065189df776cfb9de756d5e2dbe021d51457152e07bbbcfca6e80e6f37dc149ef5bf43cadcae83c32320609c7fbf",
+        "amount": "1998805826"
+      }
+    ],
+    "fee": "196037",
+    "ttl": 96097561,
+    "certificates": [
+      {
+        "type": 3,
+        "cert": {
+          "operator": "d4d84275c3311e3818a54462a2449d84e62aaba3182e3818070b3d37",
+          "vrfKeyHash": "4e294e5bf1af42962897680694709ba6834526f3db74f9ced69a33f03418abcb",
+          "pledge": "1500000000",
+          "cost": "340000000",
+          "margin": [
+            0,
+            1
+          ],
+          "rewardAccount": "e142540be505034f26db214556a5bb3b86b57f31ec5a785b21d921c51b",
+          "poolOwners": [
+            "152e07bbbcfca6e80e6f37dc149ef5bf43cadcae83c32320609c7fbf"
+          ],
+          "relays": [
+            {
+              "port": 6000,
+              "ipv4": "68e5affd",
+              "ipv6": null
+            }
+          ],
+          "poolMetadata": {
+            "url": "https://tinyurl.com/mr3d5ud6",
+            "metadataHash": "02ba96126f1a5aed69f9a1db18f5c79ac2a10098ad29372267b0d1fbaf389416"
+          }
+        }
+      },
+      {
+        "type": 2,
+        "cert": {
+          "stakeCredential": {
+            "key": "152e07bbbcfca6e80e6f37dc149ef5bf43cadcae83c32320609c7fbf",
+            "type": 0
+          },
+          "poolKeyHash": "d4d84275c3311e3818a54462a2449d84e62aaba3182e3818070b3d37"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "152e07bbbcfca6e80e6f37dc149ef5bf43cadcae83c32320609c7fbf": {
+        "vKey": "fb7503d9ad0c998537be71c7276c22a27b39a9be0758b1df19908cc47cbe7707",
+        "signature": "6cf3898c147596e346b950d63ca809972b77fa2f90e8f877f51e0e72844e8ef1f0e2d0c4b66191aaaac74c5428dae0cd93dcfdf6a072170608bb0ca302e0760e"
+      },
+      "ce02202944c7409cce5f065189df776cfb9de756d5e2dbe021d51457": {
+        "vKey": "bcc9d30aeeb9416db09cc55b43654d45cf7a6d950025ca4ada53347ea2284660",
+        "signature": "9e020298af0723f75d5a28c5c0f2fd17768b9ec54373445965f73a5014464881974c91fe6adf64929563c5213e734140161e4492d231ce974dfeec74a36fbd06"
+      },
+      "d4d84275c3311e3818a54462a2449d84e62aaba3182e3818070b3d37": {
+        "vKey": "3544fb918cfe6fa36af28ac110ceeca47388ba73942ae82c8ec6944fb20c7b80",
+        "signature": "0510c3daf2112421a89170f0c6dd6e7b0c6083222cc2206dc5d1c1a1738a5d7ce677330142a0256db09b4184eb07d1ed4650c4378704404265ab47961dff6301"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

@@ -1,0 +1,127 @@
+{
+  "body": {
+    "hash": "1ae02d8286d028130a5d28778f8e1226be69be13cf1d8fde62f2605d9cec48f1",
+    "inputs": [
+      {
+        "txId": "3000e3ee68519836f20c24536d05efae25a69de16bebf2598c8165d1578ae66c",
+        "index": 2
+      },
+      {
+        "txId": "72d61d6c150c283452728c2621d9d41e9b8f5ee1af3aaece4105b98245262c28",
+        "index": 0
+      },
+      {
+        "txId": "06386ec1b3aae8a7b823764871c8e411095214d451b13b3554277ed64711cc9a",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "31e0302560ced2fdcbfcb2602697df970cd0d6a38f94b32703f51c312b4399813dad91bb78a5eb17c26ff50852bc75d3fa7b6e9ae87232ccc1",
+        "amount": "5267647378",
+        "tokens": [
+          {
+            "policyId": "83f22ab6467de8ed6754f9851d7a92a2377071cf94d101d87ca2dbe6",
+            "assetName": "5045534f",
+            "amount": "80977103"
+          },
+          {
+            "policyId": "e0302560ced2fdcbfcb2602697df970cd0d6a38f94b32703f51c312b",
+            "assetName": "000de1400bc2dd8fa9608b0d1004e3ccf921839e840e965197cd827e6ce46dfb",
+            "amount": "1"
+          }
+        ],
+        "plutusDataHash": "b0ebe22df921b47bc96da5d548efe9db23d1db6b45ce1d3e9c49cff7d2d500a8",
+        "plutusData": "d8799f581c0bc2dd8fa9608b0d1004e3ccf921839e840e965197cd827e6ce46dfb9f9f4040ff9f581c83f22ab6467de8ed6754f9851d7a92a2377071cf94d101d87ca2dbe6445045534fffff1a258ff8ad0505d87a80001a13017a83ff"
+      },
+      {
+        "address": "01eb6e12a9dd039604bb4fdc82aaa6309cfcb21597f79663a330b752dff95cb3bc90e3fdb3db4a98ed64a77762daa891c7af7138d45e38adb7",
+        "amount": "56906828"
+      },
+      {
+        "address": "6153d6b12089d642d3bfdc61d5f0f3fddfeeb56f55dcd5bd796b5c25a1",
+        "amount": "6009166"
+      }
+    ],
+    "fee": "336295",
+    "ttl": 131058467,
+    "withdrawals": [
+      {
+        "rewardAccount": "f199e5aacf401fed0eb0e2993d72d423947f42342e8f848353d03efe61",
+        "amount": "0"
+      }
+    ],
+    "validityIntervalStart": 131056467,
+    "scriptDataHash": "d8a7419cda5cb898d4e222199f77196d33e7e88d89b1621523d80ed84cea323b",
+    "collaterals": [
+      {
+        "txId": "3f49237cd94625ca747a1240377497dd3dbf21b4216b2ba45d9495e4bb33bce2",
+        "index": 2
+      }
+    ],
+    "requiredSigners": [
+      "53d6b12089d642d3bfdc61d5f0f3fddfeeb56f55dcd5bd796b5c25a1"
+    ],
+    "collateralOutput": {
+      "address": "6153d6b12089d642d3bfdc61d5f0f3fddfeeb56f55dcd5bd796b5c25a1",
+      "amount": "1112028"
+    },
+    "totalCollateral": "5000000",
+    "referenceInputs": [
+      {
+        "txId": "f9121bf01434f6c263d5b1ffa35a155bed37a1aba641a209b35da7c841082d7b",
+        "index": 0
+      },
+      {
+        "txId": "fefb328ecd8beae87d568c1388b13ad9de8f7fc93da941094fe784d6e7026e24",
+        "index": 0
+      },
+      {
+        "txId": "0be44319af033038fb06249cf21086837e906628e702bfa497bd78ebf51f5c89",
+        "index": 0
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "53d6b12089d642d3bfdc61d5f0f3fddfeeb56f55dcd5bd796b5c25a1": {
+        "vKey": "87d274cc637987e845b89b908583cd7dd56ec92d9680294cfbcf3797096ed6a7",
+        "signature": "ab3364d7a05ce447e4ac4198bba1b9c0691176f3e6a36053d9a7b0fddbe7207ee389b92b8c99faf75ffbf9854b756df205093896dd95a0ad991b2619df8a0b01"
+      }
+    },
+    "plutusScripts": {},
+    "plutusScriptsV2": {
+      "99e5aacf401fed0eb0e2993d72d423947f42342e8f848353d03efe61": "5901420100003323232323232322322253330053253330063370e900218039baa300130083754004264a66600e66e1d2000300837540022646600200264a66601266e1d2002300a3754002297adef6c6013756601c60166ea8004c8cc004004dd5980218059baa300e300b375400644a66601a0022980103d87a80001323232533300d3371e0166eb8c03800c4cdd2a4000660226e980052f5c026600a00a0046eacc038008c044008c03c004894ccc030004528099299980519b873371c6eb8c02cc03c00920024806852889980180180098078008b1929998050008a6103d87a800013374a9000198059806000a5eb80dd618059806180618041baa300b3008375400429408c02cc03000452613656375c002ae6955ceaab9e5573eae815d0aba24c011e581ce0302560ced2fdcbfcb2602697df970cd0d6a38f94b32703f51c312b0001"
+    },
+    "redeemers": [
+      {
+        "index": 2,
+        "tag": 0,
+        "plutusData": "d87980",
+        "exUnits": {
+          "mem": 28359,
+          "steps": 10132911
+        }
+      },
+      {
+        "index": 0,
+        "tag": 0,
+        "plutusData": "d87a9fd8799f00139f9f02d87a8000ffffffff",
+        "exUnits": {
+          "mem": 1098750,
+          "steps": 432327673
+        }
+      },
+      {
+        "index": 0,
+        "tag": 3,
+        "plutusData": "d87980",
+        "exUnits": {
+          "mem": 40799,
+          "steps": 15161666
+        }
+      }
+    ]
+  },
+  "auxiliaryData": null
+}

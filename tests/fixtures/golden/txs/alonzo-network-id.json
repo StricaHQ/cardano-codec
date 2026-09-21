@@ -1,0 +1,58 @@
+{
+  "body": {
+    "hash": "09bb7a3d739435669e035c9df2a7df6f74beb1ad3f7f4cba0d9b5e2f5fa3d674",
+    "inputs": [
+      {
+        "txId": "df5120cd9a188b222d20832dfe0dbf3f25a228fab47420c5cadbfdbf0ba6ac18",
+        "index": 1
+      },
+      {
+        "txId": "d983bcf8e1ee30754ccaed4d6bb60ce87e1046105d64a0706139bf89d537e9f2",
+        "index": 1
+      }
+    ],
+    "outputs": [
+      {
+        "address": "01e8d1fd7ec793633734184d4634680cc2d9acf398bb4ee8ed7200e091496281d080128b307e08082291053bb596bdb2d8e12075d886f45fe2",
+        "amount": "145769655"
+      },
+      {
+        "address": "71a65ca58a4e9c755fa830173d2a5caed458ac0c73f97db7faae2e7e3b",
+        "amount": "2004030298",
+        "plutusDataHash": "fe37018919cf1eae1393b91cbf2ebb6346ab41bfefed07abbcd58c2dfb330e45"
+      }
+    ],
+    "fee": "185257",
+    "auxiliaryDataHash": "e3665c952bf9023a4bcc648c62e070c787ed9b4064287097f75b5cab6030d9e0",
+    "scriptDataHash": "23762f83a5e886d31c12976aa1e1ff988706a525dcf189780a55f57e704651c2",
+    "networkId": 1
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "e8d1fd7ec793633734184d4634680cc2d9acf398bb4ee8ed7200e091": {
+        "vKey": "e00c12d310b113a901bca4fe36355af1b1550fdc616e9abefa2f8af058ace879",
+        "signature": "c112726a2e991b0fe677ede872d944bb7c5658d55f37d3933c6b3fc9ed42314d68b5537e8c98c0e883c8f9e0c130ca916f38de763dacedba4501f826614a6d08"
+      }
+    },
+    "plutusData": {
+      "fe37018919cf1eae1393b91cbf2ebb6346ab41bfefed07abbcd58c2dfb330e45": "d8799fd8799fd8799f581ce8d1fd7ec793633734184d4634680cc2d9acf398bb4ee8ed7200e091ffd8799fd8799fd8799f581c496281d080128b307e08082291053bb596bdb2d8e12075d886f45fe2ffffffffd8799fd8799f581ce8d1fd7ec793633734184d4634680cc2d9acf398bb4ee8ed7200e091ffd8799fd8799fd8799f581c496281d080128b307e08082291053bb596bdb2d8e12075d886f45fe2ffffffffd87a80d8799fd8799f581c10a49b996e2402269af553a8a96fb8eb90d79e9eca79e2b4223057b6444745524fff1b000000191dfdf071ff1a001e84801a001e8480ff"
+    }
+  },
+  "auxiliaryData": {
+    "metadata": [
+      {
+        "label": 674,
+        "data": {
+          "$map": [
+            [
+              "msg",
+              [
+                "Minswap: Swap Exact In Limit Order"
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}

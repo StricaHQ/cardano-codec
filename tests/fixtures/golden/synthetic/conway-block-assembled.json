@@ -1,0 +1,530 @@
+{
+  "header": {
+    "kesSignature": "1efa9d95c1418eabbd2cd8ec6f4b9d02febab860c997e2e0c5a00edac11d0b08abc8bd1ca7acc5feb0e6fd447973aac986e591e17b81fe8d6e0319b1841ba20b022075ed1a29dd61f06143dec0b31a20472e0778945952f5de79afccf5c933b9492c81df70db5048dc448ad93bb3d49a42c73a3235550ff052f93258e337cfc63c7bd7edd291575691eb8b5e47d938b7794e9ae2b6d95a1a177ca9ac8ef1614cd9b8308c0f0ec8b804bea0992fe0969494d0b45aaa9bf79542bf3f400a47837563b6909f4f00a9d3d04d860d3c8621108395b6297d899a0a608fb7808e2ea0a883f7116921edf9952ce6d137b0ff524444e33c77ee9a9dedf62d28d4acaa493712514359edde0cd31dcbb58b2a8082a9bd31abff25810ad21a2773f225c6ca1e6a2c350124f90bdfb0401f153ba96f0f1b1d106764cd9fadf1733c5f6da50702f17c98ab9c5a9db15084d045f9659e0de639f886c7962a7cbe46d3bbd6e71b3c63f998711de0707f0e29c030179ef7d26443e846dc9d143b3211087450b9263b612f1ad9f2ce481dbccd24817cfa8c089a26521535b8e6e7ee6fb0cb791667be829bf4584629702d8ddad7559bab8116c2f8d9ada4601b7a870f7ecf861c809b",
+    "body": {
+      "hash": "4fa29afd4ecf09743427d37649018ea4a4ee8f323a10c2cc6ba6cda3c030e5d5",
+      "blockHeight": 2672395,
+      "slot": 64927414,
+      "prevHash": null,
+      "issuerVKey": "6e981e49d9a6816746fb4bc9642c9a1e9beb62eadf3aef47a965e98dfd1155ab",
+      "vrfVKey": "a76814aee97de869d30afa7546ceaaefbb7c657ed53fc5bf02d63cb33ea5abfb",
+      "vrfResult": [
+        "50d585f7f56240389c0dc8da2f7efd5f25d4ccf3ef7e7e28bb0cea93d97f8357544f3761b45da51438e8cbaf83690577113a5ee27701becd1e72934318d15b67",
+        "198a436633c0c3c7fd3b544c545833c08a14d950fdc1599a6a94bdc6cc70e31efdd5e763f6c99fa9870467b38feef8e7721aa9a217af669c358cc8b7697418a698732db8fa82197dea00057c5132d308"
+      ],
+      "bodySize": 3863,
+      "blockBodyHash": "9cad850c91538bf0fe8f4c766bc6bcdd14ba2c0f8c02c3b7aa1524e6120a911f",
+      "operationalCert": {
+        "hotVKey": "ba599223d0536e0e055f28eb8aed04e56da1ef98aae3e311ab54b4ff1fe0744b",
+        "sequenceNumber": 8,
+        "kesPeriod": 462,
+        "sigma": "cf0ea7a8c358a84332b84e36760f62cee077cfb7dc9e0711b34377c59085412fcf56569be2f816801587c1dc1eeecccd5e686f46402d947eb8e2bbd94774be01"
+      },
+      "protocolVersion": [
+        10,
+        0
+      ]
+    }
+  },
+  "transactions": [
+    {
+      "hash": "7e319bd946a71c3a19acf9e7a03a02ee6e0938a95768567ca2373320b90a9026",
+      "inputs": [
+        {
+          "txId": "393b6aec584a817633c0e2250b5c021b6db4c2ef282eeb9bd6cd685ae0c35411",
+          "index": 25
+        },
+        {
+          "txId": "59fcf8e9c89617c4af50798c9c07cac706eadc4330b7a2907a329793edcb6c34",
+          "index": 2
+        },
+        {
+          "txId": "7f1247ea08f61dcdff9ee508646243b1f4a711525ef037ef9f0dc44c5634bae0",
+          "index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "address": "71c134d839a64a5dfb9b155869ef3f34280751a622f69958baa8ffd29c",
+          "amount": "4000000",
+          "tokens": [
+            {
+              "policyId": "c48cbb3d5e57ed56e276bc45f99ab39abe94e6cd7ac39fb402da47ad",
+              "assetName": "0014df105553444d",
+              "amount": "329334237"
+            }
+          ],
+          "plutusDataHash": "11e600ce16fb5033d4cef21d7fb313a5d0c68ccacf56f908cbf76941fe49a588",
+          "plutusData": "d8799f1a001e8480d8799fd8799f581c7f9a3ce1a51c4f5f5b3e7f6da078b443c3aa6db63f1f97cf6fb3bffcffd8799fd8799fd8799f581caf6de554eea56f0e0fa9d1f36055b130bd490a8b87a0ee71b3e0e3acffffffffd8799fd8799f581c7f9a3ce1a51c4f5f5b3e7f6da078b443c3aa6db63f1f97cf6fb3bffcffd8799fd8799fd8799f581caf6de554eea56f0e0fa9d1f36055b130bd490a8b87a0ee71b3e0e3acffffffff80d879801b0000019f4827bd364040581cc48cbb3d5e57ed56e276bc45f99ab39abe94e6cd7ac39fb402da47ad480014df105553444dd8799fd87a801a7413355dff0101ff"
+        },
+        {
+          "address": "11ea07b733d932129c378af627436e7cbc2ef0bf96e0036bb51b3bde6b52563c5410bff6a0d43ccebb7c37e1f69f5eb260552521adff33b9c2",
+          "amount": "4500000",
+          "tokens": [
+            {
+              "policyId": "29d222ce763455e3d7a09a665ce554f00ac89d2e99a1a83d267170c6",
+              "assetName": "4d494e",
+              "amount": "29745841833826"
+            },
+            {
+              "policyId": "c48cbb3d5e57ed56e276bc45f99ab39abe94e6cd7ac39fb402da47ad",
+              "assetName": "0014df105553444d",
+              "amount": "93995356072"
+            },
+            {
+              "policyId": "f5808c2c990d86da54bfc97d89cee6efa20cd8461616359478d96b4c",
+              "assetName": "4d5350",
+              "amount": "1"
+            },
+            {
+              "policyId": "f5808c2c990d86da54bfc97d89cee6efa20cd8461616359478d96b4c",
+              "assetName": "b950921763ce10c2600579460a4a40ba0c286bfab6497acd09ae0cd8b2ef687d",
+              "amount": "9223370631647565940"
+            }
+          ],
+          "plutusDataHash": "f3407361764ab7dbf4588a9af572f0f2406e7d0747e07cc01e0b6d38eac0c35f",
+          "plutusData": "d8799fd8799fd87a9f581c1eae96baf29e27682ea3f815aba361a0c6059d45e4bfbe95bbd2f44affffd8799f581c29d222ce763455e3d7a09a665ce554f00ac89d2e99a1a83d267170c6434d494effd8799f581cc48cbb3d5e57ed56e276bc45f99ab39abe94e6cd7ac39fb402da47ad480014df105553444dff1b000001472ce067951b00001b0d2ba6ad001b00000015e239794f181e181ed8799f190682ffd87980ff"
+        },
+        {
+          "address": "015b7e23228dba75595645fc357d0f97ba258cfccfff5d588d4bb9165b533b9586f0fb9aafd578e0d0154e9478d23614e736eb39d1a30d8a99",
+          "amount": "11311123"
+        }
+      ],
+      "fee": "688877",
+      "ttl": 192027105,
+      "withdrawals": [
+        {
+          "rewardAccount": "f11eae96baf29e27682ea3f815aba361a0c6059d45e4bfbe95bbd2f44a",
+          "amount": "0"
+        }
+      ],
+      "auxiliaryDataHash": "5160f88b929bf8a6c57c285b889488f9137c0ef3cfd0bcf408a10020e69146d5",
+      "validityIntervalStart": 192026925,
+      "scriptDataHash": "3351d5671d788fed622bb00987385d899577188cc68601ae6231452b8a32370b",
+      "collaterals": [
+        {
+          "txId": "393b6aec584a817633c0e2250b5c021b6db4c2ef282eeb9bd6cd685ae0c35411",
+          "index": 25
+        }
+      ],
+      "requiredSigners": [
+        "5b7e23228dba75595645fc357d0f97ba258cfccfff5d588d4bb9165b"
+      ],
+      "collateralOutput": {
+        "address": "015b7e23228dba75595645fc357d0f97ba258cfccfff5d588d4bb9165b533b9586f0fb9aafd578e0d0154e9478d23614e736eb39d1a30d8a99",
+        "amount": "5000000"
+      },
+      "totalCollateral": "5000000",
+      "referenceInputs": [
+        {
+          "txId": "0dc17712e37a4e741767db2f90d4ffbf69faf88b9bed4c47864f7bd912924bea",
+          "index": 0
+        },
+        {
+          "txId": "cf4ecddde0d81f9ce8fcc881a85eb1f8ccdaf6807f03fea4cd02da896a621776",
+          "index": 0
+        },
+        {
+          "txId": "2536194d2a976370a932174c10975493ab58fd7c16395d50e62b7c0e1949baea",
+          "index": 0
+        },
+        {
+          "txId": "d46bd227bd2cf93dedd22ae9b6d92d30140cf0d68b756f6608e38d680c61ad17",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "hash": "7894cebf6fe02eeab5ac05665aca5dcc078e0c7a00989cae5f5dc7fd803d1f19",
+      "inputs": [
+        {
+          "txId": "aeb36002d14262ab122a1916c70c022fc8f0eda31f2dd4138c1e7d11106c0031",
+          "index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "address": "0196b16f2f02591c36b4775b97ccec56d00c5e3793514463b40e9d37e89fd2af1e04d0de04cea32e9898df30d1d44e14612297b4f445a389e3",
+          "amount": "53786379"
+        }
+      ],
+      "fee": "213621",
+      "collaterals": [
+        {
+          "txId": "c099abc33a433c6cf51036f8a0fbcbf414660efc01b869c3900d6e5a9481ec5d",
+          "index": 0
+        }
+      ],
+      "totalCollateral": "13749422",
+      "requiredSigners": [
+        "96b16f2f02591c36b4775b97ccec56d00c5e3793514463b40e9d37e8"
+      ],
+      "scriptDataHash": "6b8e39c14d29e085cebe11c76a33eb49e16c5996c2e78ff1d2134f025634b935",
+      "auxiliaryDataHash": "63267ebc5b01db0545ab07efe09c893f2149889cb80b15a52482749c4f60726a"
+    },
+    {
+      "hash": "58b62d066b56a8bc783fe552a3b2b72785ef9ed1ee1864b0c912395e305d1545",
+      "inputs": [
+        {
+          "txId": "4d164b7d3167758133f2afdf9da3f27a4cef8610ef5080648f5183448a67117e",
+          "index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "address": "01d029dc9c5e5e8015b6763272610390e587ee2e9747d4508824e10622c9e554e0b316d22a1000fa3c73aeff7cac05401a746e903d53a58d5a",
+          "amount": "2790059",
+          "tokens": [
+            {
+              "policyId": "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1",
+              "assetName": "43424a53503031383234",
+              "amount": "1"
+            }
+          ]
+        },
+        {
+          "address": "01cf1d98cfb6d406da3d1055439514a9aa8a250d16900150df77f22a5f42f07bb00e223a2f8202bd71d0861d092b6955226997f8a43d078180",
+          "amount": "153000000"
+        }
+      ],
+      "fee": "209941",
+      "ttl": 171080096,
+      "auxiliaryDataHash": "909bb140d9353cfea1ddb661054151713bc944bea87b3616cc6f46001bb54f87",
+      "mint": [
+        {
+          "policyId": "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1",
+          "assetName": "43424a53503031383234",
+          "amount": "1"
+        }
+      ]
+    },
+    {
+      "hash": "0d48922f8944c59e649f292179ac255012096e616345a871cf84b5511b56f1af",
+      "inputs": [
+        {
+          "txId": "7bd10b4228a8ca87954d70e0fc56ce4d66c403908f14f4ba09f8ded72d4a607e",
+          "index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "address": "010afbe78bdf0a674216d4796ab3d290e7d02dce447de651713171918e6da4975e94c1194fdad58e62c853035fb314b78642f202d0e04da95a",
+          "amount": "122993718"
+        }
+      ],
+      "fee": "178657",
+      "votingProcedures": [
+        {
+          "voter": {
+            "key": "b6f4547ad049d7443ee5695761e1aa5e446cfccf72c7ed0d8ad8edfa",
+            "type": 2
+          },
+          "votes": [
+            {
+              "govActionId": {
+                "txId": "b3d452bff7769d7f557ec6b8974760ee6c5e496c276652b654032966621e0ccf",
+                "index": 6
+              },
+              "vote": 2,
+              "anchor": {
+                "url": "https://most-brass-sun.quicknode-ipfs.com/ipfs/QmWKYqhvR87R8GaDJnEQwA6inUiEGrziTwGGUPLWiCD4QX",
+                "hash": "ea83c3804e241c1ed3a5bd056d33cb75312abeeb87065705dcd4c36aaf9071d2"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "witnesses": [
+    {
+      "vKeyWitnesses": {
+        "5b7e23228dba75595645fc357d0f97ba258cfccfff5d588d4bb9165b": {
+          "vKey": "c5d63d7dc066df52592135b6d3cb4f3470d06f7bdd4b2d2e32eb59ca3782662f",
+          "signature": "ae992118a7ab329539a7f9712d74b8aec2725c8c527a69a118c0c4d771df271d24cc0a34461c13180899d5040ddf90e0ee02875ba6759b4a8fecd06c222b7506"
+        }
+      },
+      "redeemers": [
+        {
+          "index": 1,
+          "tag": 0,
+          "plutusData": "d87980",
+          "exUnits": {
+            "mem": 25305,
+            "steps": 8177555
+          }
+        },
+        {
+          "index": 2,
+          "tag": 0,
+          "plutusData": "d87980",
+          "exUnits": {
+            "mem": 77308,
+            "steps": 23525984
+          }
+        },
+        {
+          "index": 0,
+          "tag": 3,
+          "plutusData": "d8799f009f1a001e8480ff4100d87a809fd87a80ffff",
+          "exUnits": {
+            "mem": 1406012,
+            "steps": 484470612
+          }
+        }
+      ]
+    },
+    {
+      "vKeyWitnesses": {
+        "96b16f2f02591c36b4775b97ccec56d00c5e3793514463b40e9d37e8": {
+          "vKey": "5f557d55682c6f7f5775246ad82fe80eb56077e52d547b3978fee5f08d3c8312",
+          "signature": "98ee7525649d33b6fab872b9b6ffa56d4e0f366e37cb79f06b40cf24d9fcaf836356f166c8de40681c9e81f98fb36e905d6313d2686b1946a4d2ad73d095a60c"
+        }
+      },
+      "plutusScripts": {
+        "a65ca58a4e9c755fa830173d2a5caed458ac0c73f97db7faae2e7e3b": "59014c01000032323232323232322223232325333009300e30070021323233533300b3370e9000180480109118011bae30100031225001232533300d3300e22533301300114a02a66601e66ebcc04800400c5288980118070009bac3010300c300c300c300c300c300c300c007149858dd48008b18060009baa300c300b3754601860166ea80184ccccc0288894ccc04000440084c8c94ccc038cd4ccc038c04cc030008488c008dd718098018912800919b8f0014891ce1317b152faac13426e6a83e06ff88a4d62cce3c1634ab0a5ec133090014a0266008444a00226600a446004602600a601a00626600a008601a006601e0026ea8c03cc038dd5180798071baa300f300b300e3754601e00244a0026eb0c03000c92616300a001375400660106ea8c024c020dd5000aab9d5744ae688c8c0088cc0080080048c0088cc00800800555cf2ba15573e6e1d200201"
+      },
+      "plutusData": {
+        "48ed714ad125df6839f8cc984c0862f887fcdd290f0b843a3a4cd4e218bbc08f": "d8799fd8799fd8799f581c96b16f2f02591c36b4775b97ccec56d00c5e3793514463b40e9d37e8ffd8799fd8799fd8799f581c9fd2af1e04d0de04cea32e9898df30d1d44e14612297b4f445a389e3ffffffffd8799fd8799f581c96b16f2f02591c36b4775b97ccec56d00c5e3793514463b40e9d37e8ffd8799fd8799fd8799f581c9fd2af1e04d0de04cea32e9898df30d1d44e14612297b4f445a389e3ffffffffd87a9fffd8799fd8799f581cc48cbb3d5e57ed56e276bc45f99ab39abe94e6cd7ac39fb402da47ad480014df105553444dff1a00ef1729ff1a001e84801a001e8480ff"
+      },
+      "redeemers": [
+        {
+          "index": 0,
+          "tag": 0,
+          "plutusData": "d87a80",
+          "exUnits": {
+            "mem": 20499,
+            "steps": 7173405
+          }
+        }
+      ]
+    },
+    {
+      "vKeyWitnesses": {
+        "3cdb7e323abb8e58730c84d2fede1cb48da5783affbc2408ef13d8e8": {
+          "vKey": "fddd15c8cc22be18fff21e4f2f75118e0da6a61995d6316635fd6c3ac3d47076",
+          "signature": "f977d1c936187d9c355e1b002f7cb16e5c8dea79c85ef3de18fc53edea30b788db9a15e914040261f5929b782e53d237cbeee426c231032ecb065a0d69a17a0e"
+        },
+        "846560778d82be2e26af05f709e1cc35229bae75aead23600f657820": {
+          "vKey": "4ceb3757bb1737f799e597893a17b3639d271085a227fb044d65c3a8ef620ec7",
+          "signature": "b7a7520bf3ba7f9a3cbefdc7749f2d685aeba835cadba2d2df4e7c1bc1e08e2cd2dc9fa6891ea9c43e7cd74d83af5e7081b1ccef8ad1bedfc6571d049126f901"
+        }
+      },
+      "nativeScripts": {
+        "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1": {
+          "all": [
+            {
+              "pubKeyHash": "846560778d82be2e26af05f709e1cc35229bae75aead23600f657820"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "vKeyWitnesses": {
+        "0afbe78bdf0a674216d4796ab3d290e7d02dce447de651713171918e": {
+          "vKey": "0fd6cb48aab7db87f865cba4d007d10cd3b67b6f15813092bdb799006b2acb04",
+          "signature": "0f6d69d725074822d024c151103581b9519b88ea7291ad79f4c2f1b9aa2e77c2b3ad7d5fb5cd8cce0a0d825f665ecc75d59011c32e84117c6dc0ba48145dca00"
+        },
+        "b6f4547ad049d7443ee5695761e1aa5e446cfccf72c7ed0d8ad8edfa": {
+          "vKey": "be66250d2267f16608feba5d1091171aa6e2c1b3223c7c75babb160926e5b47a",
+          "signature": "740c671ba24162845b4fa31fc060790ce634b65d95514e5ad52761b1b087a40a84c77e6f0ae7928303ddc04de9cdb5e8d3a99fcd208073681cf0fa3a5d28d906"
+        }
+      }
+    }
+  ],
+  "auxiliaryDataMap": {
+    "$map": [
+      [
+        0,
+        {
+          "metadata": [
+            {
+              "label": 674,
+              "data": {
+                "$map": [
+                  [
+                    "msg",
+                    [
+                      "Minswap: Order Executed"
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      [
+        1,
+        {
+          "metadata": [
+            {
+              "label": 674,
+              "data": {
+                "$map": [
+                  [
+                    "msg",
+                    [
+                      "SDK Minswap: Cancel Order"
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      [
+        2,
+        {
+          "metadata": [
+            {
+              "label": 721,
+              "data": {
+                "$map": [
+                  [
+                    "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1",
+                    {
+                      "$map": [
+                        [
+                          "CBJSP01824",
+                          {
+                            "$map": [
+                              [
+                                "id",
+                                "01824"
+                              ],
+                              [
+                                "tag",
+                                "CBJSP01824"
+                              ],
+                              [
+                                "name",
+                                "Bubblejett Super Phantom 2024 CM #01824"
+                              ],
+                              [
+                                "slot",
+                                "Ship"
+                              ],
+                              [
+                                "image",
+                                "ipfs://QmdtzWAoVEqHrrUSaXz6dcmZoydtpDqewFhQU8FbZjBNun"
+                              ],
+                              [
+                                "media",
+                                {
+                                  "$map": [
+                                    [
+                                      "Website",
+                                      "https://www.cornucopias.io"
+                                    ],
+                                    [
+                                      "Link Tree",
+                                      "https://linktr.ee/CornucopiasGame"
+                                    ]
+                                  ]
+                                }
+                              ],
+                              [
+                                "gameid",
+                                "CBJSPCM"
+                              ],
+                              [
+                                "rarity",
+                                "Common"
+                              ],
+                              [
+                                "season",
+                                "Pre-Launch"
+                              ],
+                              [
+                                "version",
+                                "1.0"
+                              ],
+                              [
+                                "fullName",
+                                "Bubblejett Super Phantom 2024 #01824"
+                              ],
+                              [
+                                "mediaType",
+                                "image/png"
+                              ],
+                              [
+                                "typeClass",
+                                "Ship"
+                              ],
+                              [
+                                "attributes",
+                                {
+                                  "$map": [
+                                    [
+                                      "Year",
+                                      "2024"
+                                    ],
+                                    [
+                                      "Color",
+                                      "Sapphire Blue"
+                                    ],
+                                    [
+                                      "Model",
+                                      "Super Phantom"
+                                    ],
+                                    [
+                                      "Paint",
+                                      "Gloss"
+                                    ],
+                                    [
+                                      "Seats",
+                                      "2"
+                                    ],
+                                    [
+                                      "Trim1",
+                                      "Stone Suede"
+                                    ],
+                                    [
+                                      "Trim2",
+                                      "Brown Leather"
+                                    ],
+                                    [
+                                      "Trim3",
+                                      "Aluminum"
+                                    ],
+                                    [
+                                      "Derivative",
+                                      "Common 2024"
+                                    ],
+                                    [
+                                      "Manufacturer",
+                                      "Bubblejett"
+                                    ]
+                                  ]
+                                }
+                              ],
+                              [
+                                "description",
+                                "Cornucopias Ship"
+                              ],
+                              [
+                                "projectName",
+                                "Cornucopias Game"
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            }
+          ],
+          "nativeScripts": []
+        }
+      ]
+    ]
+  },
+  "invalidTransactions": [
+    1
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "body": {
+    "hash": "d0f8573a76cf4dd49ffd3f263a37d820ad9e3bd0094f08de346e33c5233cde51",
+    "inputs": [
+      {
+        "txId": "2f0a6fbbf50c3f162e893548b3247b747028ed7eb0569f62df08b94ec2834685",
+        "index": 2
+      },
+      {
+        "txId": "fecd5e48e10be7786977e228a686999e2da1087764c0c7a876999528fa79a2ac",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "0121f39fb376b5029105b805c3689c96e2e7230d3ee4d595410f813f4c5f331948d6f79cea6a0e2b8477f015d7e319747159811edfaaa93c90",
+        "amount": "11070857",
+        "tokens": [
+          {
+            "policyId": "a8bbc7001fdb226055baa1e5133acbcc25a70ba83864153a8bc1f958",
+            "assetName": "536d61727457616c6c657420566f756368657220",
+            "amount": "3"
+          },
+          {
+            "policyId": "e9dd7480c604eec7c25f2dce6c55620024d60c9ac05bd4ea12584def",
+            "assetName": "536d61727457616c6c6574566f756368657241646d696e",
+            "amount": "1"
+          },
+          {
+            "policyId": "e9dd7480c604eec7c25f2dce6c55620024d60c9ac05bd4ea12584def",
+            "assetName": "536d61727457616c6c65744d696e7441646d696e",
+            "amount": "1"
+          }
+        ]
+      }
+    ],
+    "fee": "220178",
+    "certificates": [
+      {
+        "type": 14,
+        "cert": {
+          "coldCredential": {
+            "key": "7c34e0240b84029e0932f5e8d81af42a63f55de6da31f16e19b1f5b4",
+            "type": 1
+          },
+          "hotCredential": {
+            "key": "21f39fb376b5029105b805c3689c96e2e7230d3ee4d595410f813f4c",
+            "type": 0
+          }
+        }
+      }
+    ],
+    "scriptDataHash": "10a2b1ae45645b902469854ba64ea7fa25a99be41bff709b2adc362795ef4de0",
+    "collaterals": [
+      {
+        "txId": "a20b847f372bde08c7e2b7b71988e2ed6064bce2894e5376a10b1b19d6ee578e",
+        "index": 0
+      }
+    ],
+    "requiredSigners": [
+      "21f39fb376b5029105b805c3689c96e2e7230d3ee4d595410f813f4c"
+    ],
+    "totalCollateral": "5000000",
+    "referenceInputs": [
+      {
+        "txId": "2f0a6fbbf50c3f162e893548b3247b747028ed7eb0569f62df08b94ec2834685",
+        "index": 0
+      },
+      {
+        "txId": "2f0a6fbbf50c3f162e893548b3247b747028ed7eb0569f62df08b94ec2834685",
+        "index": 1
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "21f39fb376b5029105b805c3689c96e2e7230d3ee4d595410f813f4c": {
+        "vKey": "80aee2ea910db229421e8c38868620b1bc00c0616d5f3c603f450aa095f48d2f",
+        "signature": "4cb838b3d6181670b585bb6fdc954917232423b5e150cdf214c7426c9b3e21b173bd0d84fb92affef88adc04c04f4852802e0e0b75f38511be48d1b9e7f2730b"
+      }
+    },
+    "redeemers": [
+      {
+        "index": 0,
+        "tag": 2,
+        "plutusData": "d87980",
+        "exUnits": {
+          "mem": 85830,
+          "steps": 24911779
+        }
+      }
+    ]
+  },
+  "auxiliaryData": null
+}

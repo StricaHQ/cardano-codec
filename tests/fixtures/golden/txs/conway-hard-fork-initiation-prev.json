@@ -1,0 +1,54 @@
+{
+  "body": {
+    "hash": "fdd468da5cc4ac8431dcd7e2b3211666c73bc229f85879469f67f1d9d51d344d",
+    "inputs": [
+      {
+        "txId": "c75bb221606687aa858ec89c7a15c88e9c17054f2e045ae31ecc8a9687cd206e",
+        "index": 0
+      },
+      {
+        "txId": "c8a7dc38c2a5590b328ac53971d8e0281c021ba7fb17a36618f3fb5e2b626aa3",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "01076ad93c90e7dafc2ad468212fb2e2701559d1d32f25ebdc1facdada611943783e94de22f533778841521e97f77588fe05447f464be192c9",
+        "amount": "2817039"
+      }
+    ],
+    "fee": "184069",
+    "proposalProcedures": [
+      {
+        "deposit": "100000000000",
+        "rewardAccount": "e1192688a334130db2b51aedea594301010b0d1d2e9a86a460932520ba",
+        "govAction": {
+          "type": 1,
+          "action": {
+            "prevActionId": {
+              "txId": "0b19476e40bbbb5e1e8ce153523762e2b6859e7ecacbaf06eae0ee6a447e79b9",
+              "index": 0
+            },
+            "protocolVersion": [
+              11,
+              0
+            ]
+          }
+        },
+        "anchor": {
+          "url": "ipfs://bafkreib3ds3bj7izvspcmodz543m5y66slpcmoifzmvpl6xvq6mozaak64",
+          "hash": "7f683eaf65629963cdc726e0cb7d3be295eb586fc5ba93985878f98e29cee897"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "076ad93c90e7dafc2ad468212fb2e2701559d1d32f25ebdc1facdada": {
+        "vKey": "b34db9badbd148ffdcc73259bad2bc5981a382e657a2b27c2bc014fc16387119",
+        "signature": "86feddc930b7f909263f070d68c6e1584d779fb104c065eaa9b2fd80a5cf1b45823211ddf9b9358e3dadb56c9996e50f58df60cbeb2475f8fe68fc02912d1b00"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

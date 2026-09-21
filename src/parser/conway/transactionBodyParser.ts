@@ -1,38 +1,58 @@
-import { Buffer } from "buffer";
-import * as cbors from "@stricahq/cbors";
-import * as _ from "lodash";
+import { CborNode } from "@stricahq/cbors";
 import { CertificateType } from "../../constants";
 import {
   Relay,
   Token,
   TransactionCertificate,
   Transaction,
+  TransactionInput,
   TransactionOutput,
   HashType,
   ScriptRef,
   ScriptType,
   VotingProcedure,
   GovAction,
+  GovActionId,
   GovActionType,
   ProtocolParamUpdate,
   DRepDeleg,
+  DRepDelegType,
+  VoterType,
+  VoteType,
   Anchor,
   CostMdls,
+  Withdrawal,
 } from "../../types/conwayTypes";
+import {
+  bytes,
+  coin,
+  embedded,
+  encoded,
+  entries,
+  hex,
+  isNil,
+  items,
+  num,
+  ratio,
+  tagged,
+  text,
+} from "../../utils/node";
 import * as utils from "../../utils/utils";
 import { parseNativeScript } from "../common";
 
-const getMultiAsset = function (ma: any) {
+// Conway allows tag 258 around every set, which items() looks through.
+
+const getMultiAsset = function (ma: CborNode | undefined) {
   const tokens: Array<Token> = [];
-  if (_.isEmpty(ma)) {
+  if (isNil(ma)) {
     return tokens;
   }
-  for (const [policyId, assets] of ma.entries()) {
-    for (const [assetName, value] of assets.entries()) {
+  for (const { key: policyId, value: assets } of entries(ma)) {
+    for (const { key: assetName, value } of entries(assets)) {
       tokens.push({
-        policyId: policyId.toString("hex"),
-        assetName: assetName.toString("hex"),
-        amount: value.toString(),
+        policyId: hex(policyId),
+        assetName: hex(assetName),
+        amount: coin(value),
       });
     }
   }
@@ -47,42 +67,86 @@ const getCredentialType = (key: number) => {
   return HashType.SCRIPT;
 };
 
-const parseCostMdls = (costMdls: Map<number, Array<number>>) => {
+const parseCostModel = (costModel: CborNode | undefined) =>
+  isNil(costModel) ? undefined : items(costModel).map(num);
+
+const parseCostMdls = (costMdls: CborNode) => {
   const parsedCostMdls: CostMdls = {
     plutusV1: undefined,
     plutusV2: undefined,
     plutusV3: undefined,
   };
 
-  parsedCostMdls.plutusV1 = costMdls.get(0);
-  parsedCostMdls.plutusV2 = costMdls.get(1);
-  parsedCostMdls.plutusV3 = costMdls.get(2);
+  parsedCostMdls.plutusV1 = parseCostModel(costMdls.at(0));
+  parsedCostMdls.plutusV2 = parseCostModel(costMdls.at(1));
+  parsedCostMdls.plutusV3 = parseCostModel(costMdls.at(2));
 
   return parsedCostMdls;
 };
 
-const parseRelays = function (relays: any): Array<Relay> {
+// a tag 30 rational as [numerator, denominator]
+const parseRational = (rational: CborNode | undefined): [number, number] => {
+  const [numerator, denominator] = items(tagged(rational, 30));
+  return [num(numerator), num(denominator)];
+};
+
+const parseInputs = (inputs: CborNode): Array<TransactionInput> => {
+  const txIns: Array<TransactionInput> = [];
+  for (const input of items(inputs)) {
+    const [txId, index] = items(input);
+    txIns.push({
+      txId: hex(txId),
+      index: num(index),
+    });
+  }
+  return txIns;
+};
+
+const parseWithdrawals = (withdrawals: CborNode | undefined): Array<Withdrawal> => {
+  const withdrawal: Array<Withdrawal> = [];
+  for (const { key: ra, value: val } of entries(withdrawals)) {
+    withdrawal.push({
+      rewardAccount: hex(ra),
+      amount: coin(val),
+    });
+  }
+  return withdrawal;
+};
+
+const parsePoolMetadata = (poolMetadata: CborNode | undefined) => {
+  if (isNil(poolMetadata)) {
+    return null;
+  }
+  const [url, metadataHash] = items(poolMetadata);
+  return {
+    url: text(url),
+    metadataHash: hex(metadataHash),
+  };
+};
+
+const parseRelays = function (relays: CborNode | undefined): Array<Relay> {
   const relaysFinal: Array<Relay> = [];
-  for (const relay of relays) {
-    switch (relay[0]) {
+  for (const relayNode of items(relays)) {
+    const relay = items(relayNode);
+    switch (num(relay[0])) {
       case 0: {
         relaysFinal.push({
-          port: relay[1],
-          ipv4: relay[2] ? relay[2].toString("hex") : null,
-          ipv6: relay[3] ? relay[3].toString("hex") : null,
+          port: isNil(relay[1]) ? null : num(relay[1]),
+          ipv4: isNil(relay[2]) ? null : hex(relay[2]),
+          ipv6: isNil(relay[3]) ? null : hex(relay[3]),
         });
         break;
       }
       case 1: {
         relaysFinal.push({
-          port: relay[1],
-          dnsName: relay[2],
+          port: isNil(relay[1]) ? null : num(relay[1]),
+          dnsName: text(relay[2]),
         });
         break;
       }
       case 2: {
         relaysFinal.push({
-          srvName: relay[1],
+          srvName: text(relay[1]),
         });
         break;
       }
@@ -94,39 +158,100 @@ const parseRelays = function (relays: any): Array<Relay> {
   return relaysFinal;
 };
 
-const parseCredential = (cred: any) => {
+const parseCredential = (cred: CborNode | undefined) => {
+  const [type, key] = items(cred);
   return {
-    key: cred[1].toString("hex"),
-    type: getCredentialType(cred[0]),
+    key: hex(key),
+    type: getCredentialType(num(type)),
   };
 };
 
-const parseDRep = (dRep: any) => {
+const parseDRepType = (type: CborNode | undefined): DRepDelegType => {
+  switch (num(type)) {
+    case 0:
+      return DRepDelegType.ADDRESS;
+    case 1:
+      return DRepDelegType.SCRIPT;
+    case 2:
+      return DRepDelegType.ABSTAIN;
+    case 3:
+      return DRepDelegType.NO_CONFIDENCE;
+    default:
+      throw new Error("unknown DRep type");
+  }
+};
+
+const parseDRep = (dRep: CborNode | undefined) => {
+  // [0, addr_keyhash] / [1, script_hash] / [2] (abstain) / [3] (no confidence)
+  const [type, key] = items(dRep);
   const dRepDeleg: DRepDeleg = {
-    type: dRep[0],
-    key: dRep[1] ? dRep[1].toString("hex") : undefined,
+    type: parseDRepType(type),
+    key: isNil(key) ? undefined : hex(key),
   };
   return dRepDeleg;
 };
 
-const parseAnchor = (anc: any) => {
+const parseAnchor = (anc: CborNode | undefined) => {
   let anchor: Anchor | null = null;
 
-  if (anc) {
+  if (!isNil(anc)) {
+    const [url, hash] = items(anc);
     anchor = {
-      url: anc[0],
-      hash: anc[1].toString("hex"),
+      url: text(url),
+      hash: hex(hash),
     };
   }
 
   return anchor;
 };
 
-const parseCertificates = function (certificates: any) {
+const parseVoterType = (type: CborNode | undefined): VoterType => {
+  switch (num(type)) {
+    case 0:
+      return VoterType.CC_HOT_KEY;
+    case 1:
+      return VoterType.CC_HOT_SCRIPT;
+    case 2:
+      return VoterType.DREP_KEY;
+    case 3:
+      return VoterType.DREP_SCRIPT;
+    case 4:
+      return VoterType.POOL_KEY;
+    default:
+      throw new Error("unknown voter type");
+  }
+};
+
+const parseVote = (vote: CborNode | undefined): VoteType => {
+  switch (num(vote)) {
+    case 0:
+      return VoteType.NO;
+    case 1:
+      return VoteType.YES;
+    case 2:
+      return VoteType.ABSTAIN;
+    default:
+      throw new Error("unknown vote");
+  }
+};
+
+const parseGovActionId = (govActionId: CborNode | undefined): GovActionId => {
+  const [txId, index] = items(govActionId);
+  return {
+    txId: hex(txId),
+    index: num(index),
+  };
+};
+
+const parsePrevActionId = (prevActionId: CborNode | undefined) =>
+  isNil(prevActionId) ? null : parseGovActionId(prevActionId);
+
+const parseCertificates = function (certificates: CborNode) {
   const certs: Array<TransactionCertificate> = [];
-  for (const certificate of certificates) {
+  for (const certificateNode of items(certificates)) {
+    const certificate = items(certificateNode);
     let cert: TransactionCertificate;
-    switch (certificate[0]) {
+    switch (num(certificate[0])) {
       case 0:
         cert = {
           type: CertificateType.STAKE_KEY_REG,
@@ -150,34 +275,24 @@ const parseCertificates = function (certificates: any) {
           type: CertificateType.STAKE_DELEGATION,
           cert: {
             stakeCredential: parseCredential(certificate[1]),
-            poolKeyHash: certificate[2].toString("hex"),
+            poolKeyHash: hex(certificate[2]),
           },
         };
         certs.push(cert);
         break;
       case 3: {
-        // support for optional cbor tag in conway
-        let owners = certificate[7];
-        if (!Array.isArray(owners)) {
-          owners = owners.value;
-        }
         cert = {
           type: CertificateType.POOL_REG,
           cert: {
-            operator: certificate[1].toString("hex"),
-            vrfKeyHash: certificate[2].toString("hex"),
-            pledge: certificate[3].toString(),
-            cost: certificate[4].toString(),
-            margin: [certificate[5].value[0], certificate[5].value[1]],
-            rewardAccount: certificate[6].toString("hex"),
-            poolOwners: owners.map((owner: Buffer) => owner.toString("hex")),
+            operator: hex(certificate[1]),
+            vrfKeyHash: hex(certificate[2]),
+            pledge: coin(certificate[3]),
+            cost: coin(certificate[4]),
+            margin: parseRational(certificate[5]),
+            rewardAccount: hex(certificate[6]),
+            poolOwners: items(certificate[7]).map(hex),
             relays: parseRelays(certificate[8]),
-            poolMetadata: certificate[9]
-              ? {
-                  url: certificate[9][0],
-                  metadataHash: certificate[9][1].toString("hex"),
-                }
-              : null,
+            poolMetadata: parsePoolMetadata(certificate[9]),
           },
         };
         certs.push(cert);
@@ -187,8 +302,8 @@ const parseCertificates = function (certificates: any) {
         cert = {
           type: CertificateType.POOL_DE_REG,
           cert: {
-            poolKeyHash: certificate[1].toString("hex"),
-            epoch: certificate[2],
+            poolKeyHash: hex(certificate[1]),
+            epoch: num(certificate[2]),
           },
         };
         certs.push(cert);
@@ -198,7 +313,7 @@ const parseCertificates = function (certificates: any) {
           type: CertificateType.STAKE_REG,
           cert: {
             stakeCredential: parseCredential(certificate[1]),
-            deposit: certificate[2].toString(),
+            deposit: coin(certificate[2]),
           },
         };
         certs.push(cert);
@@ -209,7 +324,7 @@ const parseCertificates = function (certificates: any) {
           type: CertificateType.STAKE_DE_REG,
           cert: {
             stakeCredential: parseCredential(certificate[1]),
-            deposit: certificate[2].toString(),
+            deposit: coin(certificate[2]),
           },
         };
         certs.push(cert);
@@ -232,7 +347,7 @@ const parseCertificates = function (certificates: any) {
           type: CertificateType.STAKE_VOTE_DELEG,
           cert: {
             stakeCredential: parseCredential(certificate[1]),
-            poolKeyHash: certificate[2].toString("hex"),
+            poolKeyHash: hex(certificate[2]),
             dRep: parseDRep(certificate[3]),
           },
         };
@@ -245,8 +360,8 @@ const parseCertificates = function (certificates: any) {
           type: CertificateType.STAKE_REG_DELEG,
           cert: {
             stakeCredential: parseCredential(certificate[1]),
-            poolKeyHash: certificate[2].toString("hex"),
-            deposit: certificate[3].toString(),
+            poolKeyHash: hex(certificate[2]),
+            deposit: coin(certificate[3]),
           },
         };
 
@@ -259,7 +374,7 @@ const parseCertificates = function (certificates: any) {
           cert: {
             stakeCredential: parseCredential(certificate[1]),
             dRep: parseDRep(certificate[2]),
-            deposit: certificate[3].toString(),
+            deposit: coin(certificate[3]),
           },
         };
 
@@ -271,9 +386,9 @@ const parseCertificates = function (certificates: any) {
           type: CertificateType.STAKE_VOTE_REG_DELEG,
           cert: {
             stakeCredential: parseCredential(certificate[1]),
-            poolKeyHash: certificate[2].toString("hex"),
+            poolKeyHash: hex(certificate[2]),
             dRep: parseDRep(certificate[3]),
-            deposit: certificate[4].toString(),
+            deposit: coin(certificate[4]),
           },
         };
 
@@ -309,7 +424,7 @@ const parseCertificates = function (certificates: any) {
           type: CertificateType.DREP_REG,
           cert: {
             dRepCredential: parseCredential(certificate[1]),
-            deposit: certificate[2].toString(),
+            deposit: coin(certificate[2]),
             anchor: parseAnchor(certificate[3]),
           },
         };
@@ -322,7 +437,7 @@ const parseCertificates = function (certificates: any) {
           type: CertificateType.DREP_DE_REG,
           cert: {
             dRepCredential: parseCredential(certificate[1]),
-            deposit: certificate[2].toString(),
+            deposit: coin(certificate[2]),
           },
         };
 
@@ -348,126 +463,136 @@ const parseCertificates = function (certificates: any) {
   return certs;
 };
 
-const parseProtocolParamUpdate = function (update: any) {
+const parseProtocolParamUpdate = function (update: CborNode | undefined) {
   const protoParamUpdate: ProtocolParamUpdate = {};
 
-  for (const [variable, value] of update) {
-    switch (variable) {
+  for (const { key: variable, value } of entries(update)) {
+    switch (num(variable)) {
       case 0:
-        protoParamUpdate.minFeeA = value;
+        protoParamUpdate.minFeeA = coin(value);
         break;
       case 1:
-        protoParamUpdate.minFeeB = value;
+        protoParamUpdate.minFeeB = coin(value);
         break;
       case 2:
-        protoParamUpdate.maxBlockBodySize = value;
+        protoParamUpdate.maxBlockBodySize = num(value);
         break;
       case 3:
-        protoParamUpdate.maxTransactionSize = value;
+        protoParamUpdate.maxTransactionSize = num(value);
         break;
       case 4:
-        protoParamUpdate.maxBlockHeaderSize = value;
+        protoParamUpdate.maxBlockHeaderSize = num(value);
         break;
       case 5:
-        protoParamUpdate.stakeKeyDeposit = value;
+        protoParamUpdate.stakeKeyDeposit = coin(value);
         break;
       case 6:
-        protoParamUpdate.poolDeposit = value;
+        protoParamUpdate.poolDeposit = coin(value);
         break;
       case 7:
-        protoParamUpdate.poolRetireMaxEpoch = value;
+        protoParamUpdate.poolRetireMaxEpoch = num(value);
         break;
       case 8:
-        protoParamUpdate.n = value;
+        protoParamUpdate.n = num(value);
         break;
       case 9:
-        protoParamUpdate.pledgeInfluence = value.value[0] / value.value[1];
+        protoParamUpdate.pledgeInfluence = ratio(value);
         break;
       case 10:
-        protoParamUpdate.expansionRate = value.value[0] / value.value[1];
+        protoParamUpdate.expansionRate = ratio(value);
         break;
       case 11:
-        protoParamUpdate.treasuryGrowthRate = value.value[0] / value.value[1];
+        protoParamUpdate.treasuryGrowthRate = ratio(value);
         break;
       case 16:
-        protoParamUpdate.minPoolCost = value;
+        protoParamUpdate.minPoolCost = coin(value);
         break;
       case 17:
-        protoParamUpdate.adaPerUtxoByte = value;
+        protoParamUpdate.adaPerUtxoByte = coin(value);
         break;
       case 18:
         protoParamUpdate.costMdls = parseCostMdls(value);
         break;
-      case 19:
+      case 19: {
+        const [mem, steps] = items(value);
         protoParamUpdate.exUnitPrices = {
-          mem: [value[0][0], value[0][1]],
-          steps: [value[1][0], value[1][1]],
+          mem: parseRational(mem),
+          steps: parseRational(steps),
         };
         break;
-      case 20:
+      }
+      case 20: {
+        const [mem, steps] = items(value);
         protoParamUpdate.maxTxExUnits = {
-          mem: value[0],
-          steps: value[1],
+          mem: num(mem),
+          steps: num(steps),
         };
         break;
-      case 21:
+      }
+      case 21: {
+        const [mem, steps] = items(value);
         protoParamUpdate.maxBlockExUnits = {
-          mem: value[0],
-          steps: value[1],
+          mem: num(mem),
+          steps: num(steps),
         };
         break;
+      }
       case 22:
-        protoParamUpdate.maxValueSize = value;
+        protoParamUpdate.maxValueSize = num(value);
         break;
       case 23:
-        protoParamUpdate.collateralPercent = value;
+        protoParamUpdate.collateralPercent = num(value);
         break;
       case 24:
-        protoParamUpdate.maxCollateralInputs = value;
+        protoParamUpdate.maxCollateralInputs = num(value);
         break;
-      case 25:
+      case 25: {
+        const thresholds = items(value);
         protoParamUpdate.poolVotingThreshold = {
-          motionNoConfidence: value[0].value[0] / value[0].value[1],
-          committeeNormal: value[1].value[0] / value[1].value[1],
-          committeeNoConfidence: value[2].value[0] / value[2].value[1],
-          hfInitiation: value[3].value[0] / value[3].value[1],
-          securityParamVoting: value[4].value[0] / value[4].value[1],
+          motionNoConfidence: ratio(thresholds[0]),
+          committeeNormal: ratio(thresholds[1]),
+          committeeNoConfidence: ratio(thresholds[2]),
+          hfInitiation: ratio(thresholds[3]),
+          securityParamVoting: ratio(thresholds[4]),
         };
         break;
-      case 26:
+      }
+      case 26: {
+        const thresholds = items(value);
         protoParamUpdate.dRepVotingThreshold = {
-          motionNoConfidence: value[0].value[0] / value[0].value[1],
-          committeeNormal: value[1].value[0] / value[1].value[1],
-          committeeNoConfidence: value[2].value[0] / value[2].value[1],
-          updateConstitution: value[3].value[0] / value[3].value[1],
-          hfInitiation: value[4].value[0] / value[4].value[1],
-          networkParamVoting: value[5].value[0] / value[5].value[1],
-          economicParamVoting: value[6].value[0] / value[6].value[1],
-          technicalParamVoting: value[7].value[0] / value[7].value[1],
-          govParamVoting: value[8].value[0] / value[8].value[1],
-          treasuryWithdrawal: value[9].value[0] / value[9].value[1],
+          motionNoConfidence: ratio(thresholds[0]),
+          committeeNormal: ratio(thresholds[1]),
+          committeeNoConfidence: ratio(thresholds[2]),
+          updateConstitution: ratio(thresholds[3]),
+          hfInitiation: ratio(thresholds[4]),
+          networkParamVoting: ratio(thresholds[5]),
+          economicParamVoting: ratio(thresholds[6]),
+          technicalParamVoting: ratio(thresholds[7]),
+          govParamVoting: ratio(thresholds[8]),
+          treasuryWithdrawal: ratio(thresholds[9]),
         };
         break;
+      }
       case 27:
-        protoParamUpdate.minCommitteeSize = value;
+        protoParamUpdate.minCommitteeSize = num(value);
         break;
       case 28:
-        protoParamUpdate.committeeTermLimit = value;
+        protoParamUpdate.committeeTermLimit = num(value);
         break;
       case 29:
-        protoParamUpdate.govActionValidity = value;
+        protoParamUpdate.govActionValidity = num(value);
         break;
       case 30:
-        protoParamUpdate.govActionDeposit = value;
+        protoParamUpdate.govActionDeposit = coin(value);
         break;
       case 31:
-        protoParamUpdate.dRepDeposit = value;
+        protoParamUpdate.dRepDeposit = coin(value);
         break;
       case 32:
-        protoParamUpdate.dRepInactivity = value;
+        protoParamUpdate.dRepInactivity = num(value);
         break;
       case 33:
-        protoParamUpdate.govActionValidity = value.value[0] / value.value[1];
+        protoParamUpdate.refScriptCostByte = ratio(value);
         break;
       default:
         throw new Error("Unknown protocol parameter update");
@@ -477,53 +602,39 @@ const parseProtocolParamUpdate = function (update: any) {
   return protoParamUpdate;
 };
 
-const parseGovAction = function (govAction: any) {
+const parseGovAction = function (govActionNode: CborNode | undefined) {
+  const govAction = items(govActionNode);
   let action: GovAction;
-  switch (govAction[0]) {
+  switch (num(govAction[0])) {
     case 0: {
       action = {
         type: GovActionType.PARAM_CHANGE_ACTION,
         action: {
-          prevActionId: govAction[1]
-            ? {
-                txId: govAction[1][0].toString("hex"),
-                index: govAction[1][1],
-              }
-            : null,
+          prevActionId: parsePrevActionId(govAction[1]),
           protocolParamUpdate: parseProtocolParamUpdate(govAction[2]),
-          policyHash: govAction[3] ? govAction[3].toString("hex") : null,
+          policyHash: isNil(govAction[3]) ? null : hex(govAction[3]),
         },
       };
       return action;
     }
     case 1: {
+      const [major, minor] = items(govAction[2]);
       action = {
         type: GovActionType.HF_INIT_ACTION,
         action: {
-          prevActionId: govAction[1]
-            ? {
-                txId: govAction[1][0].toString("hex"),
-                index: govAction[1][1],
-              }
-            : null,
-          protocolVersion: [govAction[2][0], govAction[2][1]],
+          prevActionId: parsePrevActionId(govAction[1]),
+          protocolVersion: [num(major), num(minor)],
         },
       };
       return action;
     }
     case 2: {
-      const withdrawals = [];
-      for (const [ra, val] of govAction[1]) {
-        withdrawals.push({
-          rewardAccount: ra.toString("hex"),
-          amount: val.toString(),
-        });
-      }
+      const withdrawals = parseWithdrawals(govAction[1]);
       action = {
         type: GovActionType.TREASURY_WITHDRAW_ACTION,
         action: {
           withdrawals: withdrawals,
-          policyHash: govAction[2] ? govAction[2].toString("hex") : null,
+          policyHash: isNil(govAction[2]) ? null : hex(govAction[2]),
         },
       };
       return action;
@@ -532,62 +643,36 @@ const parseGovAction = function (govAction: any) {
       action = {
         type: GovActionType.NO_CONFIDENCE_ACTION,
         action: {
-          prevActionId: govAction[1]
-            ? {
-                txId: govAction[1][0].toString("hex"),
-                index: govAction[1][1],
-              }
-            : null,
+          prevActionId: parsePrevActionId(govAction[1]),
         },
       };
       return action;
     }
     case 4: {
-      // support for optional cbor tag in conway
-      let coldCreds = govAction[2];
-      if (!Array.isArray(coldCreds)) {
-        coldCreds = coldCreds.value;
-      }
       action = {
         type: GovActionType.UPDATE_COMMITTEE_ACTION,
         action: {
-          prevActionId: govAction[1]
-            ? {
-                txId: govAction[1][0].toString("hex"),
-                index: govAction[1][1],
-              }
-            : null,
-          removeColdCred: coldCreds.map((cert: any) => {
-            return {
-              key: cert[1].toString("hex"),
-              type: getCredentialType(cert[0]),
-            };
-          }),
-          addColdCred: Array.from(govAction[3]).map(([cred, epoch]: any) => ({
-            credential: {
-              key: cred[1].toString("hex"),
-              type: getCredentialType(cred[0]),
-            },
-            epoch: epoch,
+          prevActionId: parsePrevActionId(govAction[1]),
+          removeColdCred: items(govAction[2]).map(parseCredential),
+          addColdCred: entries(govAction[3]).map(({ key: cred, value: epoch }) => ({
+            credential: parseCredential(cred),
+            epoch: num(epoch),
           })),
-          threshold: govAction[4].value[0] / govAction[4].value[1],
+          threshold: ratio(govAction[4]),
         },
       };
       return action;
     }
     case 5: {
+      // [anchor, script_hash / null]
+      const [anchor, scriptHash] = items(govAction[2]);
       action = {
         type: GovActionType.NEW_CONSTITUTION_ACTION,
         action: {
-          prevActionId: govAction[1]
-            ? {
-                txId: govAction[1][0].toString("hex"),
-                index: govAction[1][1],
-              }
-            : null,
+          prevActionId: parsePrevActionId(govAction[1]),
           constitution: {
-            anchor: parseAnchor(govAction[2][0]) as Anchor,
-            scriptHash: govAction[2][1] ? govAction[2][1].toString("hex") : govAction[2][1],
+            anchor: parseAnchor(anchor) as Anchor,
+            scriptHash: isNil(scriptHash) ? null : hex(scriptHash),
           },
         },
       };
@@ -604,84 +689,88 @@ const parseGovAction = function (govAction: any) {
   }
 };
 
-const parseOutput = (output: any): TransactionOutput => {
-  let address;
-  let outputValue;
+const parsePlutusScriptRef = (type: ScriptType, prefix: number, script: CborNode): ScriptRef => {
+  const scriptBytes = bytes(script);
+  return {
+    type,
+    script: utils.toHex(scriptBytes),
+    hash: utils.createScriptHash(prefix, scriptBytes),
+  };
+};
+
+// script_ref = #6.24(bytes .cbor script); the inner item is decoded on its own, so a
+// native script hash covers its bytes as written.
+const parseScriptRef = (rawScriptRef: CborNode): ScriptRef | undefined => {
+  const [type, script] = items(embedded(rawScriptRef));
+  switch (num(type)) {
+    case 0:
+      return {
+        type: ScriptType.NATIVE_SCRIPT,
+        script: parseNativeScript(script),
+        hash: utils.createScriptHash(0, encoded(script)),
+      };
+    case 1:
+      return parsePlutusScriptRef(ScriptType.PLUTUS_V1, 1, script);
+    case 2:
+      return parsePlutusScriptRef(ScriptType.PLUTUS_V2, 2, script);
+    case 3:
+      return parsePlutusScriptRef(ScriptType.PLUTUS_V3, 3, script);
+    default:
+      return undefined;
+  }
+};
+
+const parseOutput = (output: CborNode): TransactionOutput => {
+  let address: CborNode | undefined;
+  let outputValue: CborNode | undefined;
   let plutusDataHash: string | undefined;
   let plutusData: string | undefined;
   let scriptRef: ScriptRef | undefined;
 
-  if (Array.isArray(output)) {
-    address = output[0];
-    outputValue = output[1];
-    if (output[2]) {
-      plutusDataHash = output[2].toString("hex");
+  // pre-Babbage [address, value, ? datum_hash], or
+  // { 0: address, 1: value, ? 2: datum_option, ? 3: script_ref }
+  if (output.kind === "array") {
+    const fields = items(output);
+    address = fields[0];
+    outputValue = fields[1];
+    if (!isNil(fields[2])) {
+      plutusDataHash = hex(fields[2]);
     }
   } else {
-    address = output.get(0);
-    outputValue = output.get(1);
-    const datumOption = output.get(2);
-    const rawScriptRef = output.get(3);
+    address = output.at(0);
+    outputValue = output.at(1);
+    const datumOption = output.at(2);
+    const rawScriptRef = output.at(3);
 
-    if (datumOption) {
-      if (datumOption[0] === 0) {
-        plutusDataHash = datumOption[1].toString("hex");
-      } else if (datumOption[0] === 1) {
-        const pdBuff = datumOption[1].value;
-        plutusData = pdBuff.toString("hex");
+    if (!isNil(datumOption)) {
+      // [0, datum_hash] / [1, #6.24(bytes .cbor plutus_data)]
+      const [type, datum] = items(datumOption);
+      const datumType = num(type);
+      if (datumType === 0) {
+        plutusDataHash = hex(datum);
+      } else if (datumType === 1) {
+        const pdBuff = bytes(tagged(datum, 24));
+        plutusData = utils.toHex(pdBuff);
         plutusDataHash = utils.createHash32(pdBuff);
       }
     }
-    if (rawScriptRef) {
-      const script = cbors.Decoder.decode(rawScriptRef.value).value;
-      if (script[0] === 0) {
-        const ns = script[1];
-        const nsCborHex = cbors.Encoder.encode(ns).toString("hex");
-        const hash = utils.createHash28(Buffer.from(`00${nsCborHex}`, "hex"));
-
-        scriptRef = {
-          type: ScriptType.NATIVE_SCRIPT,
-          script: parseNativeScript(script[1]),
-          hash: hash,
-        };
-      } else if (script[0] === 1) {
-        const scriptHex = script[1].toString("hex");
-        const hash = utils.createHash28(Buffer.from(`01${scriptHex}`, "hex"));
-        scriptRef = {
-          type: ScriptType.PLUTUS_V1,
-          script: scriptHex,
-          hash: hash,
-        };
-      } else if (script[0] === 2) {
-        const scriptHex = script[1].toString("hex");
-        const hash = utils.createHash28(Buffer.from(`02${scriptHex}`, "hex"));
-        scriptRef = {
-          type: ScriptType.PLUTUS_V2,
-          script: scriptHex,
-          hash: hash,
-        };
-      } else if (script[0] === 3) {
-        const scriptHex = script[1].toString("hex");
-        const hash = utils.createHash28(Buffer.from(`03${scriptHex}`, "hex"));
-        scriptRef = {
-          type: ScriptType.PLUTUS_V3,
-          script: scriptHex,
-          hash: hash,
-        };
-      }
+    if (!isNil(rawScriptRef)) {
+      scriptRef = parseScriptRef(rawScriptRef);
     }
   }
 
-  let adaAmount;
+  let adaAmount: string;
   let tokens: Array<Token> | undefined;
-  if (Array.isArray(outputValue)) {
-    adaAmount = outputValue[0].toString();
-    tokens = getMultiAsset(outputValue[1]);
+  // coin, or [coin, multiasset]
+  if (outputValue?.kind === "array") {
+    const [amount, multiAsset] = items(outputValue);
+    adaAmount = coin(amount);
+    tokens = getMultiAsset(multiAsset);
   } else {
-    adaAmount = outputValue.toString();
+    adaAmount = coin(outputValue);
   }
   const out: TransactionOutput = {
-    address: address.toString("hex"),
+    address: hex(address),
     amount: adaAmount,
     tokens,
     plutusDataHash,
@@ -692,77 +781,50 @@ const parseOutput = (output: any): TransactionOutput => {
   return out;
 };
 
-export const parseTransaction = (trx: any, cborBuf: Buffer): Transaction => {
-  const trxBuf = utils.getCborSpanBuffer(cborBuf, trx);
-  const hash = utils.createHash32(trxBuf);
+export const parseTransaction = (trx: CborNode): Transaction => {
+  const hash = utils.createHash32(encoded(trx));
   const transaction: Transaction = {
     hash,
     inputs: [],
     outputs: [],
     fee: "",
   };
-  for (const [key, value] of trx) {
-    switch (key) {
+  for (const { key, value } of entries(trx)) {
+    switch (num(key)) {
       case 0: {
-        transaction.inputs = [];
-        // support for optional cbor tag in conway
-        let inputs = value;
-        if (!Array.isArray(inputs)) {
-          inputs = inputs.value;
-        }
-        for (const input of inputs) {
-          transaction.inputs.push({
-            txId: input[0].toString("hex"),
-            index: input[1],
-          });
-        }
+        transaction.inputs = parseInputs(value);
         break;
       }
       case 1: {
         transaction.outputs = [];
-        if (value && value.length > 0) {
-          for (const output of value) {
-            const out = parseOutput(output);
-            transaction.outputs.push(out);
-          }
+        for (const output of items(value)) {
+          transaction.outputs.push(parseOutput(output));
         }
         break;
       }
       case 2: {
-        transaction.fee = value.toString();
+        transaction.fee = coin(value);
         break;
       }
       case 3: {
-        transaction.ttl = value;
+        transaction.ttl = num(value);
         break;
       }
       case 4: {
-        // support for optional cbor tag in conway
-        let certs = value;
-        if (!Array.isArray(certs)) {
-          certs = certs.value;
-        }
-        const certificates = parseCertificates(certs);
+        const certificates = parseCertificates(value);
         transaction.certificates = certificates;
         break;
       }
       case 5: {
-        const withdrawal = [];
-        for (const [ra, val] of value) {
-          withdrawal.push({
-            rewardAccount: ra.toString("hex"),
-            amount: val.toString(),
-          });
-        }
-        transaction.withdrawals = withdrawal;
+        transaction.withdrawals = parseWithdrawals(value);
         break;
       }
       case 7: {
-        transaction.auxiliaryDataHash = value.toString("hex");
+        transaction.auxiliaryDataHash = hex(value);
         break;
       }
       case 8: {
-        transaction.validityIntervalStart = value;
+        transaction.validityIntervalStart = num(value);
         break;
       }
       case 9: {
@@ -770,35 +832,19 @@ export const parseTransaction = (trx: any, cborBuf: Buffer): Transaction => {
         break;
       }
       case 11: {
-        transaction.scriptDataHash = value.toString("hex");
+        transaction.scriptDataHash = hex(value);
         break;
       }
       case 13: {
-        transaction.collaterals = [];
-        // support for optional cbor tag in conway
-        let inputs = value;
-        if (!Array.isArray(inputs)) {
-          inputs = inputs.value;
-        }
-        for (const input of inputs) {
-          transaction.collaterals.push({
-            txId: input[0].toString("hex"),
-            index: input[1],
-          });
-        }
+        transaction.collaterals = parseInputs(value);
         break;
       }
       case 14: {
-        // support for optional cbor tag in conway
-        let reqSigners = value;
-        if (!Array.isArray(reqSigners)) {
-          reqSigners = reqSigners.value;
-        }
-        transaction.requiredSigners = reqSigners.map((v: Buffer) => v.toString("hex"));
+        transaction.requiredSigners = items(value).map(hex);
         break;
       }
       case 15: {
-        transaction.networkId = value;
+        transaction.networkId = num(value);
         break;
       }
       case 16: {
@@ -806,41 +852,30 @@ export const parseTransaction = (trx: any, cborBuf: Buffer): Transaction => {
         break;
       }
       case 17: {
-        transaction.totalCollateral = value.toString();
+        transaction.totalCollateral = coin(value);
         break;
       }
       case 18: {
-        transaction.referenceInputs = [];
-        let inputs = value;
-        if (!Array.isArray(inputs)) {
-          inputs = inputs.value;
-        }
-        for (const input of inputs) {
-          transaction.referenceInputs.push({
-            txId: input[0].toString("hex"),
-            index: input[1],
-          });
-        }
+        transaction.referenceInputs = parseInputs(value);
         break;
       }
       case 19: {
         transaction.votingProcedures = [];
-        for (const [voter, voteMap] of value) {
+        for (const { key: voterNode, value: votes } of entries(value)) {
+          const [voterType, voterKey] = items(voterNode);
           const procedure: VotingProcedure = {
             voter: {
-              key: voter[1].toString("hex"),
-              type: voter[0],
+              key: hex(voterKey),
+              type: parseVoterType(voterType),
             },
             votes: [],
           };
-          for (const [govActionIdAry, vote] of voteMap) {
+          for (const { key: govActionId, value: voteNode } of entries(votes)) {
+            const [vote, anchor] = items(voteNode);
             procedure.votes.push({
-              govActionId: {
-                txId: govActionIdAry[0].toString("hex"),
-                index: govActionIdAry[1],
-              },
-              vote: vote[0],
-              anchor: parseAnchor(vote[1]),
+              govActionId: parseGovActionId(govActionId),
+              vote: parseVote(vote),
+              anchor: parseAnchor(anchor),
             });
           }
           transaction.votingProcedures.push(procedure);
@@ -849,15 +884,11 @@ export const parseTransaction = (trx: any, cborBuf: Buffer): Transaction => {
       }
       case 20: {
         transaction.proposalProcedures = [];
-        // support for optional cbor tag in conway
-        let procedures = value;
-        if (!Array.isArray(procedures)) {
-          procedures = procedures.value;
-        }
-        for (const procedure of procedures) {
+        for (const procedureNode of items(value)) {
+          const procedure = items(procedureNode);
           transaction.proposalProcedures.push({
-            deposit: procedure[0],
-            rewardAccount: procedure[1].toString("hex"),
+            deposit: coin(procedure[0]),
+            rewardAccount: hex(procedure[1]),
             govAction: parseGovAction(procedure[2]),
             anchor: parseAnchor(procedure[3]) as Anchor,
           });
@@ -865,11 +896,11 @@ export const parseTransaction = (trx: any, cborBuf: Buffer): Transaction => {
         break;
       }
       case 21: {
-        transaction.treasuryAmount = value.toString();
+        transaction.treasuryAmount = coin(value);
         break;
       }
       case 22: {
-        transaction.donation = value.toString();
+        transaction.donation = coin(value);
         break;
       }
       default: {

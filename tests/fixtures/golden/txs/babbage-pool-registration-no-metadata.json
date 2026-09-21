@@ -1,0 +1,92 @@
+{
+  "body": {
+    "hash": "c56390ee76b8bc32a36430af0cdd3f4780c884f1b7648ef89004414d9965e8f1",
+    "inputs": [
+      {
+        "txId": "2e2618590208832d18d505c48772a1b4449a95498a2135e30a10b024fc057d35",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "61d84a5c6db15c27c1ef151187d6d950075a6908747aa88de781d2c53d",
+        "amount": "36633050"
+      }
+    ],
+    "fee": "192737",
+    "ttl": 123879277,
+    "certificates": [
+      {
+        "type": 3,
+        "cert": {
+          "operator": "852227a1fa021f85ec02e052cec33fc2a59e9dbff8ec1cf057bda332",
+          "vrfKeyHash": "064f0593cb5e5abaaa2dda9dd1cec457baee38bc5d1efcf14c3e109978445deb",
+          "pledge": "2000000",
+          "cost": "340000000",
+          "margin": [
+            1,
+            100
+          ],
+          "rewardAccount": "e1a649b4b005772db34b043359ca29c8a8f6f54f617ed4fb1fe2b74571",
+          "poolOwners": [
+            "a649b4b005772db34b043359ca29c8a8f6f54f617ed4fb1fe2b74571"
+          ],
+          "relays": [
+            {
+              "port": 6006,
+              "dnsName": "1bfje.staked.info"
+            },
+            {
+              "port": 6013,
+              "dnsName": "ww44k.staked.info"
+            },
+            {
+              "port": 6006,
+              "dnsName": "24thjt.staked.info"
+            },
+            {
+              "port": 6013,
+              "dnsName": "34y567.staked.info"
+            },
+            {
+              "port": 6006,
+              "dnsName": "jh46f.staked.info"
+            },
+            {
+              "port": 6013,
+              "dnsName": "730fh.staked.info"
+            }
+          ],
+          "poolMetadata": null
+        }
+      },
+      {
+        "type": 2,
+        "cert": {
+          "stakeCredential": {
+            "key": "a649b4b005772db34b043359ca29c8a8f6f54f617ed4fb1fe2b74571",
+            "type": 0
+          },
+          "poolKeyHash": "852227a1fa021f85ec02e052cec33fc2a59e9dbff8ec1cf057bda332"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "852227a1fa021f85ec02e052cec33fc2a59e9dbff8ec1cf057bda332": {
+        "vKey": "9e60c96c00360178123415c900f22f30b0c04ff18cf79d41a863de3462623333",
+        "signature": "36223f1ebab1e33f0e650f1e7fb203327968bf97cd722dac87e7bd912e3a4f686a376d14c27db03937eed429de68c50b44089c74a4181063251aafe720439103"
+      },
+      "a649b4b005772db34b043359ca29c8a8f6f54f617ed4fb1fe2b74571": {
+        "vKey": "c1feb0b3c0cf3f7ce5af10ae6eff1c3285ed20d2643c49c1ebd0c72a9906bf92",
+        "signature": "373cac4ca46fc69eeeb0b68b56ce2d2c076b20c21a7279bfb07bfc4fb403a8439d64a7be069e386fd5365fa1112d8d4fbd0c524e1a089c6aed99c24189a17a03"
+      },
+      "d84a5c6db15c27c1ef151187d6d950075a6908747aa88de781d2c53d": {
+        "vKey": "cc7ce1ec19963bb195adf8d5590de4cb2d67bccc01b41f03782910f91f2e17ce",
+        "signature": "8bee306ca2761231aa789bb69cb742eaffbee609de77b7e96d3d66af79937f1686af851516a83366043fcc5a324a39c039ca4a16e354178cbc284b07cae55c03"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

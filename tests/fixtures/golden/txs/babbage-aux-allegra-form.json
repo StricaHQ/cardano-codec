@@ -1,0 +1,134 @@
+{
+  "body": {
+    "hash": "64b6ee8266882003247e35056529780156df2cbe0826a0692c9eba682cb567da",
+    "inputs": [
+      {
+        "txId": "75651f5f75420861f48c8e8385ec74dfd20534adb5967bd4f5d5be56661da8bf",
+        "index": 1
+      }
+    ],
+    "outputs": [
+      {
+        "address": "01a68d813279b66e52591daf3e366b1d1fcbbe60a309be7a3bbfa90b4403c2f18adca976f67607e5e98ce8dbcd0e5784bef0cf59782d16f297",
+        "amount": "2000000",
+        "tokens": [
+          {
+            "policyId": "badace88588666d4885e4f38607a6c1e87d592b7d4d9ad9cb134e655",
+            "assetName": "4d6f62794469636b3132",
+            "amount": "1"
+          }
+        ]
+      },
+      {
+        "address": "3195f88cd39531c64a8749a625e5d3f9a79cc85d2001db23d851ad65bd19971dfb46a7fa611ddf545ee84dabd741454c4837669de8322d7181",
+        "amount": "1000000"
+      },
+      {
+        "address": "01a68d813279b66e52591daf3e366b1d1fcbbe60a309be7a3bbfa90b4403c2f18adca976f67607e5e98ce8dbcd0e5784bef0cf59782d16f297",
+        "amount": "33392278"
+      }
+    ],
+    "fee": "192825",
+    "ttl": 132367458,
+    "auxiliaryDataHash": "eea2f8b619c8ffbbf5952bb1fd5182c8b48dfd55568ca9fe3edd6f14f5840014",
+    "validityIntervalStart": 132363858,
+    "mint": [
+      {
+        "policyId": "badace88588666d4885e4f38607a6c1e87d592b7d4d9ad9cb134e655",
+        "assetName": "4d6f62794469636b3132",
+        "amount": "1"
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "a68d813279b66e52591daf3e366b1d1fcbbe60a309be7a3bbfa90b44": {
+        "vKey": "9b88ab64e49e2cee772cad72910b3f8dd69853daa2a0b9c6cb32a43b822cf1e5",
+        "signature": "e9a9f3783e54042e57bce5e0b0f8dea0655c7addf907fe59b28e447cbf43d299a582511aab0d94b0610be08ccbe0c3a3ceb7a04a497739bbfa97fd8512c1280b"
+      }
+    },
+    "nativeScripts": {
+      "badace88588666d4885e4f38607a6c1e87d592b7d4d9ad9cb134e655": {
+        "all": [
+          {
+            "invalidBefore": 78527413
+          },
+          {
+            "pubKeyHash": "a68d813279b66e52591daf3e366b1d1fcbbe60a309be7a3bbfa90b44"
+          }
+        ]
+      }
+    }
+  },
+  "auxiliaryData": {
+    "metadata": [
+      {
+        "label": 721,
+        "data": {
+          "$map": [
+            [
+              "badace88588666d4885e4f38607a6c1e87d592b7d4d9ad9cb134e655",
+              {
+                "$map": [
+                  [
+                    "MobyDick12",
+                    {
+                      "$map": [
+                        [
+                          "name",
+                          "Moby Dick #12"
+                        ],
+                        [
+                          "image",
+                          "ipfs://QmUay4ABqDqiJ2gVCGmP6q5pKCoScoX9d9j4BjvAKp7Hxh"
+                        ],
+                        [
+                          "mediaType",
+                          "image/png"
+                        ],
+                        [
+                          "description",
+                          ""
+                        ],
+                        [
+                          "files",
+                          [
+                            {
+                              "$map": [
+                                [
+                                  "name",
+                                  "MobyDick12"
+                                ],
+                                [
+                                  "mediaType",
+                                  "image/png"
+                                ],
+                                [
+                                  "src",
+                                  "ipfs://QmUay4ABqDqiJ2gVCGmP6q5pKCoScoX9d9j4BjvAKp7Hxh"
+                                ]
+                              ]
+                            }
+                          ]
+                        ],
+                        [
+                          "Moby Dick",
+                          "Color"
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ],
+            [
+              "version",
+              "1.0"
+            ]
+          ]
+        }
+      }
+    ],
+    "nativeScripts": []
+  }
+}

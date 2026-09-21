@@ -1,5 +1,6 @@
-import { Buffer } from "buffer";
 import { CertificateType } from "../constants";
+
+export { CertificateType };
 
 export type NativeScript =
   | {
@@ -10,14 +11,14 @@ export type NativeScript =
       any: Array<NativeScript>;
     }
   | {
-      n: string;
+      n: number;
       k: Array<NativeScript>;
     }
   | {
-      invalidBefore: string;
+      invalidBefore: number;
     }
   | {
-      invalidAfter: string;
+      invalidAfter: number;
     };
 
 export type HeaderBody = {
@@ -56,10 +57,10 @@ export type Token = {
 };
 
 export enum ScriptType {
-  NATIVE_SCRIPT = "NATIVE_SCRIPT",
-  PLUTUS_V1 = "PLUTUS_V1",
-  PLUTUS_V2 = "PLUTUS_V2",
-  PLUTUS_V3 = "PLUTUS_V3",
+  NATIVE_SCRIPT = 0,
+  PLUTUS_V1 = 1,
+  PLUTUS_V2 = 2,
+  PLUTUS_V3 = 3,
 }
 
 export type ScriptRef = {
@@ -318,7 +319,7 @@ export type ProtocolParamUpdate = {
     mem: number;
     steps: number;
   };
-  maxValueSize?: string;
+  maxValueSize?: number;
   collateralPercent?: number;
   maxCollateralInputs?: number;
   poolVotingThreshold?: {
@@ -343,13 +344,19 @@ export type ProtocolParamUpdate = {
   minCommitteeSize?: number;
   committeeTermLimit?: number;
   govActionValidity?: number;
-  govActionDeposit?: number;
-  dRepDeposit?: number;
+  govActionDeposit?: string;
+  dRepDeposit?: string;
   dRepInactivity?: number;
   refScriptCostByte?: number;
 };
 
-export type MetaDatum = Map<MetaDatum, MetaDatum> | Array<MetaDatum> | number | Buffer | string;
+export type MetaDatum =
+  | Map<MetaDatum, MetaDatum>
+  | Array<MetaDatum>
+  | number
+  | bigint
+  | Uint8Array
+  | string;
 
 export type Metadata = {
   label: number;

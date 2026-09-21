@@ -1,0 +1,203 @@
+{
+  "body": {
+    "hash": "58b62d066b56a8bc783fe552a3b2b72785ef9ed1ee1864b0c912395e305d1545",
+    "inputs": [
+      {
+        "txId": "4d164b7d3167758133f2afdf9da3f27a4cef8610ef5080648f5183448a67117e",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "01d029dc9c5e5e8015b6763272610390e587ee2e9747d4508824e10622c9e554e0b316d22a1000fa3c73aeff7cac05401a746e903d53a58d5a",
+        "amount": "2790059",
+        "tokens": [
+          {
+            "policyId": "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1",
+            "assetName": "43424a53503031383234",
+            "amount": "1"
+          }
+        ]
+      },
+      {
+        "address": "01cf1d98cfb6d406da3d1055439514a9aa8a250d16900150df77f22a5f42f07bb00e223a2f8202bd71d0861d092b6955226997f8a43d078180",
+        "amount": "153000000"
+      }
+    ],
+    "fee": "209941",
+    "ttl": 171080096,
+    "auxiliaryDataHash": "909bb140d9353cfea1ddb661054151713bc944bea87b3616cc6f46001bb54f87",
+    "mint": [
+      {
+        "policyId": "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1",
+        "assetName": "43424a53503031383234",
+        "amount": "1"
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "3cdb7e323abb8e58730c84d2fede1cb48da5783affbc2408ef13d8e8": {
+        "vKey": "fddd15c8cc22be18fff21e4f2f75118e0da6a61995d6316635fd6c3ac3d47076",
+        "signature": "f977d1c936187d9c355e1b002f7cb16e5c8dea79c85ef3de18fc53edea30b788db9a15e914040261f5929b782e53d237cbeee426c231032ecb065a0d69a17a0e"
+      },
+      "846560778d82be2e26af05f709e1cc35229bae75aead23600f657820": {
+        "vKey": "4ceb3757bb1737f799e597893a17b3639d271085a227fb044d65c3a8ef620ec7",
+        "signature": "b7a7520bf3ba7f9a3cbefdc7749f2d685aeba835cadba2d2df4e7c1bc1e08e2cd2dc9fa6891ea9c43e7cd74d83af5e7081b1ccef8ad1bedfc6571d049126f901"
+      }
+    },
+    "nativeScripts": {
+      "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1": {
+        "all": [
+          {
+            "pubKeyHash": "846560778d82be2e26af05f709e1cc35229bae75aead23600f657820"
+          }
+        ]
+      }
+    }
+  },
+  "auxiliaryData": {
+    "metadata": [
+      {
+        "label": 721,
+        "data": {
+          "$map": [
+            [
+              "cde170ac57a14820c66ab650be76bb21152036915186a0cf6c29dcc1",
+              {
+                "$map": [
+                  [
+                    "CBJSP01824",
+                    {
+                      "$map": [
+                        [
+                          "id",
+                          "01824"
+                        ],
+                        [
+                          "tag",
+                          "CBJSP01824"
+                        ],
+                        [
+                          "name",
+                          "Bubblejett Super Phantom 2024 CM #01824"
+                        ],
+                        [
+                          "slot",
+                          "Ship"
+                        ],
+                        [
+                          "image",
+                          "ipfs://QmdtzWAoVEqHrrUSaXz6dcmZoydtpDqewFhQU8FbZjBNun"
+                        ],
+                        [
+                          "media",
+                          {
+                            "$map": [
+                              [
+                                "Website",
+                                "https://www.cornucopias.io"
+                              ],
+                              [
+                                "Link Tree",
+                                "https://linktr.ee/CornucopiasGame"
+                              ]
+                            ]
+                          }
+                        ],
+                        [
+                          "gameid",
+                          "CBJSPCM"
+                        ],
+                        [
+                          "rarity",
+                          "Common"
+                        ],
+                        [
+                          "season",
+                          "Pre-Launch"
+                        ],
+                        [
+                          "version",
+                          "1.0"
+                        ],
+                        [
+                          "fullName",
+                          "Bubblejett Super Phantom 2024 #01824"
+                        ],
+                        [
+                          "mediaType",
+                          "image/png"
+                        ],
+                        [
+                          "typeClass",
+                          "Ship"
+                        ],
+                        [
+                          "attributes",
+                          {
+                            "$map": [
+                              [
+                                "Year",
+                                "2024"
+                              ],
+                              [
+                                "Color",
+                                "Sapphire Blue"
+                              ],
+                              [
+                                "Model",
+                                "Super Phantom"
+                              ],
+                              [
+                                "Paint",
+                                "Gloss"
+                              ],
+                              [
+                                "Seats",
+                                "2"
+                              ],
+                              [
+                                "Trim1",
+                                "Stone Suede"
+                              ],
+                              [
+                                "Trim2",
+                                "Brown Leather"
+                              ],
+                              [
+                                "Trim3",
+                                "Aluminum"
+                              ],
+                              [
+                                "Derivative",
+                                "Common 2024"
+                              ],
+                              [
+                                "Manufacturer",
+                                "Bubblejett"
+                              ]
+                            ]
+                          }
+                        ],
+                        [
+                          "description",
+                          "Cornucopias Ship"
+                        ],
+                        [
+                          "projectName",
+                          "Cornucopias Game"
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        }
+      }
+    ],
+    "nativeScripts": []
+  }
+}

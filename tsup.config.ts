@@ -3,24 +3,21 @@ import { defineConfig } from "tsup";
 export default defineConfig([
   {
     entry: { index: "src/index.ts" },
-    format: ["cjs"],
-    target: "es2019",
-    platform: "node",
+    format: ["esm"],
+    target: "es2022",
+    platform: "neutral",
     dts: true,
     splitting: false,
   },
-  // standalone browser bundle, exposed as the `cardanoCodec` global
+  // standalone browser bundle, exposed as the `cardanoCodec` global (unpkg/jsdelivr)
   {
     entry: { index: "src/browser.ts" },
     format: ["iife"],
     globalName: "cardanoCodec",
-    target: "es2019",
+    target: "es2022",
     platform: "browser",
     minify: true,
     noExternal: [/.*/],
     outExtension: () => ({ js: ".min.js" }),
-    esbuildOptions(options) {
-      options.define = { ...options.define, global: "globalThis" };
-    },
   },
 ]);

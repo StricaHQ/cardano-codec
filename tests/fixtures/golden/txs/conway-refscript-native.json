@@ -1,0 +1,121 @@
+{
+  "body": {
+    "hash": "0d9a94e492bc73200691afa0cb162bd7a11af4f359d0b2c7156ae3178674b630",
+    "inputs": [
+      {
+        "txId": "9005574e22918d49d1a938272de58ccdf99b769695c7cdafc4dde17e265d4149",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "7094ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a",
+        "amount": "29807967",
+        "tokens": [
+          {
+            "policyId": "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a",
+            "assetName": "0134990043c5111e841bbf2227c29436afc187b979d98baef3f2dd9a82b48bc0",
+            "amount": "1"
+          }
+        ],
+        "plutusDataHash": "18f7786a553cd94f20237716ffce5d2bd0d535eacdb84fad9818d0d2e7d88134",
+        "plutusData": "d8799f5830aad32bf6b50126ca22d84d546863c0f8fa74426c3d46c29bc29615695fc51d36dae0aeb201dbb670b58009e3a7a3933700ff"
+      },
+      {
+        "address": "7094ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a",
+        "amount": "44778777",
+        "tokens": [
+          {
+            "policyId": "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a",
+            "assetName": "01247af043c5111e841bbf2227c29436afc187b979d98baef3f2dd9a82b48bc0",
+            "amount": "1"
+          }
+        ],
+        "scriptRef": {
+          "type": 0,
+          "script": {
+            "all": [
+              {
+                "pubKeyHash": "31c2e33d938a83aa457bc30f65f395e29695d4eb658d884ecb6d6b25"
+              }
+            ]
+          },
+          "hash": "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a"
+        }
+      },
+      {
+        "address": "6031c2e33d938a83aa457bc30f65f395e29695d4eb658d884ecb6d6b25",
+        "amount": "67430752"
+      }
+    ],
+    "fee": "192033",
+    "ttl": 116933299,
+    "auxiliaryDataHash": "43e0174c5e7fb24380d9aeac13af0158599e340b5db8359d6d5a6e35ffda4373",
+    "mint": [
+      {
+        "policyId": "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a",
+        "assetName": "01247af043c5111e841bbf2227c29436afc187b979d98baef3f2dd9a82b48bc0",
+        "amount": "1"
+      },
+      {
+        "policyId": "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a",
+        "assetName": "0134990043c5111e841bbf2227c29436afc187b979d98baef3f2dd9a82b48bc0",
+        "amount": "1"
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "31c2e33d938a83aa457bc30f65f395e29695d4eb658d884ecb6d6b25": {
+        "vKey": "caaaa72faeac1ce07efabff32d04e0db67411a8c77ed2a42aadefba81446b4fe",
+        "signature": "d4f360835d757bb0cb42989a395e45b5c839ef58cda8a33ea440e9e53e249e9b55e9660d9c5f56bd2589b8c70e24785a6e319858aa416746401d042940e40a0e"
+      }
+    },
+    "nativeScripts": {
+      "94ec7f1a5d143a1819fce14da4e2f8a9e94d0abca1d846837387a41a": {
+        "all": [
+          {
+            "pubKeyHash": "31c2e33d938a83aa457bc30f65f395e29695d4eb658d884ecb6d6b25"
+          }
+        ]
+      }
+    }
+  },
+  "auxiliaryData": {
+    "metadata": [
+      {
+        "label": 4937,
+        "data": {
+          "$map": [
+            [
+              "Initialization",
+              {
+                "$map": [
+                  [
+                    "0134990043c5111e841bbf2227c29436afc187b979d98baef3f2dd9a82b48bc0",
+                    {
+                      "$map": [
+                        [
+                          "multisigTreasuryIx",
+                          0
+                        ],
+                        [
+                          "multisigRegimeIx",
+                          1
+                        ],
+                        [
+                          "seedIx",
+                          0
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}

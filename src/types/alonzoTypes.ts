@@ -1,5 +1,6 @@
-import { Buffer } from "buffer";
 import { CertificateType } from "../constants";
+
+export { CertificateType };
 
 export type HeaderBody = {
   hash: string;
@@ -51,8 +52,8 @@ export type TransactionOutput = {
 };
 
 export enum HashType {
-  ADDRESS = "ADDRESS",
-  SCRIPT = "SCRIPT",
+  ADDRESS = 0,
+  SCRIPT = 1,
 }
 
 export type StakeCredential = {
@@ -177,8 +178,8 @@ export type Proposal = {
     adaPerUtxoByte?: string;
     costMdls?: Array<CostMdls>;
     exUnitPrices?: {
-      mem: [string, string];
-      step: [string, string];
+      mem: [number, number];
+      step: [number, number];
     };
     maxTxExUnits?: {
       mem: number;
@@ -188,13 +189,19 @@ export type Proposal = {
       mem: number;
       steps: number;
     };
-    maxValueSize?: string;
+    maxValueSize?: number;
     collateralPercent?: number;
     maxCollateralInputs?: number;
   };
 };
 
-export type MetaDatum = Map<MetaDatum, MetaDatum> | Array<MetaDatum> | number | Buffer | string;
+export type MetaDatum =
+  | Map<MetaDatum, MetaDatum>
+  | Array<MetaDatum>
+  | number
+  | bigint
+  | Uint8Array
+  | string;
 
 export type Metadata = {
   label: number;
@@ -210,14 +217,14 @@ export type NativeScript =
       any: Array<NativeScript>;
     }
   | {
-      n: string;
+      n: number;
       k: Array<NativeScript>;
     }
   | {
-      invalidBefore: string;
+      invalidBefore: number;
     }
   | {
-      invalidAfter: string;
+      invalidAfter: number;
     };
 
 export type AuxiliaryData = {
@@ -227,10 +234,10 @@ export type AuxiliaryData = {
 };
 
 export enum RedeemerTag {
-  SPEND = "SPEND",
-  MINT = "MINT",
-  CERT = "CERT",
-  REWARD = "REWARD",
+  SPEND = 0,
+  MINT = 1,
+  CERT = 2,
+  REWARD = 3,
 }
 
 export type Redeemer = {

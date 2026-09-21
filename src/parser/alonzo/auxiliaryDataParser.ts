@@ -1,36 +1,36 @@
-import { Buffer } from "buffer";
+import { CborNode } from "@stricahq/cbors";
 import { AuxiliaryData } from "../../types/alonzoTypes";
+import { hex, isNil, items, tagged } from "../../utils/node";
 import { parseMetadata, parseNativeScripts } from "../common";
 
-export const parseAuxiliaryData = (metadata: any) => {
+export const parseAuxiliaryData = (metadata: CborNode) => {
   const data: AuxiliaryData = {};
-  let m;
-  let nativeScripts;
-  let plutusScripts;
+  let m: CborNode | undefined;
+  let nativeScripts: CborNode | undefined;
+  let plutusScripts: CborNode | undefined;
   // shelley AuxiliaryData is Map
-  if (metadata instanceof Map) {
+  if (metadata.kind === "map") {
     m = metadata;
   }
   // Allegra format AuxiliaryData
-  else if (Array.isArray(metadata)) {
-    m = metadata[0];
-    nativeScripts = metadata[1];
+  else if (metadata.kind === "array") {
+    [m, nativeScripts] = items(metadata);
   }
   // Alonzo format AuxiliaryData
   else {
-    const auxData = metadata.value;
-    m = auxData.get(0);
-    nativeScripts = auxData.get(1);
-    plutusScripts = auxData.get(2);
+    const auxData = tagged(metadata, 259);
+    m = auxData.at(0);
+    nativeScripts = auxData.at(1);
+    plutusScripts = auxData.at(2);
   }
-  if (m instanceof Map) {
+  if (m?.kind === "map") {
     data.metadata = parseMetadata(m);
   }
-  if (nativeScripts) {
+  if (!isNil(nativeScripts)) {
     data.nativeScripts = parseNativeScripts(nativeScripts);
   }
-  if (plutusScripts) {
-    data.plutusScripts = plutusScripts.map((p: Buffer) => p.toString("hex"));
+  if (!isNil(plutusScripts)) {
+    data.plutusScripts = items(plutusScripts).map(hex);
   }
 
   return data;

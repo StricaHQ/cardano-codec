@@ -1,0 +1,80 @@
+{
+  "body": {
+    "hash": "f133e32f1451682288db3053909fa9f103d0d59e2c1302746c213653faab90cc",
+    "inputs": [
+      {
+        "txId": "02b36726f6560c966f85006cd43ce8e6a584193af22bbfe25f42c6079d828e58",
+        "index": 0
+      }
+    ],
+    "outputs": [
+      {
+        "address": "00e66e372663140e4ac74f8dc4acba63014cd719143056ba096753031efd8c2250b734252b774912519a0ab14298bcadac1ee97e17e8b82761",
+        "amount": "9486452017"
+      }
+    ],
+    "fee": "197269",
+    "ttl": 15117596,
+    "certificates": [
+      {
+        "type": 3,
+        "cert": {
+          "operator": "dac925969060f3c37eba34dce8ede5ea42f0a5084eb7e91f2eed178d",
+          "vrfKeyHash": "f590694b260c0516ebc02a46c67da067755b43c5e88998131c4267e69b88d31d",
+          "pledge": "500000000",
+          "cost": "340000000",
+          "margin": [
+            1,
+            1
+          ],
+          "rewardAccount": "e0fd8c2250b734252b774912519a0ab14298bcadac1ee97e17e8b82761",
+          "poolOwners": [
+            "fd8c2250b734252b774912519a0ab14298bcadac1ee97e17e8b82761"
+          ],
+          "relays": [
+            {
+              "port": 3001,
+              "ipv4": "33448d7b",
+              "ipv6": null
+            },
+            {
+              "port": null,
+              "dnsName": "vps-bebbfba3.vps.ovh.net"
+            }
+          ],
+          "poolMetadata": {
+            "url": "https://5zw6.short.gy/fY1aUK",
+            "metadataHash": "6433b09d289618e65c17a7530e52b9b3a600570e6f877d5731c77e58b775d0a4"
+          }
+        }
+      },
+      {
+        "type": 2,
+        "cert": {
+          "stakeCredential": {
+            "key": "fd8c2250b734252b774912519a0ab14298bcadac1ee97e17e8b82761",
+            "type": 0
+          },
+          "poolKeyHash": "dac925969060f3c37eba34dce8ede5ea42f0a5084eb7e91f2eed178d"
+        }
+      }
+    ]
+  },
+  "witnesses": {
+    "vKeyWitnesses": {
+      "dac925969060f3c37eba34dce8ede5ea42f0a5084eb7e91f2eed178d": {
+        "vKey": "b0ac3ff4964c57d6580a31e045367e7dcf8d1a42223b082b254f74cdb5ce5aaf",
+        "signature": "31896b4ef352f8150633b50b4ac022f228b52c9ff65dce58a1c6c45b38bd9837d83510d9c91bb96f0e7e0257615b5452b9ee8de431773b6133aaac13754ae400"
+      },
+      "e66e372663140e4ac74f8dc4acba63014cd719143056ba096753031e": {
+        "vKey": "2ba043c88339e9a53dfa5353ab3b48b4811b6f971a5d9509b487679bf30d902b",
+        "signature": "eecf2d17e00a132edfa042fc495311a7fc7e64552726cb69cad1163d4bbce33aa88cf948ce74e7bb9351cfec55e7ccdcd07e09842a42b41db2087e90eaaa820f"
+      },
+      "fd8c2250b734252b774912519a0ab14298bcadac1ee97e17e8b82761": {
+        "vKey": "d2d6bb95d9cd74427f697aa04a3238c6f787d260334458399dfd50a0990b76fe",
+        "signature": "5cb4e6831f2708d275ca6fbda16301835415610cff41edd4f2d6c21f1cc2c3e11343f42572ae36e933c36908d2c9f98f4eecaba5ef5026efc0d4c4c8e3195c0c"
+      }
+    }
+  },
+  "auxiliaryData": null
+}

@@ -1,16 +1,18 @@
-import { Buffer } from "buffer";
-import * as cbor from "@stricahq/cbors";
-import * as utils from "../../utils/utils";
+import { CborNode } from "@stricahq/cbors";
 import { Transaction, TransactionInput, TransactionOutput } from "../../types/byronTypes";
+import { coin, embedded, encoded, hex, items, num } from "../../utils/node";
+import * as utils from "../../utils/utils";
 
-const processInputs = (inputs: Array<any>): Array<TransactionInput> => {
+const processInputs = (inputs: CborNode): Array<TransactionInput> => {
   const txIns = [];
-  for (const txIn of inputs) {
-    if (txIn[0] === 0) {
-      const [txId, index] = cbor.Decoder.decode(txIn[1].value).value as [Buffer, number];
+  for (const txIn of items(inputs)) {
+    const [type, outPoint] = items(txIn);
+    if (num(type) === 0) {
+      // [0, #6.24(bytes .cbor [txId, index])]
+      const [txId, index] = items(embedded(outPoint));
       txIns.push({
-        txId: txId.toString("hex"),
-        index,
+        txId: hex(txId),
+        index: num(index),
       });
     } else {
       throw new Error("txin non 0 type found");
@@ -19,30 +21,31 @@ const processInputs = (inputs: Array<any>): Array<TransactionInput> => {
   return txIns;
 };
 
-const processOutputs = (outputs: Array<any>, blockCbor: Buffer): Array<TransactionOutput> => {
+const processOutputs = (outputs: CborNode): Array<TransactionOutput> => {
   const txOuts = [];
-  for (const out of outputs) {
+  for (const out of items(outputs)) {
+    const [address, amount] = items(out);
     txOuts.push({
-      address: utils.getCborSpanBuffer(blockCbor, out[0]).toString("hex"),
-      amount: out[1].toString(),
+      address: utils.toHex(encoded(address)),
+      amount: coin(amount),
     });
   }
   return txOuts;
 };
 
-export const parseTransaction = (
-  transactions: Array<any>,
-  blockCbor: Buffer
-): Array<Transaction> => {
+// the transaction payload of a block body: [* [tx, [* witness]]]
+export const parseTransaction = (txPayload: CborNode): Array<Transaction> => {
   const result = [];
-  for (const [trx] of transactions) {
-    const trxBuf = utils.getCborSpanBuffer(blockCbor, trx);
-    const hash = utils.createHash32(trxBuf);
+  for (const txAux of items(txPayload)) {
+    // [[+ input], [+ output], attributes]
+    const trx = items(txAux)[0];
+    const [inputs, outputs] = items(trx);
+    const hash = utils.createHash32(encoded(trx));
 
     result.push({
       hash,
-      inputs: processInputs(trx[0]),
-      outputs: processOutputs(trx[1], blockCbor),
+      inputs: processInputs(inputs),
+      outputs: processOutputs(outputs),
     });
   }
 
