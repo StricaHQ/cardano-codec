@@ -1,6 +1,6 @@
 {
   "name": "@stricahq/cardano-codec",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Cardano Codec library for parsing Cardano CBOR data types",
   "type": "module",
   "types": "./dist/index.d.ts",
